@@ -1,0 +1,761 @@
+<!DOCTYPE html><html lang="ko"><head><style type="text/css">@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");</style><style type="text/css">*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *, .editor *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button,
+span,
+img,
+td,
+th,
+input,
+img,
+label {
+  vertical-align: top;
+}
+
+a,
+button {
+  cursor: revert;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+ol,
+ul {
+  padding-left: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+textarea {
+  -webkit-user-select: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+  appearance: revert;
+}
+
+::-webkit-input-placeholder {
+  color: unset;
+}
+
+::-moz-placeholder {
+  color: unset;
+}
+
+::-ms-input-placeholder {
+  color: unset;
+}
+
+:-ms-input-placeholder {
+  color: unset;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}</style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>docs guide</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.css" integrity="sha512-W/cvA9Wiaq79wGy/VOkgMpOILyqxqIMU+rkneDUW2uqiUT53I6DKmrF4lmCbRG+/YrW0J69ecvanKCCyb+sIWA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/mdn-like.min.css" integrity="sha512-d1mnXGBFE/kEcVYDWOvqqRQov8YZhS5Eg5i6kX8smrEcMFcFIYpXW000lKxquKR4KdheA0+IE6xSmsmumGYNiA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- code mirror -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/simple.min.js" integrity="sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/multiplex.min.js" integrity="sha512-SnKl5kuiZJ6HI+aRXBjW1qv8USObXnN8BoPLHLQ7igatyz0QhbFgNYba9g8+zPsaYXzOm1XIrsj/b1uazysMtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/edit/matchbrackets.min.js" integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js" integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/handlebars/handlebars.min.js" integrity="sha512-pwzj1afj7oBin5vwddXhgAX44s4DRJ+J3gJs/Tr6m98tDiRC9F2jGjLfdlf+YxuMEY2ZLCwOOUWWlpsESGuvKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/css/css.min.js" integrity="sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.js" integrity="sha512-4+hfJ/4qrBFEm8Wdz+mXpoTr/weIrB6XjJZAcc4pE2Yg5B06aKS/YLMN5iIAMXFTe0f1eneuLE5sRmnSHQqFNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/css-hint.min.js" integrity="sha512-1BD3lo262s+DtDFoeD8+ssEL1zVJU8SHWWMtUyxfLqMV/jQDEnyQlS/CL3mD1kkLSv2hhYq1sdcA/zAPDz4JVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js" integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            body {
+                padding: 20px;
+            }
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                pointer-events: none;
+            }
+            .CodeMirror {
+                border: 1px solid #ccc;
+                height: 100%;
+            }
+            .module-info {
+                display: flex;
+                align-items: center;
+                margin-top: 28px;
+                margin-bottom: 10px;
+                height: 42px;
+                padding-left: 20px;
+                color: #fff;
+                background: #a75ee3;
+            }
+            .code-container {
+                padding: 0px 20px;
+            }
+            .apply-btn-container {
+                display: flex;
+                justify-content: end;
+            }
+            .apply-css-btn,
+            .apply-html-btn {
+                border: 1px solid #888;
+                height: 40px;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px 0px;
+            }
+            .parameter-container {
+                margin: 20px 0px;
+                padding: 20px 20px;
+            }
+            .parameter table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            .parameter table thead th {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+                background-color: #f2f2f2;
+            }
+            .parameter table tbody td {
+                border-top: 1px solid #ccc;
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .parameter table tbody td:first-child {
+                width: 300px;
+            }
+        </style>
+    <style type="text/css">:root {
+  --whole-color: #fff;
+  --point-color: #f92626;
+  --black-color: #111;
+  --dark-gray-color: #262626;
+  --caution-color: #f92626;
+  --empty-color: #f5f6f8;
+  --light-gray-bg-color: #f6f6f6;
+  --light-gray-border-color: #ececec;
+  --semi-light-gray-border-color: #dadada;
+  --light-border-color: #ececec;
+  --gray-border-color: #e2e2e2;
+  --default-color: #ddd;
+  --light-blue-gray-border-color: #bbbec2;
+  --light-blue-gray-color: #939aa2;
+  --blue-gray-color: #3f434c;
+  --gray-color: #999;
+  --gray-font-color: #828282;
+  --tooltip-bg-color: #f7f7f7;
+  --default-font-color: #181818;
+  --event-coupon-date-color: #a1a1a1;
+}
+
+.my-info {
+  padding: 15px 20px;
+  background-color: #3f444c;
+  color: #fff;
+}
+.my-info__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.my-info__member-benefit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  border-radius: 0;
+}
+.my-info__member-benefit-icon {
+  width: 20px;
+  height: 20px;
+}
+.my-info__greeting {
+  margin-bottom: 10px;
+  font-size: 1.8571428571rem;
+  line-height: 2.2857142857rem;
+}
+.my-info__member-type {
+  font-size: 0.8571428571rem;
+}
+
+.my-coupon-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #777;
+  font-size: 0.8571428571rem;
+  text-align: center;
+}
+.my-coupon-data__link {
+  position: relative;
+  flex: 1;
+  display: block;
+  padding: 15px 5px;
+}
+.my-coupon-data__link::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 20px;
+  content: "";
+  transform: translateY(-50%);
+  background-color: var(--default-color);
+}
+.my-coupon-data__link:first-child::before {
+  content: none;
+}
+.my-coupon-data__num {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  color: var(--default-font-color);
+  font-size: 1.3571428571rem;
+}
+
+.my-orders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--empty-color);
+}
+.my-orders__link {
+  position: relative;
+  flex: 1;
+  padding: 1.0714285714rem 1.4285714286rem;
+  background-color: #fff;
+  text-align: center;
+}
+.my-orders__link + .my-orders__link::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 15px;
+  content: "";
+  transform: translateY(-50%);
+  background-color: var(--default-color);
+}
+
+.my-link {
+  position: relative;
+  display: block;
+  padding: 20px;
+  color: var(--default-font-color);
+}
+.my-link + .my-link {
+  border-top: 1px solid var(--light-gray-border-color);
+}
+.my-link__ico {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.my-membership {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 12px;
+}
+.my-membership__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.my-grade {
+  padding: 0 20px 20px;
+  line-height: 28px;
+  overflow-y: auto;
+  min-width: 370px;
+  max-height: calc(100vh - 60px);
+}
+.my-grade__title {
+  margin: 20px 0 12px 0;
+  font-size: 16px;
+}
+.my-grade dl {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-top: 1px solid var(--light-gray-border-color);
+  color: var(--gray-font-color);
+}
+.my-grade dl dt {
+  width: 104px;
+  padding: 8px 0;
+}
+.my-grade dl dd {
+  border-left: 1px solid var(--light-gray-border-color);
+  padding-left: 6px;
+  overflow-x: auto;
+  padding: 8px 0 8px 8px;
+  flex: 1;
+}</style></head>
+    <body>
+        <div class="content"><profile-summary>
+    <section>
+        <article class="my-info">
+            <h2 class="a11y">회원 정보</h2>
+            <div class="my-info__summary">
+                <p slot="profile" class="my-info__greeting">
+                      성우석  님은
+                    <br>
+                    기본 등급 입니다. 
+                </p>
+                <button class="btn btn--default my-info__member-benefit" shopby-skin-action="CLICK">
+                    <span class="my-info__member-benefit-label">나의혜택</span>
+                    <span class="my-info__member-benefit-icon">
+                        <svg viewBox="0 0 80 80" fill="transparent" xmlns="http://www.w3.org/2000/svg">
+                            <path strokelinejoin="round" stroke="#000" strokewidth="6" d="m30 18 22 22-22 22"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <span slot="profile" class="my-info__member-type"> 아이디 회원</span>
+        </article>
+        <article class="my-coupon-data">
+            <a class="my-coupon-data__link" href="/my-page/coupon">
+                <span>보유쿠폰</span>
+                <em slot="coupon-summary" class="my-coupon-data__num">5</em>
+            </a>
+            <a class="my-coupon-data__link" href="/my-page/accumulation">
+                <span slot="accumulation-name">적립금(콩)</span>
+                <em slot="accumulation-summary" class="my-coupon-data__num">15000</em>
+            </a>
+            <a class="my-coupon-data__link" href="/my-page/like">
+                <span>좋아요</span>
+                <em slot="like-summary" class="my-coupon-data__num">10</em>
+            </a>
+        </article>
+    </section>
+</profile-summary>
+</div>
+
+        <div class="module-info">
+            <h3>
+                모듈명:
+                <span class="module-name">ProfileSummary</span>
+            </h3>
+        </div>
+        <div class="code-container">
+            <section class="code-block-section">
+                <div class="apply-btn-container">
+                    <button type="button" class="btn apply-html-btn">HTML 반영하기</button>
+                </div>
+                <textarea class="html-code" name="code">&lt;profile-summary&gt;
+    &lt;section&gt;
+        &lt;article class="my-info"&gt;
+            &lt;h2 class="a11y"&gt;회원 정보&lt;/h2&gt;
+            &lt;div class="my-info__summary"&gt;
+                &lt;p slot="profile" class="my-info__greeting"&gt;
+                    {{#with profile}} {{#if memberName}} {{memberName}} {{else}} {{memberId}} {{/if}} 님은
+                    &lt;br /&gt;
+                    {{memberGradeName}} 입니다. {{/with}}
+                &lt;/p&gt;
+                &lt;button class="btn btn--default my-info__member-benefit" shopby-skin-action="CLICK"&gt;
+                    &lt;span class="my-info__member-benefit-label"&gt;나의혜택&lt;/span&gt;
+                    &lt;span class="my-info__member-benefit-icon"&gt;
+                        &lt;svg viewBox="0 0 80 80" fill="transparent" xmlns="http://www.w3.org/2000/svg"&gt;
+                            &lt;path strokeLinejoin="round" stroke="#000" strokeWidth="6" d="m30 18 22 22-22 22" /&gt;
+                        &lt;/svg&gt;
+                    &lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;span slot="profile" class="my-info__member-type"&gt;{{#with profile}}{{memberTypeLabel}}{{/with}} 아이디 회원&lt;/span&gt;
+        &lt;/article&gt;
+        &lt;article class="my-coupon-data"&gt;
+            &lt;a class="my-coupon-data__link" href="/my-page/coupon"&gt;
+                &lt;span&gt;보유쿠폰&lt;/span&gt;
+                &lt;em slot="coupon-summary" class="my-coupon-data__num"&gt;{{couponSummary.usableCouponCnt}}&lt;/em&gt;
+            &lt;/a&gt;
+            &lt;a class="my-coupon-data__link" href="/my-page/accumulation"&gt;
+                &lt;span slot="accumulation-name"&gt;{{accumulationName}}&lt;/span&gt;
+                &lt;em slot="accumulation-summary" class="my-coupon-data__num"&gt;{{accumulationSummary.totalAvailableAmt}}&lt;/em&gt;
+            &lt;/a&gt;
+            &lt;a class="my-coupon-data__link" href="/my-page/like"&gt;
+                &lt;span&gt;좋아요&lt;/span&gt;
+                &lt;em slot="like-summary" class="my-coupon-data__num"&gt;{{likeSummary}}&lt;/em&gt;
+            &lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+&lt;/profile-summary&gt;
+</textarea>
+            </section>
+
+            <section class="code-block-section">
+                <div class="apply-btn-container">
+                    <button type="button" class="btn apply-css-btn">CSS 반영하기</button>
+                </div>
+                <textarea class="css-code" name="code">:root {
+  --whole-color: #fff;
+  --point-color: #f92626;
+  --black-color: #111;
+  --dark-gray-color: #262626;
+  --caution-color: #f92626;
+  --empty-color: #f5f6f8;
+  --light-gray-bg-color: #f6f6f6;
+  --light-gray-border-color: #ececec;
+  --semi-light-gray-border-color: #dadada;
+  --light-border-color: #ececec;
+  --gray-border-color: #e2e2e2;
+  --default-color: #ddd;
+  --light-blue-gray-border-color: #bbbec2;
+  --light-blue-gray-color: #939aa2;
+  --blue-gray-color: #3f434c;
+  --gray-color: #999;
+  --gray-font-color: #828282;
+  --tooltip-bg-color: #f7f7f7;
+  --default-font-color: #181818;
+  --event-coupon-date-color: #a1a1a1;
+}
+
+.my-info {
+  padding: 15px 20px;
+  background-color: #3f444c;
+  color: #fff;
+}
+.my-info__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.my-info__member-benefit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  border-radius: 0;
+}
+.my-info__member-benefit-icon {
+  width: 20px;
+  height: 20px;
+}
+.my-info__greeting {
+  margin-bottom: 10px;
+  font-size: 1.8571428571rem;
+  line-height: 2.2857142857rem;
+}
+.my-info__member-type {
+  font-size: 0.8571428571rem;
+}
+
+.my-coupon-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #777;
+  font-size: 0.8571428571rem;
+  text-align: center;
+}
+.my-coupon-data__link {
+  position: relative;
+  flex: 1;
+  display: block;
+  padding: 15px 5px;
+}
+.my-coupon-data__link::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 20px;
+  content: "";
+  transform: translateY(-50%);
+  background-color: var(--default-color);
+}
+.my-coupon-data__link:first-child::before {
+  content: none;
+}
+.my-coupon-data__num {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  color: var(--default-font-color);
+  font-size: 1.3571428571rem;
+}
+
+.my-orders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--empty-color);
+}
+.my-orders__link {
+  position: relative;
+  flex: 1;
+  padding: 1.0714285714rem 1.4285714286rem;
+  background-color: #fff;
+  text-align: center;
+}
+.my-orders__link + .my-orders__link::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 15px;
+  content: "";
+  transform: translateY(-50%);
+  background-color: var(--default-color);
+}
+
+.my-link {
+  position: relative;
+  display: block;
+  padding: 20px;
+  color: var(--default-font-color);
+}
+.my-link + .my-link {
+  border-top: 1px solid var(--light-gray-border-color);
+}
+.my-link__ico {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.my-membership {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 12px;
+}
+.my-membership__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.my-grade {
+  padding: 0 20px 20px;
+  line-height: 28px;
+  overflow-y: auto;
+  min-width: 370px;
+  max-height: calc(100vh - 60px);
+}
+.my-grade__title {
+  margin: 20px 0 12px 0;
+  font-size: 16px;
+}
+.my-grade dl {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-top: 1px solid var(--light-gray-border-color);
+  color: var(--gray-font-color);
+}
+.my-grade dl dt {
+  width: 104px;
+  padding: 8px 0;
+}
+.my-grade dl dd {
+  border-left: 1px solid var(--light-gray-border-color);
+  padding-left: 6px;
+  overflow-x: auto;
+  padding: 8px 0 8px 8px;
+  flex: 1;
+}</textarea>
+            </section>
+
+            <script class="hbs-code" type="text/template"><profile-summary>
+    <section>
+        <article class="my-info">
+            <h2 class="a11y">회원 정보</h2>
+            <div class="my-info__summary">
+                <p slot="profile" class="my-info__greeting">
+                    {{#with profile}} {{#if memberName}} {{memberName}} {{else}} {{memberId}} {{/if}} 님은
+                    <br />
+                    {{memberGradeName}} 입니다. {{/with}}
+                </p>
+                <button class="btn btn--default my-info__member-benefit" shopby-skin-action="CLICK">
+                    <span class="my-info__member-benefit-label">나의혜택</span>
+                    <span class="my-info__member-benefit-icon">
+                        <svg viewBox="0 0 80 80" fill="transparent" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinejoin="round" stroke="#000" strokeWidth="6" d="m30 18 22 22-22 22" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <span slot="profile" class="my-info__member-type">{{#with profile}}{{memberTypeLabel}}{{/with}} 아이디 회원</span>
+        </article>
+        <article class="my-coupon-data">
+            <a class="my-coupon-data__link" href="/my-page/coupon">
+                <span>보유쿠폰</span>
+                <em slot="coupon-summary" class="my-coupon-data__num">{{couponSummary.usableCouponCnt}}</em>
+            </a>
+            <a class="my-coupon-data__link" href="/my-page/accumulation">
+                <span slot="accumulation-name">{{accumulationName}}</span>
+                <em slot="accumulation-summary" class="my-coupon-data__num">{{accumulationSummary.totalAvailableAmt}}</em>
+            </a>
+            <a class="my-coupon-data__link" href="/my-page/like">
+                <span>좋아요</span>
+                <em slot="like-summary" class="my-coupon-data__num">{{likeSummary}}</em>
+            </a>
+        </article>
+    </section>
+</profile-summary>
+</script>
+        </div>
+
+        <div class="parameter-container">
+            <section class="parameter"><h3 id="">사용 가능 변수</h3>
+<table>
+<thead>
+<tr>
+<th>변수명</th>
+<th>설명</th>
+<th>api</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>profile</code></td>
+<td>회원-프로필</td>
+<td><a href="https://docs.shopby.co.kr/?url.primaryName=member/#/Profile/get-profile">api</a></td>
+</tr>
+<tr>
+<td><code>accumulationName</code></td>
+<td>몰정보-적립금명</td>
+<td><a href="https://docs.shopby.co.kr/#/Mall/get-malls">api</a></td>
+</tr>
+<tr>
+<td><code>couponSummary</code></td>
+<td>쿠폰요약</td>
+<td><a href="https://docs.shopby.co.kr/?url.primaryName=promotion/#/Coupon/get-my-coupon-summary">api</a></td>
+</tr>
+<tr>
+<td><code>accumulationSummary</code></td>
+<td>적립금요약</td>
+<td><a href="https://docs.shopby.co.kr/?url.primaryName=manage/#/Accumulation/search-accumulations-summary">api</a></td>
+</tr>
+<tr>
+<td><code>likeSummary</code></td>
+<td>좋아요요약</td>
+<td><a href="https://docs.shopby.co.kr/?url.primaryName=product/#/Profile/get-profile-like-products-count">api</a></td>
+</tr>
+</tbody>
+</table></section>
+        </div>
+
+        <input hidden="" class="dataInput" value="{&quot;profile&quot;:{&quot;mallName&quot;:&quot;&quot;,&quot;memberNo&quot;:0,&quot;memberGradeName&quot;:&quot;기본 등급&quot;,&quot;memberGroupNames&quot;:&quot;&quot;,&quot;memberGroups&quot;:[],&quot;memberName&quot;:&quot;성우석&quot;,&quot;memberId&quot;:&quot;wooseock&quot;,&quot;mobileNo&quot;:&quot;&quot;,&quot;telephoneNo&quot;:&quot;&quot;,&quot;memberStatus&quot;:&quot;&quot;,&quot;memberType&quot;:&quot;&quot;,&quot;principalCertificated&quot;:false,&quot;certificationType&quot;:&quot;&quot;,&quot;birthday&quot;:&quot;&quot;,&quot;sex&quot;:&quot;&quot;,&quot;email&quot;:&quot;&quot;,&quot;zipCd&quot;:&quot;&quot;,&quot;address&quot;:&quot;&quot;,&quot;detailAddress&quot;:&quot;&quot;,&quot;jibunAddress&quot;:&quot;&quot;,&quot;jibunDetailAddress&quot;:&quot;&quot;,&quot;nickname&quot;:&quot;&quot;,&quot;joinTypeName&quot;:&quot;&quot;,&quot;joinYmdt&quot;:&quot;&quot;,&quot;lastLoginYmdt&quot;:&quot;&quot;,&quot;lastLoginIp&quot;:&quot;&quot;,&quot;loginCount&quot;:0,&quot;pushNotificationAgreed&quot;:false,&quot;pushNotificationAgreeYmdt&quot;:&quot;&quot;,&quot;pushNotificationDisagreeYmdt&quot;:&quot;&quot;,&quot;smsAgreed&quot;:false,&quot;smsAgreeYmdt&quot;:&quot;&quot;,&quot;smsDisagreeYmdt&quot;:&quot;&quot;,&quot;directMailAgreed&quot;:false,&quot;directMailAgreeYmdt&quot;:&quot;&quot;,&quot;directMailDisagreeYmdt&quot;:&quot;&quot;,&quot;countryCd&quot;:&quot;KR&quot;,&quot;oauthIdNo&quot;:&quot;&quot;,&quot;additionalInfo&quot;:&quot;&quot;,&quot;adultCertificated&quot;:false,&quot;adultCertificatedYmdt&quot;:&quot;&quot;,&quot;refundBank&quot;:&quot;&quot;,&quot;refundBankAccount&quot;:&quot;&quot;,&quot;refundBankDepositorName&quot;:&quot;&quot;,&quot;agreedTerms&quot;:[],&quot;agreedTermsInfos&quot;:[],&quot;providerType&quot;:&quot;PAYCO&quot;,&quot;providerTypes&quot;:[],&quot;customTermsAgreement&quot;:[],&quot;memberTypeLabel&quot;:&quot;&quot;},&quot;couponSummary&quot;:{&quot;usableCouponCnt&quot;:5,&quot;expiringCouponCnt&quot;:0},&quot;accumulationSummary&quot;:{&quot;totalAvailableAmt&quot;:15000,&quot;totalExpireAmt&quot;:0},&quot;likeSummary&quot;:10,&quot;accumulationName&quot;:&quot;적립금(콩)&quot;}">
+        <script>
+            window.addEventListener('load', (e) => {
+                e.preventDefault();
+            });
+            const data = JSON.parse(document.querySelector('.dataInput').value);
+
+            const htmlEditor = CodeMirror.fromTextArea(document.querySelector('.html-code'), {
+                lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: false,
+                mode: { name: 'handlebars', base: 'text/html' },
+                theme: 'mdn-like',
+            });
+            const cssEditor = CodeMirror.fromTextArea(document.querySelector('.css-code'), {
+                lineNumbers: true,
+                mode: 'text/css',
+                theme: 'mdn-like',
+            });
+
+            const contentEl = document.querySelector('.content');
+            const htmlApplyBtn = document.body.querySelector('.apply-html-btn');
+            const cssApplyBtn = document.body.querySelector('.apply-css-btn');
+
+            htmlApplyBtn?.addEventListener('click', () => {
+                const template = Handlebars.compile(htmlEditor.getValue());
+                contentEl.innerHTML = template(data);
+            });
+
+            cssApplyBtn?.addEventListener('click', () => {
+                const lastPrevStyle = Array.from(document.querySelectorAll('style')).pop();
+                lastPrevStyle.parentElement.removeChild(lastPrevStyle);
+
+                const sheet = document.createElement('style');
+                sheet.innerHTML = cssEditor.getValue();
+                document.head.appendChild(sheet);
+            });
+
+            const $hbsCode = document.querySelector('.hbs-code');
+            const template = Handlebars.compile($hbsCode.innerHTML);
+            contentEl.innerHTML = template(data);
+        </script>
+    
+
+</body></html>

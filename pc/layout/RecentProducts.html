@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="ko"><head><style type="text/css">@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");</style><style type="text/css">*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *, .editor *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button,
+span,
+img,
+td,
+th,
+input,
+img,
+label {
+  vertical-align: top;
+}
+
+a,
+button {
+  cursor: revert;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+ol,
+ul {
+  padding-left: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+textarea {
+  -webkit-user-select: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+  appearance: revert;
+}
+
+::-webkit-input-placeholder {
+  color: unset;
+}
+
+::-moz-placeholder {
+  color: unset;
+}
+
+::-ms-input-placeholder {
+  color: unset;
+}
+
+:-ms-input-placeholder {
+  color: unset;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}</style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>docs guide</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.css" integrity="sha512-W/cvA9Wiaq79wGy/VOkgMpOILyqxqIMU+rkneDUW2uqiUT53I6DKmrF4lmCbRG+/YrW0J69ecvanKCCyb+sIWA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/mdn-like.min.css" integrity="sha512-d1mnXGBFE/kEcVYDWOvqqRQov8YZhS5Eg5i6kX8smrEcMFcFIYpXW000lKxquKR4KdheA0+IE6xSmsmumGYNiA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- code mirror -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/simple.min.js" integrity="sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/multiplex.min.js" integrity="sha512-SnKl5kuiZJ6HI+aRXBjW1qv8USObXnN8BoPLHLQ7igatyz0QhbFgNYba9g8+zPsaYXzOm1XIrsj/b1uazysMtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/edit/matchbrackets.min.js" integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js" integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/handlebars/handlebars.min.js" integrity="sha512-pwzj1afj7oBin5vwddXhgAX44s4DRJ+J3gJs/Tr6m98tDiRC9F2jGjLfdlf+YxuMEY2ZLCwOOUWWlpsESGuvKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/css/css.min.js" integrity="sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.js" integrity="sha512-4+hfJ/4qrBFEm8Wdz+mXpoTr/weIrB6XjJZAcc4pE2Yg5B06aKS/YLMN5iIAMXFTe0f1eneuLE5sRmnSHQqFNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/css-hint.min.js" integrity="sha512-1BD3lo262s+DtDFoeD8+ssEL1zVJU8SHWWMtUyxfLqMV/jQDEnyQlS/CL3mD1kkLSv2hhYq1sdcA/zAPDz4JVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js" integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            body {
+                padding: 20px;
+            }
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                pointer-events: none;
+            }
+            .CodeMirror {
+                border: 1px solid #ccc;
+                height: 100%;
+            }
+            .module-info {
+                display: flex;
+                align-items: center;
+                margin-top: 28px;
+                margin-bottom: 10px;
+                height: 42px;
+                padding-left: 20px;
+                color: #fff;
+                background: #a75ee3;
+            }
+            .code-container {
+                padding: 0px 20px;
+            }
+            .apply-btn-container {
+                display: flex;
+                justify-content: end;
+            }
+            .apply-css-btn,
+            .apply-html-btn {
+                border: 1px solid #888;
+                height: 40px;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px 0px;
+            }
+            .parameter-container {
+                margin: 20px 0px;
+                padding: 20px 20px;
+            }
+            .parameter table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            .parameter table thead th {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+                background-color: #f2f2f2;
+            }
+            .parameter table tbody td {
+                border-top: 1px solid #ccc;
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .parameter table tbody td:first-child {
+                width: 300px;
+            }
+        </style>
+    <style type="text/css">.shopby-layout-recent-products__title {
+  color: var(--point-color);
+}
+.shopby-layout-recent-products__list {
+  background-color: var(--point-color);
+}</style></head>
+    <body>
+        <div class="content"><recent-products initializable="">
+    <div class="shopby-layout-recent-products">
+        <h2 class="shopby-layout-recent-products__title">
+            <a href="/product/recent_view_product.html">최근 본 상품</a>
+        </h2>
+        <ul slot="PRODUCT_LIST" class="shopby-layout-recent-products__list">
+            <li class="shopby-layout-recent-products__item">
+                <a href="/product/detail.html?productNo=12345">
+                    <img src="http://via.placeholder.com/77x106" alt="샘플 상품4 이미지">
+                    <span class="shopby-layout-recent-products__item-name">샘플 상품4</span>
+                </a>
+            </li>
+            <li>
+                <a href="/product/detail.html?productNo=67890">
+                    <img src="http://via.placeholder.com/77x106" alt="샘플 상품5 이미지">
+                    <span>샘플 상품5</span>
+                </a>
+            </li>
+            <li>
+                <a href="/product/detail.html?productNo=13579">
+                    <img src="http://via.placeholder.com/77x106" alt="샘플 상품6 이미지">
+                    <span>샘플 상품6</span>
+                </a>
+            </li>
+        </ul>
+        <p class="player">
+            <button class="player-btn" data-shopby-action="PREV">
+                <img src="https://img.nhn-commerce.com/godomall_v3/main/icon_com_arrow_up.png" alt="이전 제품" class="prev" width="14" height="14">
+            </button>
+            <button class="player-btn" data-shopby-action="NEXT">
+                <img src="https://img.nhn-commerce.com/godomall_v3/main/icon_com_arrow_down.png" alt="다음 제품" class="next" width="14" height="14">
+            </button>
+            <br>
+        </p>
+    </div>
+</recent-products>
+</div>
+
+        <div class="module-info">
+            <h3>
+                모듈명:
+                <span class="module-name">RecentProducts</span>
+            </h3>
+        </div>
+        <div class="code-container">
+            <section class="code-block-section">
+                <div class="apply-btn-container">
+                    <button type="button" class="btn apply-html-btn">HTML 반영하기</button>
+                </div>
+                <textarea class="html-code" name="code">&lt;recent-products INITIALIZABLE&gt;
+    &lt;div class="shopby-layout-recent-products"&gt;
+        &lt;h2 class="shopby-layout-recent-products__title"&gt;
+            &lt;a href="/product/recent_view_product.html"&gt;최근 본 상품&lt;/a&gt;
+        &lt;/h2&gt;
+        &lt;ul slot="PRODUCT_LIST" class="shopby-layout-recent-products__list"&gt;
+            &lt;li class="shopby-layout-recent-products__item"&gt;
+                &lt;a href="/product/detail.html?productNo={{products.0.productNo}}"&gt;
+                    &lt;img src="{{products.0.thumbnail}}" alt="{{products.0.productName}} 이미지" /&gt;
+                    &lt;span class="shopby-layout-recent-products__item-name"&gt;{{products.0.productName}}&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="/product/detail.html?productNo={{products.1.productNo}}"&gt;
+                    &lt;img src="{{products.1.thumbnail}}" alt="{{products.1.productName}} 이미지" /&gt;
+                    &lt;span&gt;{{products.1.productName}}&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="/product/detail.html?productNo={{products.2.productNo}}"&gt;
+                    &lt;img src="{{products.2.thumbnail}}" alt="{{products.2.productName}} 이미지" /&gt;
+                    &lt;span&gt;{{products.2.productName}}&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p class="player"&gt;
+            &lt;button class="player-btn" data-shopby-action="PREV"&gt;
+                &lt;img src="https://img.nhn-commerce.com/godomall_v3/main/icon_com_arrow_up.png" alt="이전 제품" class="prev" width="14" height="14" /&gt;
+            &lt;/button&gt;
+            &lt;button class="player-btn" data-shopby-action="NEXT"&gt;
+                &lt;img src="https://img.nhn-commerce.com/godomall_v3/main/icon_com_arrow_down.png" alt="다음 제품" class="next" width="14" height="14" /&gt;
+            &lt;/button&gt;
+            &lt;br /&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/recent-products&gt;
+</textarea>
+            </section>
+
+            <section class="code-block-section">
+                <div class="apply-btn-container">
+                    <button type="button" class="btn apply-css-btn">CSS 반영하기</button>
+                </div>
+                <textarea class="css-code" name="code">.shopby-layout-recent-products__title {
+  color: var(--point-color);
+}
+.shopby-layout-recent-products__list {
+  background-color: var(--point-color);
+}</textarea>
+            </section>
+
+            <script class="hbs-code" type="text/template"><recent-products INITIALIZABLE>
+    <div class="shopby-layout-recent-products">
+        <h2 class="shopby-layout-recent-products__title">
+            <a href="/product/recent_view_product.html">최근 본 상품</a>
+        </h2>
+        <ul slot="PRODUCT_LIST" class="shopby-layout-recent-products__list">
+            <li class="shopby-layout-recent-products__item">
+                <a href="/product/detail.html?productNo={{products.0.productNo}}">
+                    <img src="{{products.0.thumbnail}}" alt="{{products.0.productName}} 이미지" />
+                    <span class="shopby-layout-recent-products__item-name">{{products.0.productName}}</span>
+                </a>
+            </li>
+            <li>
+                <a href="/product/detail.html?productNo={{products.1.productNo}}">
+                    <img src="{{products.1.thumbnail}}" alt="{{products.1.productName}} 이미지" />
+                    <span>{{products.1.productName}}</span>
+                </a>
+            </li>
+            <li>
+                <a href="/product/detail.html?productNo={{products.2.productNo}}">
+                    <img src="{{products.2.thumbnail}}" alt="{{products.2.productName}} 이미지" />
+                    <span>{{products.2.productName}}</span>
+                </a>
+            </li>
+        </ul>
+        <p class="player">
+            <button class="player-btn" data-shopby-action="PREV">
+                <img src="https://img.nhn-commerce.com/godomall_v3/main/icon_com_arrow_up.png" alt="이전 제품" class="prev" width="14" height="14" />
+            </button>
+            <button class="player-btn" data-shopby-action="NEXT">
+                <img src="https://img.nhn-commerce.com/godomall_v3/main/icon_com_arrow_down.png" alt="다음 제품" class="next" width="14" height="14" />
+            </button>
+            <br />
+        </p>
+    </div>
+</recent-products>
+</script>
+        </div>
+
+        <div class="parameter-container">
+            <section class="parameter"><h3 id="">사용 가능 변수</h3>
+<table>
+<thead>
+<tr>
+<th>변수명</th>
+<th>설명</th>
+<th>api</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>malls</code></td>
+<td>몰정보</td>
+<td><a href="https://docs.shopby.co.kr/#/Mall/get-malls">api</a></td>
+</tr>
+<tr>
+<td><code>malls</code></td>
+<td>몰정보</td>
+<td><a href="https://docs.shopby.co.kr/#/Mall/get-malls">api</a></td>
+</tr>
+</tbody>
+</table></section>
+        </div>
+
+        <input hidden="" class="dataInput" value="{&quot;products&quot;:[{&quot;productNo&quot;:&quot;12345&quot;,&quot;productName&quot;:&quot;샘플 상품4&quot;,&quot;thumbnail&quot;:&quot;http://via.placeholder.com/77x106&quot;},{&quot;productNo&quot;:&quot;67890&quot;,&quot;productName&quot;:&quot;샘플 상품5&quot;,&quot;thumbnail&quot;:&quot;http://via.placeholder.com/77x106&quot;},{&quot;productNo&quot;:&quot;13579&quot;,&quot;productName&quot;:&quot;샘플 상품6&quot;,&quot;thumbnail&quot;:&quot;http://via.placeholder.com/77x106&quot;}]}">
+        <script>
+            window.addEventListener('load', (e) => {
+                e.preventDefault();
+            });
+            const data = JSON.parse(document.querySelector('.dataInput').value);
+
+            const htmlEditor = CodeMirror.fromTextArea(document.querySelector('.html-code'), {
+                lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: false,
+                mode: { name: 'handlebars', base: 'text/html' },
+                theme: 'mdn-like',
+            });
+            const cssEditor = CodeMirror.fromTextArea(document.querySelector('.css-code'), {
+                lineNumbers: true,
+                mode: 'text/css',
+                theme: 'mdn-like',
+            });
+
+            const contentEl = document.querySelector('.content');
+            const htmlApplyBtn = document.body.querySelector('.apply-html-btn');
+            const cssApplyBtn = document.body.querySelector('.apply-css-btn');
+
+            htmlApplyBtn?.addEventListener('click', () => {
+                const template = Handlebars.compile(htmlEditor.getValue());
+                contentEl.innerHTML = template(data);
+            });
+
+            cssApplyBtn?.addEventListener('click', () => {
+                const lastPrevStyle = Array.from(document.querySelectorAll('style')).pop();
+                lastPrevStyle.parentElement.removeChild(lastPrevStyle);
+
+                const sheet = document.createElement('style');
+                sheet.innerHTML = cssEditor.getValue();
+                document.head.appendChild(sheet);
+            });
+
+            const $hbsCode = document.querySelector('.hbs-code');
+            const template = Handlebars.compile($hbsCode.innerHTML);
+            contentEl.innerHTML = template(data);
+        </script>
+    
+
+</body></html>
