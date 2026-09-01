@@ -1,0 +1,2232 @@
+<html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=IBM+Plex+Sans+KR&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Nanum+Myeongjo&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet"><style>:root {
+  --color-point: #504eb3;
+  --color-bg-black: #304b4f;
+
+  --color-error: #f92626;
+  --color-caution: #f92626;
+  --color-warning: #ff561d;
+  --color-success: #00a354;
+  --color-loading: #0f53b8;
+  --color-secondary: #3f434c;
+  --color-tertiary: #408aec;
+  --color-base-white: #fff;
+  --color-base-black: #000;
+  --color-base-navy: #3f434c;
+
+  --color-error-tender: #ffeaee;
+  --color-warning-tender: #ffefdf;
+  --color-success-tender: #d3f8df;
+  --color-loading-tender: #d3e2f8;
+
+  --gray100: #f5f5f5;
+  --gray200: #ececec;
+  --gray300: #dedede;
+  --gray400: #a3a3a3;
+  --gray500: #6e6e6e;
+  --gray600: #444;
+  --gray700: #262626;
+}
+body {
+  margin: 0;
+  padding: 24px;
+}
+h1 {
+  margin-bottom: 15px;
+}
+p {
+  margin: 10px;
+}
+details summary {
+  padding: 0 0.5em;
+  cursor: pointer;
+}
+details summary h2 {
+  display: inline-block;
+}
+details li code {
+  background-color: #eaeaea;
+  padding: 3px;
+  text-align: center;
+  border-radius: 3px;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+pre {
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 35px 0;
+}
+table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.code--default {
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #eee;
+  color: #646464;
+  border-radius: 3px;
+  padding: 3px 6px;
+}
+</style></head><body><h1 id="ahrefhttpshandlebarsjscomguidetarget_blankhandlebarsa"><a href="https://handlebarsjs.com/guide/" target="_blank">Handlebars</a> 헬퍼 함수</h1>
+<p>HTML 템플릿에서 사용할 수 있는 <strong>빌트인 헬퍼 함수</strong>와 <strong>커스텀 헬퍼 함수</strong>들에 대해 설명합니다.</p>
+<p></p><details>
+<summary><h2><code>if</code></h2></summary><p></p>
+<ul>
+<li>인자가 <code>true</code>인 경우 <code>true</code> (<code>false</code>인 경우는 인자가 <code>false</code>, <code>undefined</code>, <code>null</code>, <code>""</code>, <code>0</code>, <code>[]</code>일때)</li>
+</ul>
+<h3 id="">예시</h3>
+<pre><code class="js language-js">{{#if secreted}}...{{/if}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>boolean</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>unless</code></h2></summary><p></p>
+<ul>
+<li>인자가 <code>false</code>인 경우 <code>true</code> (if 함수와 반대)</li>
+</ul>
+<h3 id="-1">예시</h3>
+<pre><code class="js language-js">{{#unless isLoading}}...{{/unless}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>boolean</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>each</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달된 배열을 반복</li>
+</ul>
+<h3 id="-2">예시</h3>
+<pre><code class="js language-js">{{#each items}}...{{/each}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>array</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>with</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달된 객체를 접근하여 내부 요소를 사용</li>
+</ul>
+<h3 id="-3">예시</h3>
+<pre><code class="js language-js">{{#with orderer}}
+    ...
+    {{ordererName}}
+    {{ordererEmail}}
+    ...
+{{/with}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>object</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>lookup</code></h2></summary><p></p>
+<ul>
+<li>특정 상대 경로에 있는 변수를 접근</li>
+</ul>
+<h3 id="-4">예시</h3>
+<pre><code class="js language-js">{{#each people}}
+   {{this}} lives in {{lookup ../cities @index}}
+{{/each}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>string</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>log</code></h2></summary><p></p>
+<ul>
+<li>브라우저 콘솔 로그</li>
+</ul>
+<h3 id="-5">예시</h3>
+<pre><code class="js language-js">{{log "info logging" level="info"}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>level</td>
+<td>debug | info | warn | error</td>
+<td>로그 형식 (없으면 default)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifGt</code></h2></summary><p></p>
+<ul>
+<li>x가 y보다 큰 경우 <code>true</code></li>
+</ul>
+<h3 id="-6">예시</h3>
+<pre><code class="js language-js">{{#ifGt count 0}}...{{/ifGt}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>number</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifGe</code></h2></summary><p></p>
+<ul>
+<li>x가 y보다 크거나 같은 경우 <code>true</code></li>
+</ul>
+<h3 id="-7">예시</h3>
+<pre><code class="js language-js">{{#ifGe count 0}}...{{/ifGe}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>number</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifLt</code></h2></summary><p></p>
+<ul>
+<li>x가 y보다 작은 경우 <code>true</code></li>
+</ul>
+<h3 id="-8">예시</h3>
+<pre><code class="js language-js">{{#ifLt count 0}}...{{/ifLt}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>number</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifLe</code></h2></summary><p></p>
+<ul>
+<li>x가 y보다 작거나 같은 경우 <code>true</code></li>
+</ul>
+<h3 id="-9">예시</h3>
+<pre><code class="js language-js">{{#ifLe count 0}}...{{/ifLe}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>number</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifEq</code></h2></summary><p></p>
+<ul>
+<li>x가 y와 같은 경우 <code>true</code></li>
+</ul>
+<h3 id="-10">예시</h3>
+<pre><code class="js language-js">{{#ifEq count 0}}...{{/ifEq}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>number</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifAll</code></h2></summary><p></p>
+<ul>
+<li>x와 y가 모두 <code>true</code>인 경우 <code>true</code></li>
+</ul>
+<h3 id="-11">예시</h3>
+<pre><code class="js language-js">{{#ifAll isLoaded hasContent}}...{{/ifAll}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>boolean</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>boolean</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifNe</code></h2></summary><p></p>
+<ul>
+<li>x와 y가 다른 경우 <code>true</code></li>
+</ul>
+<h3 id="-12">예시</h3>
+<pre><code class="js language-js">{{#ifNe screenType 'LAYER'}}...{{/ifNe}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>string | number | boolean</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>string | number | boolean</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifEqOne</code></h2></summary><p></p>
+<ul>
+<li>a와 x가 같거나 a와 y가 같은 경우 <code>true</code></li>
+</ul>
+<h3 id="-13">예시</h3>
+<pre><code class="js language-js">{{#ifEqOne status 'DORMANT' 'FREEZE'}}...{{/ifEqOne}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>string | number | boolean</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>x</td>
+<td>string | number | boolean</td>
+<td>두번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>string | number | boolean</td>
+<td>세번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifEqOneOfThree</code></h2></summary><p></p>
+<ul>
+<li>a와 x가 같거나 a와 y가 같거나 a와 z가 같은 경우 <code>true</code></li>
+</ul>
+<h3 id="-14">예시</h3>
+<pre><code class="js language-js">{{#ifEqOneOfThree payType 'ACCOUNT' 'VIRTUAL_ACCOUNT' 'ESCROW_VIRTUAL_ACCOUNT'}}...{{/ifEqOneOfThree}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>string | number | boolean</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>x</td>
+<td>string | number | boolean</td>
+<td>두번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>string | number | boolean</td>
+<td>세번째 인자</td>
+</tr>
+<tr>
+<td>z</td>
+<td>string | number | boolean</td>
+<td>네번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifCouponWarningNeeded</code></h2></summary><p></p>
+<ul>
+<li>cartCouponUsable 값이 <code>false</code>이거나 skipsAccumulation 값이 <code>true</code>인 경우 <code>true</code></li>
+</ul>
+<h3 id="-15">예시</h3>
+<pre><code class="js language-js">{{#ifCouponWarningNeeded cartCouponUsable skipsAccumulation}}...{{/ifCouponWarningNeeded}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>string | number | boolean</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>y</td>
+<td>string | number | boolean</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifEqOneOf</code></h2></summary><p></p>
+<ul>
+<li>valuesAsString을 <code>,</code>로 나누어 targetValue와 같은 값이 있으면 <code>true</code></li>
+</ul>
+<h3 id="-16">예시</h3>
+<pre><code class="js language-js">{{#ifEqOneOf value targetValue}}...{{/ifEqOneOf}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>valuesAsString</td>
+<td>string</td>
+<td><code>,</code>으로 구분한 문자열 (첫번째 인자) <br> (예시) '101,102,103'</td>
+</tr>
+<tr>
+<td>targetValue</td>
+<td>string</td>
+<td>찾을 타겟 값 두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifEmpty</code></h2></summary><p></p>
+<ul>
+<li>items 길이가 0인 경우 <code>true</code></li>
+</ul>
+<h3 id="-17">예시</h3>
+<pre><code class="js language-js">{{#ifEmpty items}}...{{/ifEmpty}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td>array</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>isEmptyData</code></h2></summary><p></p>
+<ul>
+<li>data가 있거나 object 타입이 아닌 경우 <code>false</code></li>
+</ul>
+<h3 id="-18">예시</h3>
+<pre><code class="js language-js">{{isEmptyData profileInformation}}...{{/isEmptyData}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>select</code></h2></summary><p></p>
+<ul>
+<li>value 값을 기준으로 <code>shopby-option-key</code>를 갖는 select 엘리먼트를 생성</li>
+</ul>
+<h3 id="-19">예시</h3>
+<pre><code class="js language-js">{{select depthKey}}...{{/select}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>select 엘리먼트 키 값(첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>selected</code></h2></summary><p></p>
+<ul>
+<li>value 값과 동일한 option 엘리먼트에 selected 속성 값을 <code>true</code>로 할당</li>
+</ul>
+<h3 id="-20">예시</h3>
+<pre><code class="js language-js">{{selected sortType slot='sortType'}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>선택한 옵션 값(첫번째 인자)</td>
+</tr>
+<tr>
+<td>slot=<code>select 엘리먼트 구분 키</code></td>
+<td>string</td>
+<td>select 엘리먼트 구분 값(두번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>substring</code></h2></summary><p></p>
+<ul>
+<li>문자열을 자르기 위한 함수</li>
+</ul>
+<h3 id="-21">예시</h3>
+<pre><code class="js language-js">{{substring orderYmdt 0 10}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>자를 문자열 값(첫번째 인자)</td>
+</tr>
+<tr>
+<td>start</td>
+<td>string</td>
+<td>자르기 시작 index(첫번째 인자)</td>
+</tr>
+<tr>
+<td>end</td>
+<td>string</td>
+<td>자르기 끝 index(첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>convertToKoreanCurrency</code></h2></summary><p></p>
+<ul>
+<li>원화 화폐 단위 표시</li>
+</ul>
+<h3 id="-22">예시</h3>
+<pre><code class="js language-js">{{convertToKoreanCurrency salePrice}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>number</td>
+<td>금액 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>displayEmailId</code></h2></summary><p></p>
+<ul>
+<li><code>@</code> 기준 앞부분으로 이메일 주소</li>
+</ul>
+<h3 id="-23">예시</h3>
+<pre><code class="js language-js">{{displayEmailId email}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>이메일 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>displayEmailDomain</code></h2></summary><p></p>
+<ul>
+<li><code>@</code> 기준 뒷부분으로 이메일 도메인</li>
+</ul>
+<h3 id="-24">예시</h3>
+<pre><code class="js language-js">{{displayEmailDomain email}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>이메일 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>extractYearFromHyphenatedDate</code></h2></summary><p></p>
+<ul>
+<li><code>-</code> 기준 첫번째 부분으로 연도</li>
+</ul>
+<h3 id="-25">예시</h3>
+<pre><code class="js language-js">{{extractYearFromHyphenatedDate birthday.value}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>날짜 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>extractMonthFromHyphenatedDate</code></h2></summary><p></p>
+<ul>
+<li><code>-</code> 기준 두번째 부분</li>
+</ul>
+<h3 id="-26">예시</h3>
+<pre><code class="js language-js">{{extractMonthFromHyphenatedDate birthday.value}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>날짜 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>displayNormalOption</code></h2></summary><p></p>
+<ul>
+<li>상품 옵션 표기</li>
+</ul>
+<h3 id="-27">예시</h3>
+<pre><code class="js language-js">{{displayNormalOption optionName optionValue}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>optionName</td>
+<td>string</td>
+<td>옵션명 (첫번째 인자)</td>
+</tr>
+<tr>
+<td>optionValue</td>
+<td>string</td>
+<td>옵션값 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>displayTextOption</code></h2></summary><p></p>
+<ul>
+<li>상품 텍스트 옵션 표기</li>
+</ul>
+<h3 id="-28">예시</h3>
+<pre><code class="js language-js">{{displayTextOption optionInputs}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>optionInputs</td>
+<td>string</td>
+<td>날짜 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>getMandatoryLabel</code></h2></summary><p></p>
+<ul>
+<li>필수/선택 표기</li>
+</ul>
+<h3 id="-29">예시</h3>
+<pre><code class="js language-js">{{getMandatoryLabel required}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>required</td>
+<td>boolean</td>
+<td>필수여부 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>getGenderLabel</code></h2></summary><p></p>
+<ul>
+<li>남/여 표기</li>
+</ul>
+<h3 id="-30">예시</h3>
+<pre><code class="js language-js">{{getGenderLabel profileInformation.gender}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>M(남), F(여) (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>isSignedIn</code></h2></summary><p></p>
+<ul>
+<li>로그인 여부</li>
+</ul>
+<h3 id="-31">예시</h3>
+<pre><code class="js language-js">{{#if (isSignedIn)}}...{{/if}}
+</code></pre>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>isAgeVerified</code></h2></summary><p></p>
+<ul>
+<li>성인인증 완료 여부</li>
+</ul>
+<h3 id="-32">예시</h3>
+<pre><code class="js language-js">{{#if (isAgeVerified)}}...{{/if}}
+</code></pre>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>formatUseByDate</code></h2></summary><p></p>
+<ul>
+<li>YYYY-MM-DD 10자리 날짜 형식 (2024-05-28 00:00:00 -&gt; 2024-05-28)</li>
+</ul>
+<h3 id="-33">예시</h3>
+<pre><code class="js language-js">{{formatUseByDate startYmdt}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>날짜(첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifHasDiscount</code></h2></summary><p></p>
+<ul>
+<li>즉시할인 또는 추가할인할인이 있는지 여부</li>
+</ul>
+<h3 id="-34">예시</h3>
+<pre><code class="js language-js">{{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}...{{/ifHasDiscount}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>immediateDiscountAmt</td>
+<td>number</td>
+<td>즉시할인 (첫번째 인자)</td>
+</tr>
+<tr>
+<td>additionDiscountAmt</td>
+<td>number</td>
+<td>추가할인 (두번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>calculatePercentage</code></h2></summary><p></p>
+<ul>
+<li>퍼센트 계산 (parseInt(amount) / parseInt(standard)) * 100</li>
+</ul>
+<h3 id="-35">예시</h3>
+<pre><code class="js language-js">{{calculatePercentage amount standard 1}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>총 금액 (첫번째 인자)</td>
+</tr>
+<tr>
+<td>standard</td>
+<td>number</td>
+<td>기준 금액 (두번째 인자)</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>number</td>
+<td>버림 자리수 (기본값 0) (세번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>calculateDiscountRate</code></h2></summary><p></p>
+<ul>
+<li>할인율 (100 - (parseInt(parameter1) / parseInt(parameter2)) * 100)</li>
+</ul>
+<h3 id="-36">예시</h3>
+<pre><code class="js language-js">{{calculateDiscountRate amount standard}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>총 금액 (첫번째 인자)</td>
+</tr>
+<tr>
+<td>standard</td>
+<td>number</td>
+<td>기준 금액 (두번째 인자)</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>number</td>
+<td>버림 자리수 (기본값 0) (세번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>calculatePercentageRatingScore</code></h2></summary><p></p>
+<ul>
+<li>점수 퍼센트 계산 (Math.floor((score / 5) * 100))</li>
+</ul>
+<h3 id="-37">예시</h3>
+<pre><code class="js language-js">{{calculatePercentageRatingScore score}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>score</td>
+<td>number</td>
+<td>점수 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>calcMultiplyPrice</code></h2></summary><p></p>
+<ul>
+<li>인자로 받은 두 개의 금액 곱한 후 원화 화폐 단위 표시 (convertToKoreanCurrency(price * cnt))</li>
+</ul>
+<h3 id="-38">예시</h3>
+<pre><code class="js language-js">{{calcMultiplyPrice price cnt}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>price</td>
+<td>number</td>
+<td>금액 (첫번째 인자)</td>
+</tr>
+<tr>
+<td>cnt</td>
+<td>number</td>
+<td>개수 (두번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>getFirstImageWithDefault</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달 받은 이미지 리스트 중 첫번째 이미지이며 없는 경우 <code>no_img.png</code></li>
+</ul>
+<h3 id="-39">예시</h3>
+<pre><code class="js language-js">{{getFirstImageWithDefault images}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>images</td>
+<td>array</td>
+<td>이미지 URL리스트 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>addNumber</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달받은 숫자들의 합, 인자가 없는 경우에는 0</li>
+</ul>
+<h3 id="-40">예시</h3>
+<pre><code class="js language-js">{{addNumber immediateDiscountAmt additionDiscountAmt}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nums</td>
+<td>array</td>
+<td>args로 인자로 전달받은 값들 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>subtractNumber</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달받은 숫자들의 차, 인자가 없는 경우에는 0</li>
+</ul>
+<h3 id="-41">예시</h3>
+<pre><code class="js language-js">{{addNumber salePrice immediateDiscountAmt additionDiscountAmt}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nums</td>
+<td>array</td>
+<td>args로 인자로 전달받은 값들 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>sum</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달받은 숫자들의 합을 도출 후 화폐 단위 표시, 인자가 없는 경우에는 0이며 <code>addNumber</code>과의 차이점은 <code>화폐 단위 표시</code> 여부</li>
+</ul>
+<h3 id="-42">예시</h3>
+<pre><code class="js language-js">{{sum immediateDiscountAmt additionDiscountAmt}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nums</td>
+<td>array</td>
+<td>args로 인자로 전달받은 값들 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>subtract</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달받은 숫자들의 차를 도출 후 화폐 단위 표시, 인자가 없는 경우에는 0이며 <code>subtractNumber</code>과의 차이점은 <code>화폐 단위 표시</code> 여부</li>
+</ul>
+<h3 id="-43">예시</h3>
+<pre><code class="js language-js">{{subtract orderOptions.length 1}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nums</td>
+<td>array</td>
+<td>args로 인자로 전달받은 값들 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>getSignUpAccumulationLabel</code></h2></summary><p></p>
+<ul>
+<li>로그인이 되어있고 적립금 설정 중 <code>회원 적립 사용여부</code> 값이 <code>사용합</code>인 경우 <code>true</code></li>
+</ul>
+<h3 id="-44">예시</h3>
+<pre><code class="js language-js">{{#getSignUpAccumulationLabel accumulationConfig}} (로그인 시 적립 가능) {{/getSignUpAccumulationLabel}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accumulationConfig</td>
+<td>object</td>
+<td>적립금 설정 값 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>eachTextOptionMapByOption</code></h2></summary><p></p>
+<p>-</p>
+<h3 id="-45">예시</h3>
+<pre><code class="js language-js"> {{#eachTextOptionMapByOption textOptionsMapByOption selectedKey}}...{{/eachTextOptionMapByOption}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>textOptionMapByOption</td>
+<td>object</td>
+<td>적립금 설정 값 (첫번째 인자)</td>
+</tr>
+<tr>
+<td>selectedKey</td>
+<td>string</td>
+<td>적립금 설정 값 (두번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>length</code></h2></summary><p></p>
+<ul>
+<li>전달 받은 인자 길이</li>
+</ul>
+<h3 id="-46">예시</h3>
+<pre><code class="js language-js"> {{length value}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>array</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>ifStartsWith</code></h2></summary><p></p>
+<ul>
+<li>첫번째 인자가 두번째 인자로 시작하는지 여부</li>
+</ul>
+<h3 id="-47">예시</h3>
+<pre><code class="js language-js"> {{#ifStartsWith label 'KC'}}...{{/ifStartsWith}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>word</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>upperCase</code></h2></summary><p></p>
+<ul>
+<li>전달 받은 인자가 문자라면 대문자로 변경</li>
+</ul>
+<h3 id="-48">예시</h3>
+<pre><code class="js language-js"> {{upperCase this.label}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>lowerCase</code></h2></summary><p></p>
+<ul>
+<li>전달 받은 인자가 문자라면 소문자로 변경</li>
+</ul>
+<h3 id="-49">예시</h3>
+<pre><code class="js language-js"> {{lowerCase this.label}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>generateRangeOption</code></h2></summary><p></p>
+<ul>
+<li>범위가 있는 옵션의 경우, 해당 범위에 맞게 option 엘리먼트를 생성 및 value 주입</li>
+</ul>
+<h3 id="-50">예시</h3>
+<pre><code class="js language-js"> {{generateRangeOption 1 12}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>startRange</td>
+<td>number</td>
+<td>옵션 값의 시작(첫번째 인자)</td>
+</tr>
+<tr>
+<td>endRange</td>
+<td>number</td>
+<td>옵션 값의 끝(두번째 인자)</td>
+</tr>
+<tr>
+<td>hasPadStart</td>
+<td>boolean</td>
+<td><code>true</code>면 옵션 값 왼쪽에 <code>0</code>을 채움 (기본 false) (세번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>generateYearRangeOption</code></h2></summary><p></p>
+<ul>
+<li>회원 가입 페이지에서 생년월일 중 <code>년도</code> select 요소에 option 엘리먼트를 만들어주는 함수 (당해년도 - 120년도까지 노출)</li>
+</ul>
+<h3 id="-51">예시</h3>
+<pre><code class="js language-js"> {{generateYearRangeOption true}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reverse</td>
+<td>boolean</td>
+<td>역순 노출 여부 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>generateDateRangeOption</code></h2></summary><p></p>
+<ul>
+<li>회원 가입 페이지에서 생년월일 중 <code>일자</code> select 요소에 option 엘리먼트를 만들어주는 함수</li>
+</ul>
+<h3 id="-52">예시</h3>
+<pre><code class="js language-js"> {{generateDateRangeOption (extractYearFromHyphenatedDate birthday.value) (extractMonthFromHyphenatedDate birthday.value)}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td>date</td>
+<td>년 (첫번째 인자)</td>
+</tr>
+<tr>
+<td>month</td>
+<td>date</td>
+<td>월 (첫번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>img</code></h2></summary><p></p>
+<ul>
+<li>이미지 엘리먼트를 만들어주는 함수</li>
+</ul>
+<h3 id="-53">예시</h3>
+<pre><code class="js language-js">{{img url 100 100 fileName '' '' true}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>width</td>
+<td>number</td>
+<td>두번째 인자</td>
+</tr>
+<tr>
+<td>height</td>
+<td>number</td>
+<td>세번째 인자</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>네번째 인자</td>
+</tr>
+<tr>
+<td>className</td>
+<td>string</td>
+<td>다섯번째 인자</td>
+</tr>
+<tr>
+<td>style</td>
+<td>string</td>
+<td>여섯번째 인자</td>
+</tr>
+<tr>
+<td>lazy</td>
+<td>boolean</td>
+<td>일곱번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>safeString</code></h2></summary><p></p>
+<ul>
+<li>escape 되는걸 방지하기 위한 함수</li>
+</ul>
+<h3 id="-54">예시</h3>
+<pre><code class="js language-js">{{safeString productName}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>useHyphen</td>
+<td>boolean</td>
+<td>빈 문자열인 경우 <code>-</code>을 반환할지 여부 (두번째 인자)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>toStringDeliveryPayType</code></h2></summary><p></p>
+<ul>
+<li>착불/선결제 인지 반환</li>
+</ul>
+<h3 id="-55">예시</h3>
+<pre><code class="js language-js">{{toStringDeliveryPayType deliveryPayType}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deliveryPayType</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>orderStatusLabel</code></h2></summary><p></p>
+<ul>
+<li>주문상태 반환</li>
+</ul>
+<h3 id="-56">예시</h3>
+<pre><code class="js language-js">{{orderStatusLabel orderStatusType}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orderStatusType</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>claimStatusLabel</code></h2></summary><p></p>
+<ul>
+<li>클레임 상태 반환</li>
+</ul>
+<h3 id="-57">예시</h3>
+<pre><code class="js language-js">{{claimStatusLabel claimType}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>claimType</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>saleStatusLabel</code></h2></summary><p></p>
+<ul>
+<li>판매 상태 반환</li>
+</ul>
+<h3 id="-58">예시</h3>
+<pre><code class="js language-js">{{saleStatusLabel saleStatusType}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>saleStatusType</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>listIndex</code></h2></summary><p></p>
+<ul>
+<li>목록 인덱스 번호</li>
+</ul>
+<h3 id="-59">예시</h3>
+<pre><code class="js language-js">{{listIndex @index pageNumber pageSize}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>number</td>
+<td>두번째 인자</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>number</td>
+<td>세번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>empty</code></h2></summary><p></p>
+<ul>
+<li>전달 받은 인자들이 모두 비어있다면 <code>true</code></li>
+</ul>
+<h3 id="-60">예시</h3>
+<pre><code class="js language-js">{{#empty receiverZipCd receiverAddress receiverDetailAddress}}...{{/empty}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td>array</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>append</code></h2></summary><p></p>
+<ul>
+<li>인자로 받은 문자들을 하나로 연결</li>
+</ul>
+<h3 id="-61">예시</h3>
+<pre><code class="js language-js">{{append 'height: ' slideMinHeight 'px;'}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>appendValue</td>
+<td>array</td>
+<td>나머지 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>inputBox</code></h2></summary><p></p>
+<ul>
+<li>input 엘리먼트를 생성</li>
+</ul>
+<h3 id="-62">예시</h3>
+<pre><code class="js language-js">{{inputBox 'radio' photoReviewsOnly}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>input type (첫번째 인자)</td>
+</tr>
+<tr>
+<td>checked</td>
+<td>boolean</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>option</code></h2></summary><p></p>
+<ul>
+<li>option 엘리먼트를 생성</li>
+</ul>
+<h3 id="-63">예시</h3>
+<pre><code class="js language-js"> {{option categoryNo label selectedCategoryNo ''}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>두번째 인자</td>
+</tr>
+<tr>
+<td>selectedValue</td>
+<td>string</td>
+<td>세번째 인자</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>boolean</td>
+<td>네번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>arrayToString</code></h2></summary><p></p>
+<ul>
+<li>배열인 첫번째 인자를 <code>,</code>로 연결하여 문자로 반환</li>
+</ul>
+<h3 id="-64">예시</h3>
+<pre><code class="js language-js"> {{option categoryNo label selectedCategoryNo ''}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array</td>
+<td>array</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>maskingName</code></h2></summary><p></p>
+<ul>
+<li>이름의 중간을 <code>*</code>로 변환하여 마스킹 처리</li>
+</ul>
+<h3 id="-65">예시</h3>
+<pre><code class="js language-js"> {{maskingName issuerName}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>repeat</code></h2></summary><p></p>
+<ul>
+<li><code>repeat</code>으로 감싸져있는 항목들을 반복</li>
+</ul>
+<h3 id="-66">예시</h3>
+<pre><code class="js language-js"> {{repeat 4}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>times</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>dateFormat</code></h2></summary><p></p>
+<ul>
+<li>인자로 전달한 날짜 형식으로 반환</li>
+</ul>
+<h3 id="-67">예시</h3>
+<pre><code class="js language-js"> {{dateFormat startYmdt 'yyyy-mm-dd'}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>format</td>
+<td>string</td>
+<td>두번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>isWriter</code></h2></summary><p></p>
+<ul>
+<li>비밀글 여부 (registerType이 <code>MEMBER</code>이고 로그인한 <code>memberNo</code>가 <code>registerNo</code>와 같거나 <code>modifierNo</code>와 같으면 <code>true</code>)</li>
+</ul>
+<h3 id="-68">예시</h3>
+<pre><code class="js language-js"> {{isWriter memberNo registerType registerNo modifierNo title}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>memberNo</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+<tr>
+<td>registerType</td>
+<td>string</td>
+<td>두번째 인자</td>
+</tr>
+<tr>
+<td>registerNo</td>
+<td>number</td>
+<td>세번째 인자</td>
+</tr>
+<tr>
+<td>modifierNo</td>
+<td>number</td>
+<td>네번째 인자</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>다섯번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>isNewPost</code></h2></summary><p></p>
+<ul>
+<li>신규 게시글 여부 (작성일자가 24시간 이전이면 <code>true</code>)</li>
+</ul>
+<h3 id="-69">예시</h3>
+<pre><code class="js language-js"> {{#isNewPost registerYmdt}}...{{/isNewPost}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2>  <code>isBestPost</code></h2></summary><p></p>
+<ul>
+<li>인기 게시글 여부 (조회수가 100이상이면 <code>true</code>)</li>
+</ul>
+<h3 id="-70">예시</h3>
+<pre><code class="js language-js"> {{#isBestPost viewCnt}}...{{/isBestPost}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>number</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>convertDateFormat</code></h2></summary><p></p>
+<ul>
+<li><code>YYYY-MM-DD</code> 형식으로 변환</li>
+</ul>
+<h3 id="-71">예시</h3>
+<pre><code class="js language-js"> {{convertDateFormat birthday}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+<summary><h2> <code>padStart</code></h2></summary><p></p>
+<ul>
+<li>최대 2글자로 인자의 좌측을 <code>0</code>으로 채워주는 함수 (padStart(2, '0'))</li>
+</ul>
+<h3 id="-72">예시</h3>
+<pre><code class="js language-js"> {{padStart minutes}}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>number | string</td>
+<td>첫번째 인자</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-73">커스텀 헬퍼 함수 등록하기</h2>
+<p>만약 여러분의 커스텀 헬퍼 함수를 등록하시려면 스크립트에 다음과 같이 작성해주세요.</p>
+<pre><code class="js language-js">&lt;script&gt;
+const { Handlebars } = ShopbySkin;
+
+Handlebars.registerHelper({
+    formatStockCount(count) { // 헬퍼함수 명
+        // 필요한 로직 작성
+        return `타임세일! 얼마 안 남았어요! : ${count}`;
+    },
+});
+&lt;/script&gt;
+
+...
+&lt;!-- 커스텀 헬퍼 함수 사용 예시 --&gt;
+{{ formatStockCount stockCount }}
+</code></pre></details></body></html>

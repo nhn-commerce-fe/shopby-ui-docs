@@ -1,0 +1,2630 @@
+<html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=IBM+Plex+Sans+KR&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Nanum+Myeongjo&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet"><style>:root {
+  --color-point: #504eb3;
+  --color-bg-black: #304b4f;
+
+  --color-error: #f92626;
+  --color-caution: #f92626;
+  --color-warning: #ff561d;
+  --color-success: #00a354;
+  --color-loading: #0f53b8;
+  --color-secondary: #3f434c;
+  --color-tertiary: #408aec;
+  --color-base-white: #fff;
+  --color-base-black: #000;
+  --color-base-navy: #3f434c;
+
+  --color-error-tender: #ffeaee;
+  --color-warning-tender: #ffefdf;
+  --color-success-tender: #d3f8df;
+  --color-loading-tender: #d3e2f8;
+
+  --gray100: #f5f5f5;
+  --gray200: #ececec;
+  --gray300: #dedede;
+  --gray400: #a3a3a3;
+  --gray500: #6e6e6e;
+  --gray600: #444;
+  --gray700: #262626;
+}
+body {
+  margin: 0;
+  padding: 24px;
+}
+h1 {
+  margin-bottom: 15px;
+}
+p {
+  margin: 10px;
+}
+details summary {
+  padding: 0 0.5em;
+  cursor: pointer;
+}
+details summary h2 {
+  display: inline-block;
+}
+details li code {
+  background-color: #eaeaea;
+  padding: 3px;
+  text-align: center;
+  border-radius: 3px;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+pre {
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 35px 0;
+}
+table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.code--default {
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #eee;
+  color: #646464;
+  border-radius: 3px;
+  padding: 3px 6px;
+}
+</style></head><body><h1 id="shopbyskinutils">ShopbySkin.utils</h1>
+<p><code class="code--default">ShopbySkin.utils</code>를 통해 접근할 수 있는 함수, 객체에 대해 가이드합니다.</p>
+<hr>
+<hr>
+<!-- va-comp common -->
+<p></p><details>
+  <summary>
+    <h2>isSignIn <code class="code--default">() =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>유저의 로그인 여부 리턴
+</li></ul></details>
+
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getSanitizeHTML <code class="code--default">(html) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>html template의 보안상 위험요소를 제거한 뒤 리턴</li>
+<li><a href="https://www.npmjs.com/package/dompurify">dompurify</a> 의 sanitize() 를 래핑한 유틸함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>html</td>
+<td>string</td>
+<td>string 타입의 html template</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>setGlobalsVariableBy <code class="code--default">(key, data) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>sb</code>객체에 원하는 값을 저장할 때 사용</li>
+<li>새로고침, 새로운 페이지 진입시 값을 새롭게 할당해야합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>string,number,Symbol</td>
+<td>sb객체의 키로 사용할 값</td>
+</tr>
+<tr>
+<td>data</td>
+<td>any</td>
+<td>키에 해당하는 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>channelType <code class="code--default">() =&gt; object</code></h2>
+  </summary><p></p>
+<ul>
+<li>가격비교사이트 등 외부 채널을 통해 상품상세에 유입된 경우, 채널별로 할인 쿠폰의 다운로드 및 사용을 제한하기 위한 기능입니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값(함수일 경우 타입)</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set</td>
+<td><code>(channel) =&gt; void</code></td>
+<td>채널타입 값을 설정합니다.<br>파라미터 channel의 타입은 string</td>
+</tr>
+<tr>
+<td>get</td>
+<td><code>() =&gt; void</code></td>
+<td>설정된 채널타입 값을 가져옵니다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getChannelType <code class="code--default">() =&gt; string | null</code></h2>
+  </summary><p></p>
+<ul>
+<li>ShopbySkin.utils.channelType().get 과 동일한 함수</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>setChannelType <code class="code--default">(channel) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>ShopbySkin.utils.channelType().set 과 동일한 함수</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp date -->
+<p></p><details>
+  <summary>
+    <h2>validateDateType <code class="code--default">(date) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>date가 유효한 날짜 값인지 여부를 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>유효한 날자 값이란 <code>{n}d</code>, <code>{n}m</code>, <code>{n}y</code> 형태로 각각 n일, n달, n년 입니다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getStartDate <code class="code--default">(date) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>현재 날짜에서 date 만큼 전 날짜를 리턴</li>
+<li>datepicker 등에서 시작일을 구하기위해 사용 할 수 있습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>string</td>
+<td><code>td</code> <code>{n}d</code>, <code>{n}m</code>, <code>{n}y</code> 의 형태</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp form -->
+<p></p><details>
+  <summary>
+    <h2>changeProfileFormVerifyMap <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li>유저 정보입력란의 유효성 검사를 위해 사용됩니다. 회원정보수정, 회원가입 등에서 사용됩니다.</li>
+<li>isValid는 유효성 여부를 boolean으로 나타냅니다.</li>
+<li>message는 유효한경우 유효메세지를, 유효하지않은경우 사유를 string으로 나타냅니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값(함수일 경우 타입)</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>memberId</td>
+<td><code>({ value, isDuplicated, isDormantMemberId }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td><code>({ value }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>passwordConfirm</td>
+<td><code>({ value, comparisonValue }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>memberName</td>
+<td><code>({ value, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>nickname</td>
+<td><code>({ value, isDuplicated, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td><code>({ value, isDuplicated, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>mobileNo</td>
+<td><code>({ value, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>telephoneNo</td>
+<td><code>({ value, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>detailAddress</td>
+<td><code>({ value, zipCode, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>birthday</td>
+<td><code>({ value, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>sex</td>
+<td><code>({ value, isRequired }) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>joinTermsAgreements</td>
+<td><code>(values) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>changePasswordVerifyMap <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li>비밀번호 변경시 유효성검사를 위해 사용됩니다. 비밀번호 변경 등에 사용됩니다.</li>
+<li>isValid는 유효성 여부를 boolean으로 나타냅니다.</li>
+<li>message는 유효한경우 유효메세지를, 유효하지않은경우 사유를 string으로 나타냅니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값(함수일 경우 타입)</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentPassword</td>
+<td><code>(value) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td><code>(value) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+<tr>
+<td>newPasswordConfirm</td>
+<td><code>(value, comparisonValue) =&gt; { message, isValid }</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>makeVerificationResult <code class="code--default">({ result, reason, fileds }) =&gt; { result, reason, fileds }</code></h2>
+  </summary><p></p>
+<ul>
+<li>유효성검사시 오류 메세지를 입력받을 수 있는 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>reason이 있는경우 result는 false</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>string</td>
+<td>유효성 검사 실패 사유로 사용할 문구</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>array</td>
+<td>유효성 검사를 실시한 필드 명</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>verifyState <code class="code--default">(state, verificationMap) =&gt; { result, reason, fields }</code></h2>
+  </summary><p></p>
+<ul>
+<li>verificationMap을 통해 state에 대한 유효성 검사를 진행 (<em>verificationMap 에 대한 작성은 shipping-address-form.js 참고</em>)</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>handleFocusEvent <code class="code--default">({ containerEl, fields }) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>element의 focus 이벤트를 호출하기 위한 함수. 해당 element는 <code>shopby-focus-field={field}</code> 형식의 attribute가 필요하다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containerEl</td>
+<td>HTMLElement</td>
+<td><code>shopby-focus-field={field}</code> 형식의 attribute가 필요하다.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>string,array</td>
+<td>포커스 할 필드명 배열일 경우 첫번째 값을 바라본다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp lazyLoad -->
+<p></p><details>
+  <summary>
+    <h2>lazyLoad <code class="code--default">({ imgEls, rootMargin }) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>InstersectionObserver를 이용한 이미지 lazyload 함수입니다. 레이지로드를 적용하려는 img태그의 data-src 속성값을 src 속성값으로 치환하는 방식입니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imgEls</td>
+<td>NodeListOf<htmlimageelement></htmlimageelement></td>
+<td>img태그로 이루어진 NodeList</td>
+</tr>
+<tr>
+<td>rootMargin</td>
+<td>string</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver">mdn intersectionObserver</a> 문서의 rootMargin</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp pagination -->
+<p></p><details>
+  <summary>
+    <h2>pagination <code class="code--default">class</code></h2>
+  </summary><p></p>
+<ul>
+<li>페이지네이션에 필요한 데이터를 가진 페이지네이션 인스턴스를 생성합니다.</li>
+</ul>
+<p><strong>▾ 아래는 생성자 파라미터의 타입입니다.</strong></p>
+<table>
+<thead>
+<tr>
+<th>생성자 파라미터(option)</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentPageKey</td>
+<td>string</td>
+<td>현재페이지를 나타낼 데이터의 키값(기본값 : "pageNumber")</td>
+</tr>
+<tr>
+<td>pageSizeKey</td>
+<td>string</td>
+<td>페이지사이즈를 나타낼 데이터의 키값(기본값 : "pageSize")</td>
+</tr>
+<tr>
+<td>totalCount</td>
+<td>number</td>
+<td>전체 페이지 수</td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>number</td>
+<td>현재페이지</td>
+</tr>
+<tr>
+<td>itemsPerPage</td>
+<td>number</td>
+<td>페이지당 보여줄 데이터 수</td>
+</tr>
+</tbody>
+</table>
+<p><strong>▾ 아래는 인스턴스의 public method 입니다.</strong></p>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setQueryParams</td>
+<td>(params) =&gt; void</td>
+<td>인자로 전달받은 params를 기준으로 페이지 이동버튼(a tag)에 query parameter를 적용한다.</td>
+</tr>
+<tr>
+<td>generate</td>
+<td>() =&gt; { firstPage, lastPage, prevPage, nextPage, pages, totalPages }</td>
+<td>페이지네이션 정보를 담은 객체를 반환한다.<br>생성된 객체는 pc) product-list.html의 페이지네이션 슬롯을 참고</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp popup -->
+<p></p><details>
+  <summary>
+    <h2>getPageInfoForPopup <code class="code--default">(path) =&gt; { pageInfo, url, queryString }</code></h2>
+  </summary><p></p>
+<ul>
+<li><a href="https://docs.shopby.co.kr/?url.primaryName=display/#/Popup/get-popups">displayPopup 조회</a> , <a href="https://docs.shopby.co.kr/?url.primaryName=display/#/Popup/get-design-popup">designPopup 조회</a> 에 필요한 데이터를 반환한다.</li>
+<li>리턴값 pageInfo는 displayPopup조회, url, queryString은 designPopup조회에 사용된다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>url path. 전달받은 값이 displayPopup 조회용 페이지인 경우 그에 필요한 값을 생성한다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp storage -->
+<p></p><details>
+  <summary>
+    <h2>getLocalStorage <code class="code--default">(key) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>{MOBILE | PC}_{key}</code> 형태로 로컬스토리지에 세팅된 값을 가져온다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>로컬스토리지에서 가져올 값의 키</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>setLocalStorage <code class="code--default">(key, value) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>{MOBILE | PC}_{key} : {value}</code> 형태로 로컬스토리지에 값을 저장한다. 단, prefix는 디바이스기준</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>로컬스토리지에 저장할 값의 키</td>
+</tr>
+<tr>
+<td>value</td>
+<td>any</td>
+<td>로컬스토리지에 저장할 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>removeLocalStorage <code class="code--default">(key) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>{MOBILE | PC}_{key}</code> 형태로 로컬스토리지에 세팅된 값을 제거한다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>로컬스토리지에서 삭제할 값의 키</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp swiper -->
+<p></p><details>
+  <summary>
+    <h2>initSwiper <code class="code--default">({ id, ...swiperOptions }) =&gt; SwiperInstance</code></h2>
+  </summary><p></p>
+<ul>
+<li>swiper.js v11.7 로 제작되었습니다.</li>
+<li>해당 함수를 통해 스와이퍼기능을 활성화 하려는경우 element에 <code>shopby-slider-id="{임의의 아이디}"</code> 형태의 속성이 명시되어있어야합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>스와이퍼를 초기화할 element의 <code>shopby-slider-id</code> 속성값</td>
+</tr>
+<tr>
+<td>swiperOptions</td>
+<td>object</td>
+<td><a href="https://swiperjs.com/swiper-api#parameters">swiperJS 공식홈페이지</a>에 기재된 값과 동일</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>appendSwiperCss <code class="code--default">() =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>&lt;head&gt;&lt;/head&gt;</code> 태그에 v11.7 에 해당하는 css를 불러오는 <code>&lt;link /&gt;</code> 태그를 추가한다.</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<!-- va-comp verify -->
+<p></p><details>
+  <summary>
+    <h2>isAdultVerified <code class="code--default">(e) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>상품/진열에서 성인증이 필요한 상품인지 확인하기위해 사용됩니다.(ex. 상품상세 인입, 장바구니모달 오픈)</li>
+<li>이벤트가 발생하는 target 또는 target의 부모노드에서 [shopby-is-adult] attribute를 확인하여 성인인증이 필요한지 확인합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>e</td>
+<td>Event</td>
+<td>HTMLElement의 이벤트 객체입니다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared api -->
+<p></p><details>
+  <summary>
+    <h2>fetchEnvironment <code class="code--default">() =&gt; Promise&lt;object&gt;</code></h2>
+  </summary><p></p>
+<ul>
+<li>environment.json 데이터를 리턴합니다.</li>
+<li>https://{도메인}/environment.json 과 동일한 데이터입니다.</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<!-- shared auth -->
+<p></p><details>
+  <summary>
+    <h2>guestAuth <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li><a href="https://nhnent.dooray.com/share/pages/YXtIoJnnTD2_0Mwbn70dwA">인증관리 유틸리티 사용법 (외부 회원 연동)</a> 참고</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>memberAuth <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li><a href="https://nhnent.dooray.com/share/pages/YXtIoJnnTD2_0Mwbn70dwA">인증관리 유틸리티 사용법 (외부 회원 연동)</a> 참고</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>ageAuth <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li><a href="https://nhnent.dooray.com/share/pages/YXtIoJnnTD2_0Mwbn70dwA">인증관리 유틸리티 사용법 (외부 회원 연동)</a> 참고</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>dormancyAuth <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li><a href="https://nhnent.dooray.com/share/pages/YXtIoJnnTD2_0Mwbn70dwA">인증관리 유틸리티 사용법 (외부 회원 연동)</a> 참고</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getGuestToken <code class="code--default">() =&gt; string | undefined</code></h2>
+  </summary><p></p>
+<ul>
+<li>ShopbySkin.utils.guestAuth.get() 을 호출한 값</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>isAgeVerified <code class="code--default">(isValidVerifiedYmdtByAge?) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>현재 회원의 성인인증 상태가 유효한지 확인하는 함수</li>
+<li>성인인증을 완료한지 1년이 지났다면 재인증해야합니다(1년은 기본스킨 정책 기준입니다).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isValidVerifiedYmdtByAge</td>
+<td>(ageVerifiedYmdt: string) =&gt; boolean</td>
+<td>(선택) 성인인증여부를 확인하는 로직을 주입하고싶은경우 사용.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared calculator -->
+<p></p><details>
+  <summary>
+    <h2>calculatePercentage <code class="code--default">({ amount, standard }) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>standard에 대해 amount가 몇퍼센트에 해당하는지 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>계산의 대상 값</td>
+</tr>
+<tr>
+<td>standard</td>
+<td>number</td>
+<td>계산의 기준 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>calculatePercentageRatingScore <code class="code--default">({ score, maxRatingScore? }) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>maxRatingScore에 대해 score기 몇퍼센트에 해당하는지 리턴</li>
+<li>calculatePercentage 와 기본동작은 같으나 maxRatingScore에 기본값 5 가 적용되어있고 퍼센테이지에 소수점은 내림 적용합니다.</li>
+<li>별점 UI 등 표현에 사용됩니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>score</td>
+<td>number</td>
+<td>계산의 대상 값</td>
+</tr>
+<tr>
+<td>maxRatingScore</td>
+<td>number</td>
+<td>(선택) 계산의 기준 값 (default : 5)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>calculateRatingScoreByCurrentWidth <code class="code--default">({ offsetX, width, maxRatingScore?, useHalfScore? }) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>너비(width)에서 0 으로부터의 변위(offsetX)를 점수(maxRatingScore)에 비례한 값으로 변환</li>
+<li>ex) width 100 , offsetX 30, maxRatingScore 5 인 경우 2를 리턴 - 상품리뷰의 별 점 주기 UI 표현에 유용합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>number</td>
+<td>계산의 기준이 되는 너비</td>
+</tr>
+<tr>
+<td>offsetX</td>
+<td>number</td>
+<td>너비의 0에서부터의 변위</td>
+</tr>
+<tr>
+<td>maxRatingScore</td>
+<td>number</td>
+<td>(선택) 비례값. 해당값이 최대치로 가정된다. (default: 5)</td>
+</tr>
+<tr>
+<td>useHalfScore</td>
+<td>number</td>
+<td>(선택) 리턴값을 0.5 단위로 나타낼것인지 여부</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getStarSet <code class="code--default">({ totalScore?, score }) =&gt; string[]</code></h2>
+  </summary><p></p>
+<ul>
+<li>별점을 어떻게 표시할것인지에 대한 함수</li>
+<li>totalScore에 score를 별점으로 표현할 수 있게 문자열로 이루어진 배열을 리턴한다.</li>
+<li>0.5점단위의 별점을 표기하기에 사용된다.</li>
+<li>ex) <code>getStarSet({ score: 3.7 })</code> =&gt; <code>['full', 'full', 'full', 'half', 'empty']</code> 별점 3.5로 표시</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>score</td>
+<td>number</td>
+<td>실제 점수(별점)</td>
+</tr>
+<tr>
+<td>totalScore</td>
+<td>number</td>
+<td>(선택) 기준이 될 수 (default : 5)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared category -->
+<p></p><details>
+  <summary>
+    <h2>unescapeCategoryLabel <code class="code--default">(category) =&gt; object</code></h2>
+  </summary><p></p>
+<ul>
+<li>HTML태그가 포함된 category.label 에 HTML태그를 제거후 그대로 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>category.label</td>
+<td>string</td>
+<td>html 태그가 포함된 문자열. html태그가 포함되어있지않으면 원본을 리턴</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared converter -->
+<p></p><details>
+  <summary>
+    <h2>convertStringBooleanToBoolean <code class="code--default">(value?) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>value 가 문자열 "true" 또는 불리언 true 인 경우 true 그 외의 경우 false를 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string, boolean</td>
+<td>(선택) boolean으로 간주하고자 하는 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertBooleanToYorN <code class="code--default">(value?) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>value 가 문자열 "true" 또는 불리언 true 인 경우 "Y" 그 외의 경우 "N"을 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string, boolean</td>
+<td>(선택) "Y" 또는 "N" 으로 간주하고자 하는 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertYorNToBoolean <code class="code--default">(value?) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>value가 "Y" 인 경우 true 그 외의 경우 false를 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>boolean으로 변환될 문자열. "Y"를 제외한 모든값을 false로 간주</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared date -->
+<p></p><details>
+  <summary>
+    <h2>convertMinutesToMilliseconds <code class="code--default">(time) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>time을 밀리초(ms)로 계산하는 함수</li>
+<li>time x 60 x 1000</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>number</td>
+<td>밀리초로 변환 할 수</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertDaysToMilliseconds <code class="code--default">(days) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>days를 밀리초(ms)로 계산하는 함수</li>
+<li>days x 24 x 3600 x 1000</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>days</td>
+<td>number</td>
+<td>밀리초로 변환 할 수</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertNumberToPaddedFormat <code class="code--default">(value, maxLength?) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>value에 maxLength 길이만큼 value앞에 "0"을 채운 값을 리턴</li>
+<li>ex ) convertNumberToPaddedFormat(1, 3) // "001"</li>
+<li>ex ) convertNumberToPaddedFormat(111) // "111"</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>number</td>
+<td>기준이 되는 값</td>
+</tr>
+<tr>
+<td>maxLength</td>
+<td>number</td>
+<td>(선택) 0을 채울 길이 (default: 2)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getDateLabel <code class="code--default">(type?, offset?) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>YYYY-MM-DD 형태의 값을 리턴</li>
+<li>인자없이 호출된 경우 오늘 날짜를 리턴합니다.</li>
+<li>인자입력시 type과 offset 모두 입력되어야합니다.</li>
+<li>offset &lt; 0 의 경우 과거, offset &gt; 0 의 경우 미래 입니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>YEAR,MONTH,DATE</td>
+<td>(선택) offset의 기준이 되는 영역</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>number</td>
+<td>(선택) 현재 날짜 기준 얻고자하는 날짜의 변위</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>lastHalfYear <code class="code--default">string</code></h2>
+  </summary><p></p>
+<ul>
+<li>현재기준 반년 전 날짜를 YYYY-MM-DD 형태로 가짐</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>isSameOrAfter <code class="code--default">({ comparisonDate, comparisonUnit, baseDate? }) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>baseDate.isSameOrAfter(dayjs(comparisonDate), comparisonUnit);</code> 를 래핑한 함수</li>
+<li>참고) https://day.js.org/docs/en/plugin/is-same-or-after</li>
+<li>baseDate 기준으로 comparisonDate와 동일한 날짜이거나 이미 지났는지 여부를 리턴</li>
+<li>comparisonUnit이 비교 영역이 됩니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comparisonDate</td>
+<td>string</td>
+<td>비교를 위한 날짜</td>
+</tr>
+<tr>
+<td>comparisonUnit</td>
+<td><a href="https://github.com/iamkun/dayjs/blob/dev/types/index.d.ts">dayjs unit</a></td>
+<td>비교영역</td>
+</tr>
+<tr>
+<td>baseDate</td>
+<td>string</td>
+<td>(선택) 비교 기준이 되는 날짜 (default : 오늘)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>calcDDay <code class="code--default">(targetDate, baseDate?) =&gt; null | number</code></h2>
+  </summary><p></p>
+<ul>
+<li>baseDate 에 대해 targetDate가 며칠남았는지 리턴</li>
+<li>이미 지났다면 null</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>targetDate</td>
+<td>YYYY-MM-DD, YYYY-MM-DD hh:mm:ss</td>
+<td>d-day를 계산할 대상 날짜</td>
+</tr>
+<tr>
+<td>baseDate</td>
+<td>YYYY-MM-DD, YYYY-MM-DD hh:mm:ss</td>
+<td>(선택) d-day 에 해당하는 날짜 (default: 오늘)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared dateFormat -->
+<p></p><details>
+  <summary>
+    <h2>dateFormat <code class="code--default">(date?, mask?, utc?, gmt?) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>date를 mask 유형의 날짜값으로 변환합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>string,number</td>
+<td>문자열 또는 숫자 형태의 날짜값</td>
+</tr>
+<tr>
+<td>mask</td>
+<td>string</td>
+<td>포맷유형입니다. <code>ShopbySkin.utils.masks</code> 객체에 그 종류가 반영되어있습니다.</td>
+</tr>
+<tr>
+<td>utc</td>
+<td>boolean</td>
+<td>(선택) UTC+0:00로 날짜를 반환합니다.</td>
+</tr>
+<tr>
+<td>gmt</td>
+<td>boolean</td>
+<td>(선택) GTM+0:00로 날짜를 반환합니다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>masks <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li>날짜 포매팅 유형들</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<!-- shared display -->
+<p></p><details>
+  <summary>
+    <h2>isPreview <code class="code--default">() =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>해당페이지가 스킨 미리보기 페이지인지에 대한 여부</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<!-- shared dom -->
+<p></p><details>
+  <summary>
+    <h2>qs <code class="code--default">(selector, el) =&gt; Element</code></h2>
+  </summary><p></p>
+<ul>
+<li>el.querySelector(selector) 를 래핑한 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selector</td>
+<td>string</td>
+<td>css selector</td>
+</tr>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>(선택) html element (default : document)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>createEl <code class="code--default">(tag) =&gt; HTMLElement</code></h2>
+  </summary><p></p>
+<ul>
+<li>document.createElement 를 래핑한 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td>html tag 명</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>insertEl <code class="code--default">(position, el, parentEl?) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>parentEl.insertAdjacentElement(position, el) 를 래핑한 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>position</td>
+<td>string</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement">MDN # Element: insertAdjacentElement() method</a> 의 position 과 동일</td>
+</tr>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>parentEl 에 추가할 element</td>
+</tr>
+<tr>
+<td>parentEl</td>
+<td>HTMLElement</td>
+<td>(선택) el을 추가할 부모 element (default: body)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>hasClass <code class="code--default">(el, className) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>el.classList.contains(className) 를 래핑한 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>class를 조회할 element</td>
+</tr>
+<tr>
+<td>className</td>
+<td>string</td>
+<td>class 명</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>addClass <code class="code--default">(el, classNames) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>el.classList.add(…classNames) 를 래핑한 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>class를 추가할 element</td>
+</tr>
+<tr>
+<td>classNames</td>
+<td>string[]</td>
+<td>class명이 담긴 배열</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>removeClass <code class="code--default">(el, ...classNames) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>el.classList.remove(…classNames) 를 래핑한 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>class를 제거할 element</td>
+</tr>
+<tr>
+<td>classNames</td>
+<td>string[]</td>
+<td>class명이 담긴 배열</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>toggleClass <code class="code--default">(el, className, condition) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>el.classList.toggle(className, condition) 를 래핑한 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>class를 토글할 element</td>
+</tr>
+<tr>
+<td>className</td>
+<td>string</td>
+<td>class 명</td>
+</tr>
+<tr>
+<td>condition</td>
+<td>boolean</td>
+<td>토글 조건</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>setRootStyle <code class="code--default">(key, value) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>전역(documentElement)에 스타일을 설정하는 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>스타일 프로퍼티 명</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>프로퍼티명에 해당하는 스타일 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getAttributes <code class="code--default">(el, attributeNames) =&gt; (string | null)[]</code></h2>
+  </summary><p></p>
+<ul>
+<li>attributeNames 에 포함된 값을 기준으로 el의 attribute 값을 배열로 반환합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>attribute를 가져올 element</td>
+</tr>
+<tr>
+<td>attributeNames</td>
+<td>string[]</td>
+<td>attribute 명이 담긴 배열</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getBooleanFromAttributeValue <code class="code--default">(attributeValue) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>html element의 attribute 값을 boolean으로 변환하는 함수</li>
+<li>'true', '1' 의 값을가지거나 속성만 활성화 된 경우 true를 반환합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>attributeValue</td>
+<td>string, null</td>
+<td>attribute 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getInputWidth <code class="code--default">({ inputEl, defaultWidth }) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>input element 의 value 만큼의 너비 + defaultWidth 를 리턴하는 함수</li>
+<li>input을 래핑하는 element의 너비를 조절할 때 유용합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inputEl</td>
+<td>HTMLInputElement</td>
+<td>html input element</td>
+</tr>
+<tr>
+<td>defaultWidth</td>
+<td>number</td>
+<td>(선택) 기본적으로 적용할 너비(default : 30)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>resizeCounterEls <code class="code--default">({ containerEl, counterSelector, defaultWidth}) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>containerEl 내부에 counterSelector에 해당하는 모든 element에서 input을 찾아 너비를 조절</li>
+<li>내부적으로 <code>utils.getInputWidth</code> 를 사용해 너비를 조절합니다. 이때 defaultWidth가 사용됩니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containerEl</td>
+<td>HTMLElement</td>
+<td>querySelect의 기준이 되는 element</td>
+</tr>
+<tr>
+<td>counterSelector</td>
+<td>string</td>
+<td>(선택) containerEl에서 querySelect 할 선택자 (default: ".counter__input")</td>
+</tr>
+<tr>
+<td>defaultWidth</td>
+<td>number</td>
+<td>(선택) 기본적으로 적용할 너비(default : 30)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getDocumentHeight <code class="code--default">() =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>document 전체 높이를 반환하는 함수</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>toggleDisableStatus <code class="code--default">(el, disabled) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>element에 "disabled" 라는 attribute를 추가하거나 삭제한다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>HTMLElement</td>
+<td>함수의 대상이되는 element</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>boolean</td>
+<td>true: 추가 / false: 삭제</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared error -->
+<p></p><details>
+  <summary>
+    <h2>ClientError <code class="code--default">class</code></h2>
+  </summary><p></p>
+<p><strong>▾ 아래는 생성자 파라미터의 타입입니다.</strong></p>
+<table>
+<thead>
+<tr>
+<th>생성자 파라미터(option)</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>error code로 사용될 값</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>에러메세지</td>
+</tr>
+</tbody>
+</table>
+<p><strong>▾ 아래는 static method 입니다.</strong></p>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>of</td>
+<td>({ code, description }) =&gt; void</td>
+<td>인자로 받은 code, description을 이용해 throw new ClientError를 한다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>ParameterTypeError <code class="code--default">class</code></h2>
+  </summary><p></p>
+<ul>
+<li>함수를 호출할때 적절한 parameter가 전달되지않은 경우 매개변수 오류를 내기위한 예외처리 클래스</li>
+</ul>
+<p><strong>▾ 아래는 생성자 파라미터의 타입입니다.</strong></p>
+<table>
+<thead>
+<tr>
+<th>생성자 파라미터(option)</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parameterName</td>
+<td>string</td>
+<td>파라미터명</td>
+</tr>
+<tr>
+<td>functionName</td>
+<td>string</td>
+<td>함수명</td>
+</tr>
+</tbody>
+</table>
+<p><strong>▾ 아래는 static method 입니다.</strong></p>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>of</td>
+<td>({ parameterName, functionName }) =&gt; void</td>
+<td>인자로 받은 parameterName, functionName를 이용해 throw new ParameterTypeError 를 한다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared form -->
+<p></p><details>
+  <summary>
+    <h2>parseEmail <code class="code--default">(email) =&gt; { id, domain } | null</code></h2>
+  </summary><p></p>
+<ul>
+<li>인자 email 을 id, domain 영역으로 나뉜값을 객체로 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td><code>abc@abcd.com</code> 형태의 이메일 문자열</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>parsePhoneNumber <code class="code--default">(phoneNumber, option?) =&gt; { carrierNumber, firstSerial, secondSerial }</code></h2>
+  </summary><p></p>
+<ul>
+<li>휴대폰번호를 전달받아 carrierNumber, firstSerial, secondSerial 로 나눈값을 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>phoneNumber</td>
+<td>string</td>
+<td>휴대폰번호</td>
+</tr>
+<tr>
+<td>option</td>
+<td>object</td>
+<td>isWithDash : (선택) 인자 phoneNumber 의 행태가 <code>010-1234-5678</code> 인 경우 true로 전달되어야하고, <code>01012345678</code> 인 경우 false로 전달해야합니다. (default : true)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared log -->
+<p></p><details>
+  <summary>
+    <h2>log <code class="code--default">object</code></h2>
+  </summary><p></p>
+<ul>
+<li>각 메소드들은 options을 인자로 받습니다.</li>
+<li>options의 타입은 <code>string</code> 또는 <code>{ message: string, tag: string }</code> 입니다.</li>
+<li>options를 객체로 전달할 경우 로그를 더욱 상세하게 구분할 수 있습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값(함수일 경우 타입)</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td>(options) =&gt; void</td>
+<td></td>
+</tr>
+<tr>
+<td>info</td>
+<td>(options) =&gt; void</td>
+<td></td>
+</tr>
+<tr>
+<td>warn</td>
+<td>(options) =&gt; void</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared object -->
+<p></p><details>
+  <summary>
+    <h2>sortWithPriority <code class="code--default">(array, priority, propertyNameForComparison?) =&gt; any[]</code></h2>
+  </summary><p></p>
+<ul>
+<li>두 번째 인자로 들어온 어레이의 요소들을 우선적으로 앞에 배치하는 sort 입니다.</li>
+<li>첫 번째 인자 어레이에 포함되지 않는 두 번째 인자 어레이 요소는 무시됩니다.</li>
+<li>두 번째 인자 어레이에 포함되지 않는 첫 번째 인자 어레이 요소가 있는 경우, 두 번째 인자 어레이 요소 배치가 먼저 진행된 이후 그 뒤쪽에 배치됩니다.</li>
+<li>세 번째 인자가 있는 경우, 첫 번째 인자 어레이 요소를 객체로 취급하여 세 번째 인자를 이름으로 갖는 property의 값을 토대로 priority 배치를 진행합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array</td>
+<td>(string | object)[]</td>
+<td>정렬할 배열</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>string[]</td>
+<td>우선적으로 정리할 값이든 배열</td>
+</tr>
+<tr>
+<td>propertyNameForComparison</td>
+<td>string</td>
+<td>array의 요소가 객체인경우 priority로 사용할 값의 property</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared order -->
+<p></p><details>
+  <summary>
+    <h2>getPlatformByMobile <code class="code--default">(isMobile) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>isMobile이 true 인 경우 "MOBILE_WEB", false 인 경우 "PC" 를 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isMobile</td>
+<td>boolean</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertOrderNoToOrderDate <code class="code--default">(orderNo) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>주문번호(orderNo)를 주문날짜형태로 변환</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orderNo</td>
+<td>string</td>
+<td>주문시 생성되는 주문번호</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared parser -->
+<p></p><details>
+  <summary>
+    <h2>parseJsonSafely <code class="code--default">(value) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>JSON.parse()를 try/catch로 래핑한 함수. 오류발생시 console.error로 오류를 출력하고 인자로 전달받은 값을 그대로 반환합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>JSON.parse 에 전달할 값</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertCamelToSnakeUpperCase <code class="code--default">(value) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>camelCase 문자열을 SCREAMING<em>SNAKE</em>CASE 로 변환합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>camelCase로 이루어진 문자열</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertToKoreanCurrency <code class="code--default">(value) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>value를 원화 형태로 변환합니다. ex) 1000 =&gt; 1,000</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>number</td>
+<td>원화형태로 변경할 숫자</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>convertMegaBytesToBytes <code class="code--default">(megaBytes) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>인자로 전달받은 megaBytes를 bytes 값으로 변환합니다. <code>(megaBytes x 1024 x 1024)</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>megaBytes</td>
+<td>number</td>
+<td>bytes 형태로 변환할 수</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>unescapeHTML <code class="code--default">(html?) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>html태그가 포함된 문자열에 html태그를 제거합니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>html</td>
+<td>string</td>
+<td>html 형식의 문자열</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getQueryParams <code class="code--default">(location?) =&gt; object</code></h2>
+  </summary><p></p>
+<ul>
+<li>문자열 형태의 url query params를 object 형식으로 변환합니다.</li>
+</ul>
+<p></p></details><p></p>
+<hr>
+<!-- shared platform -->
+<p></p><details>
+  <summary>
+    <h2>isMobile <code class="code--default">(platformType?) =&gt; boolean</code></h2>
+  </summary><p></p>
+<ul>
+<li>platformType이 인자로 들어올 경우 platformType을 기준으로 모바일여부를 리턴</li>
+<li>인자가없는경우 navigator.userAgent를 기준으로 모바일여부를 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platformType</td>
+<td>MOBILE_WEB, AOS, IOS, PC</td>
+<td>(선택) platformType을 동적으로 인자로 전달할 경우 유용하다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared product -->
+<p></p><details>
+  <summary>
+    <h2>unescapeProduct <code class="code--default">(productInfo) =&gt; productInfo</code></h2>
+  </summary><p></p>
+<ul>
+<li>HTML태그가 포함된 <code>productInfo.productName, productInfo.optionName, productInfo.optionValue</code> 에 HTML태그를 제거후 그대로 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>productInfo.productName</td>
+<td>string</td>
+<td>html 태그가 포함된 문자열. html태그가 포함되어있지않으면 원본을 리턴</td>
+</tr>
+<tr>
+<td>productInfo.optionName</td>
+<td>string</td>
+<td>html 태그가 포함된 문자열. html태그가 포함되어있지않으면 원본을 리턴</td>
+</tr>
+<tr>
+<td>productInfo.optionValue</td>
+<td>string</td>
+<td>html 태그가 포함된 문자열. html태그가 포함되어있지않으면 원본을 리턴</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getNormalOptionLabels <code class="code--default">({ optionName, optionValue }) =&gt; string[]</code></h2>
+  </summary><p></p>
+<ul>
+<li>optionName, optionValue 각 <code>|</code> 로 구분되어있는 값 순차적으로 합쳐 <code>["1) optionName : optionValue", ...]</code> 형태로 변환</li>
+</ul>
+<h3 id="">예시</h3>
+<pre><code class="js language-js">ShopbySkin.utils.getNormalOptionLabels({
+  optionName: '상품1|상품2|상품3',
+  optionValue: '상품정보1|상품정보2|상품정보3',
+}); // =&gt; ['1) 상품1: 상품정보1', '2) 상품2: 상품정보2', '3) 상품3: 상품정보3']
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>optionName</td>
+<td>string</td>
+<td>|로 나뉘어있는 하나의 문자열</td>
+</tr>
+<tr>
+<td>optionValue</td>
+<td>string</td>
+<td>|로 나뉘어있는 하나의 문자열</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getTextOptionLabels <code class="code--default">({ optionInputs }) =&gt; string[]</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>optionInputs.inputLabel</code>, <code>optionInputs.inputValue</code> 를 합쳐 <code>inputLabel: inputValue</code> 형태의 문자열로 변환후 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>optionInputs</td>
+<td>object</td>
+<td>inputLabel | string | - <br>inputValue | string | -</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>getOptionLabels <code class="code--default">({ optionName, optionValue, optionInputs }) =&gt; { normalOptionLabels, textOptionLabels }</code></h2>
+  </summary><p></p>
+<ul>
+<li><code>ShopbySkin.utils.getNormalOptionLabels({ optionName, optionValue })</code> 를 normalOptionLabels 의 value로 만든다.</li>
+<li><code>ShopbySkin.utils.getTextOptionLabels({ optionInputs })</code> 를 textOptionLabels의 value로 만든다.</li>
+<li>두 값을 객체로 합하여 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>optionName</td>
+<td>string</td>
+<td>| 로 나뉘어있는 하나의 문자열</td>
+</tr>
+<tr>
+<td>optionValue</td>
+<td>string</td>
+<td>| 로 나뉘어있는 하나의 문자열</td>
+</tr>
+<tr>
+<td>optionInputs</td>
+<td>object</td>
+<td>inputLabel | string | - <br>inputValue | string | -</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared productPrice -->
+<p></p><details>
+  <summary>
+    <h2>calculateDiscountedPrice <code class="code--default">({ salePrice, immediateDiscountAmt?, additionDiscountAmt? }) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>salePrice - (immediateDiscountAmt + additionDiscountAmt) 를 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>salePrice</td>
+<td>number</td>
+<td>계산의 기준이 되는 값</td>
+</tr>
+<tr>
+<td>immediateDiscountAmt</td>
+<td>number</td>
+<td>(선택) 뺄 값 (default : 0)</td>
+</tr>
+<tr>
+<td>additionDiscountAmt</td>
+<td>number</td>
+<td>(선택) 뺄 값 (default : 0)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>calculateDiscountedRate <code class="code--default">({ salePrice, immediateDiscountAmt?, additionDiscountAmt?, toFixed? }) =&gt; number</code></h2>
+  </summary><p></p>
+<ul>
+<li>salePrice 에 대하여 immediateDiscountAmt + additionDiscountAmt 의 할인률을 리턴</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>salePrice</td>
+<td>number</td>
+<td>계산의 기준이 되는 값</td>
+</tr>
+<tr>
+<td>immediateDiscountAmt</td>
+<td>number</td>
+<td>(선택) 뺄 값 (default : 0)</td>
+</tr>
+<tr>
+<td>additionDiscountAmt</td>
+<td>number</td>
+<td>(선택) 뺄 값 (default : 0)</td>
+</tr>
+<tr>
+<td>toFixed</td>
+<td>number</td>
+<td>(선택) 표현할 소수점 자리수 (default : 1)</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared randomId -->
+<p></p><details>
+  <summary>
+    <h2>randomId <code class="code--default">(prefix?) =&gt; string</code></h2>
+  </summary><p></p>
+<ul>
+<li>랜덤값을 리턴하는 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prefix</td>
+<td>string</td>
+<td>(선택) 랜덤값의 접두사</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared route -->
+<p></p><details>
+  <summary>
+    <h2>replaceHistory <code class="code--default">({ state?, title?, query?, url? }) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState">MDN History: replaceState() method</a> 를 래핑한 함수</li>
+<li><code>history.replaceState(state, title, url)</code>을 래핑한 함수입니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>string</td>
+<td>url에 포함시킬 쿼리스트링 입니다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared copyToClipboard -->
+<p></p><details>
+  <summary>
+    <h2>copyToClipboard <code class="code--default">(value, onSuccess?) =&gt; void</code></h2>
+  </summary><p></p>
+<ul>
+<li>클립보드에 value를 복사</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>클립보드에 복사할 값</td>
+</tr>
+<tr>
+<td>onSuccess</td>
+<td>(value) =&gt; void</td>
+<td>클립보드에 복사한 후 그 값을 인자로 호출할 함수</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<!-- shared selector -->
+<p></p><details>
+  <summary>
+    <h2>getSelectorsByUserAgent <code class="code--default">(userAgent) =&gt; object</code></h2>
+  </summary><p></p>
+<ul>
+<li>userAgent 관련 각종 정보를 가진 object를 리턴</li>
+<li>ex) <code>const { isSafari, isIOS } = getSelectorsByUserAgent(navigator.userAgent);</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userAgent</td>
+<td>string</td>
+<td><code>navigator.userAgent</code> 로 userAgent값을 쉽게 찾을 수 있다.</td>
+</tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>postImages <code class="code--default">(params) =&gt; Promise&lt;ShopbyContext&gt;</code></h2>
+    <i>* 이미지 업로드하기</i>
+  </summary><p></p>
+<ul>
+<li><p>이미지 업로드</p></li>
+<li><p>판품 신청 페이지 &gt; 반품사유 &gt; 첨부파일 업로드에서 사용됩니다.</p></li>
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th>파라미터</th>
+      <th>타입</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>params</td>
+      <td><code class="code--default">object</code></td>
+      <td>
+        <table>
+          <thead>
+            <tr>
+              <th>프로퍼티</th>
+              <th>타입</th>
+              <th>설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>files</td>
+              <td><code class="code--default">string</code></td>
+              <td>file을 통해 얻은 imageUrl</td>
+            </tr>
+            <tr>
+              <td>image</td>
+              <td><code class="code--default">object[]</code></td>
+              <td>
+                <p>이미 업로드된 이미지들에 대한 데이터. 해당 action 함수로 이미지파일을 업로드 한 뒤 응답데이터로 얻을 수 있습니다.</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>프로퍼티(각 object 별)</th>
+                      <th>타입</th>
+                      <th>설명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>imageUrl</td>
+                      <td><code class="code--default">string</code></td>
+                      <td>files을 통해 얻은 imageUrl</td>
+                    </tr>
+                    <tr>
+                      <td>originName</td>
+                      <td><code class="code--default">string</code></td>
+                      <td>files을 통해 얻은 originName</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>limitFileSizeInMegaBytes</td>
+              <td><code class="code--default">number</code></td>
+              <td>이미지 최대 사이즈(MB)</td>
+            </tr>
+            <tr>
+              <td>limitCount</td>
+              <td><code class="code--default">number</code></td>
+              <td>업로드 가능한 이미지 수</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+<li>해당 API의 호출 성공 이후 추가 동작이 발생합니다.</li>
+</ul>
+<blockquote>
+  <ul>
+  <li><code class="code--default">POST_IMAGES</code> 이벤트를 통해 API 응답 데이터가 전달됩니다.</li>
+  </ul>
+</blockquote>
+<p></p></details><p></p>
+<hr>
+<p></p><details>
+  <summary>
+    <h2>postFiles <code class="code--default">(params) =&gt; Promise&lt;ShopbyContext&gt;</code></h2>
+    <i>* 파일 업로드하기</i>
+  </summary><p></p>
+<ul>
+<li>파일 업로드</li>
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th>파라미터</th>
+      <th>타입</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>params</td>
+      <td><code class="code--default">object</code></td>
+      <td>
+        <table>
+          <thead>
+            <tr>
+              <th>프로퍼티</th>
+              <th>타입</th>
+              <th>설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>files</td>
+              <td><code class="code--default">File[]</code></td>
+              <td>
+                <div>HTMLInput(type : file)을 통해 전달받은 files 데이터를 담은 배열</div>
+                <div><span>허용 확장자:</span> <code class="code--default">JPG / JPEG / GIF / PNG / BMP / PDF / DOC / DOCX / ZIP / LOG / ICO / PPTX / XLSX / XLS</code></div>
+              </td>
+            </tr>
+            <tr>
+              <td>limitFileSizeInMegaBytes</td>
+              <td><code class="code--default">number</code></td>
+              <td>최대 사이즈(MB)</td>
+            </tr>
+            <tr>
+              <td>limitCount</td>
+              <td><code class="code--default">number</code></td>
+              <td>업로드 가능한 파일 수</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+<li>해당 API의 호출 성공 이후 추가 동작이 발생합니다.</li>
+</ul>
+<blockquote>
+  <ul>
+  <li><code class="code--default">POST_FILES</code> 이벤트를 통해 api 응답 데이터가 전달됩니다.</li>
+  </ul>
+</blockquote>
+<p></p></details><p></p>
+<hr></body></html>

@@ -1,0 +1,867 @@
+<!DOCTYPE html><html lang="ko"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aurora Modules</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <link rel="shortcut icon" href="https://github.com/nhn-commerce-fe/shopby-ui-docs/assets/131448949/32dd51ad-740a-42e0-9f97-ec9a7cf8f529" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=IBM+Plex+Sans+KR&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Nanum+Myeongjo&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --color-point: #504eb3;
+
+                --color-bg-black: #304b4f;
+                --color-bg-white: #eff8fa;
+
+                --color-error: #f92626;
+                --color-caution: #f92626;
+                --color-warning: #ff561d;
+                --color-success: #00a354;
+                --color-loading: #0f53b8;
+                --color-secondary: #3f434c;
+                --color-tertiary: #408aec;
+                --color-base-white: #fff;
+                --color-base-black: #000;
+                --color-base-navy: #3f434c;
+
+                --color-error-tender: #ffeaee;
+                --color-warning-tender: #ffefdf;
+                --color-success-tender: #d3f8df;
+                --color-loading-tender: #d3e2f8;
+
+                --gray100: #f5f5f5;
+                --gray200: #ececec;
+                --gray300: #dedede;
+                --gray400: #a3a3a3;
+                --gray500: #6e6e6e;
+                --gray600: #444;
+                --gray700: #262626;
+            }
+            * {
+                font-family: 'Montserrat', sans-serif !important;
+                font-optical-sizing: auto;
+                font-style: normal;
+                margin: 0;
+            }
+            html {
+                height: 100%;
+            }
+            body {
+                height: 100%;
+                padding-block: 30px;
+                padding-inline: 12px;
+                font-size: 14px;
+            }
+            .main {
+                display: flex;
+                gap: 30px;
+                min-height: 100dvh;
+            }
+            .category {
+                flex: none;
+                width: 250px;
+                font-family: 'Montserrat', sans-serif;
+            }
+            .category-title {
+                width: 250px;
+                font-size: 20px;
+                font-weight: 600;
+                position: relative;
+                border-width: 0;
+                border-bottom: 1px solid var(--gray200);
+                position: fixed;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                top: 0;
+                left: 0;
+                padding: 8px 16px;
+                background-color: rgba(255, 255, 255, 0.8);
+                height: 50px;
+                z-index: 10;
+            }
+            .category-title a {
+                color: var(--color-base-black);
+                text-decoration: none;
+            }
+            .category-item {
+                a {
+                    display: inline-block;
+                    border-left: 2px solid var(--gray200);
+                    padding-inline-start: 8px;
+                    padding-block: 6px;
+                    line-height: 24px;
+                    vertical-align: middle;
+                    margin-inline-start: 9px;
+                }
+            }
+
+            .category-item.active {
+                background-color: #408aec1c;
+                border-radius: 4px;
+
+                a {
+                    border-color: var(--color-tertiary);
+                    color: var(--color-tertiary);
+                }
+            }
+            .category-active {
+                font-weight: bold;
+            }
+
+            .category.open {
+                margin-inline-start: 0px;
+                .ico-menu-close {
+                    display: inline-block;
+                }
+            }
+            .category.open .ico-menu-open {
+                display: none;
+            }
+            .category:not(.open) .ico-menu-close {
+                display: none;
+            }
+            .category:not(.open) {
+                .ico-menu-open {
+                    display: inline-block;
+                }
+                margin-inline-start: -200px !important;
+
+                .category-menu {
+                    margin-right: 100px;
+                    padding-top: 50px;
+                }
+            }
+            .category button {
+                display: inline-flex;
+                align-items: center;
+                position: relative;
+                box-sizing: border-box;
+                line-height: 1.75;
+                cursor: pointer;
+                font-weight: bold;
+                border: none;
+            }
+            .category-menu {
+                color: var(--gray500);
+                padding-top: 50px;
+
+                details {
+                    padding-inline-start: 4px;
+                    padding-block-end: 12px;
+
+                    summary {
+                        padding: 8px 12px;
+                        border-radius: 4px;
+                    }
+
+                    summary::marker {
+                        color: var(--color-tertiary);
+                    }
+
+                    .category-list {
+                        padding: 0;
+                        overflow: hidden;
+                    }
+                }
+
+                details[open] {
+                    color: var(--gray700);
+                    font-weight: bold;
+
+                    summary {
+                        padding: 12px;
+                    }
+                }
+            }
+
+            .menu-open-btn {
+                background: none;
+                padding: 0;
+                border: none;
+            }
+            .category ul {
+                list-style: none;
+                margin: 0;
+                position: relative;
+
+                a {
+                    text-decoration: none;
+                    color: var(--gray400);
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+            .category-name {
+                width: 100%;
+                padding-inline-start: 12px;
+                background-color: white;
+                overflow: hidden;
+                font-size: 16px;
+            }
+            .ico-arrow-r {
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 12px solid black;
+            }
+            details.module {
+                border: 1px solid #aaa;
+                border-radius: 4px;
+                padding: 0.5em 0.5em 0;
+            }
+            summary {
+                font-weight: bold;
+                margin: -0.5em -0.5em 0;
+                padding: 0.5em;
+                cursor: pointer;
+            }
+            details.module[open] {
+                padding: 0.5em;
+            }
+            details.module[open] summary {
+                border-bottom: 1px solid #aaa;
+                margin-bottom: 0.5em;
+            }
+
+            a {
+                color: var(--color-bg-black);
+            }
+            /* 코드 블럭 */
+            .code-block {
+                position: relative;
+                margin: 12px auto;
+                padding: 12px;
+                background-color: var(--color-bg-black);
+                border-radius: 6px;
+            }
+            .code-block p {
+                color: #ccc;
+            }
+            .guide-link {
+                color: #408aec;
+            }
+            pre[class*='language-'] {
+                background-color: var(--color-bg-black);
+                margin: 6px;
+                padding: 6px;
+            }
+            .copy-button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: var(--color-bg-white);
+                color: #24393d;
+                border: none;
+                padding: 6px 12px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .token {
+                font-weight: 500;
+                font-size: 16px;
+            }
+            .token.tag {
+                color: #00e4ad;
+            }
+            .token.attr-name {
+                color: #7cd4fb;
+            }
+            .token.attr-value {
+                color: #f9c5c6;
+            }
+            .inline-code-block {
+                background-color: var(--color-bg-black);
+                padding: 2px 6px;
+                border-radius: 4px;
+                color: #f3f973;
+            }
+
+            .guide-introduction {
+                display: flex;
+                width: 100%;
+                .background:nth-child(even) {
+                    background-color: #f1f3f8;
+                }
+
+                h2 {
+                    font-weight: 500;
+                    padding-block-end: 20px;
+                }
+
+                a {
+                    padding-block-end: 1px;
+                }
+                a:hover {
+                    color: var(--color-point);
+                    border-color: var(--color-point);
+                }
+                p {
+                    line-height: 25px;
+                }
+            }
+
+            .guide-menu {
+                background-color: var(--color-point);
+                list-style-type: none;
+                margin: 0;
+                padding: 20px;
+
+                background-color: var(--color-point);
+
+                li {
+                    padding-block: 20px;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+
+            .guide-content {
+                width: 100%;
+            }
+
+            .copy-block + .copy-block {
+                margin-top: 40px;
+            }
+
+            @media (min-width: 1000px) {
+                .section {
+                    width: 1000px;
+                }
+            }
+
+            .section {
+                margin: auto;
+                padding-block: 60px;
+            }
+            .guide-summary {
+                margin: 20px;
+                padding: 20px;
+                text-align: center;
+
+                h1 {
+                    font-size: 52px;
+                    color: var(--color-point);
+                }
+
+                p {
+                    font-size: 18px;
+                    color: var(--color-bg-black);
+                    line-height: normal;
+                }
+            }
+
+            .guide-skill {
+                a {
+                    width: fit-content;
+                }
+
+                a + a {
+                    margin-block-start: 10px;
+                }
+            }
+
+            .guide-global-object {
+                ul {
+                    padding: unset;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                    margin-block-start: 38px;
+                }
+                li {
+                    list-style: none;
+                    width: 292px;
+                    border: 1px solid black;
+                    /* padding: 30px 12px; */
+                    border-radius: 4px;
+                    margin-bottom: 14px;
+                }
+                a {
+                    border: none;
+                    display: block;
+                    padding: 30px 12px;
+                }
+
+                a:hover {
+                    background-color: var(--color-point);
+                    color: #fff;
+                }
+
+                .link {
+                    span {
+                        display: block;
+                        text-align: center;
+                    }
+                }
+
+                .link--disabled {
+                    background-color: #ccc;
+                    border: 1px solid var(--gray500);
+
+                    a {
+                        color: var(--gray400);
+                        cursor: not-allowed;
+                        user-select: none;
+                        pointer-events: none;
+                    }
+
+                    a:hover {
+                        background-color: #ccc;
+                        pointer-events: none;
+                    }
+                }
+
+                .link__title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    padding-block: 12px;
+                }
+            }
+
+            footer {
+                min-height: 200px;
+                span {
+                    display: block;
+                    text-align: center;
+                    padding-top: 100px;
+                }
+            }
+
+            .image {
+                display: inline-block;
+                width: 500px;
+                padding: 20px;
+
+                img {
+                    display: inline-block;
+                    width: 100%;
+                }
+            }
+            .language-html {
+                line-height: 1.2;
+            }
+            .web-components-code-block {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 15px;
+
+                .code-block {
+                    margin: 0;
+                    box-shadow: 10px 10px 10px #ccc;
+                }
+            }
+            .web-components-code-rendering-arrow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                color: var(--color-point);
+                font-size: 35px;
+            }
+            .web-components-code-result img {
+                box-shadow: 10px 10px 10px #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="category open">
+                <div class="category-title">
+                    <span><a href="/shopby-ui-docs/module/index.html">Aurora Modules</a></span>
+                    <button class="menu-open-btn">
+                        <svg class="ico-menu-close" xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28">
+                            <path d="M120-240v-80h520v80H120Zm664-40L584-480l200-200 56 56-144 144 144 144-56 56ZM120-440v-80h400v80H120Zm0-200v-80h520v80H120Z"></path>
+                        </svg>
+                        <svg class="ico-menu-open" xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="category-menu"><details>
+    <summary>
+        <span class="category-name" data-category="common">공통</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/common/AttachImagesSlider.html?menu=open&amp;category=common&amp;module=attach-images-slider" data-category="common" data-module="attach-images-slider">첨부파일 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/DateSearch.html?menu=open&amp;category=common&amp;module=date-search" data-category="common" data-module="date-search">기간 검색</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/DateTypeSelector.html?menu=open&amp;category=common&amp;module=date-type-selector" data-category="common" data-module="date-type-selector">기간 타입 선택</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/FileAttachments.html?menu=open&amp;category=common&amp;module=file-attachments" data-category="common" data-module="file-attachments">파일 첨부</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/MallInformation.html?menu=open&amp;category=common&amp;module=mall-information" data-category="common" data-module="mall-information">쇼핑몰 정보</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/SearchField.html?menu=open&amp;category=common&amp;module=search-field" data-category="common" data-module="search-field">검색 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/ShopbyTimer.html?menu=open&amp;category=common&amp;module=shopby-timer" data-category="common" data-module="shopby-timer">타이머</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="product">상품</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/product/ProductDetail.html?menu=open&amp;category=product&amp;module=product-detail" data-category="product" data-module="product-detail">상품 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/product/ProductList.html?menu=open&amp;category=product&amp;module=product-list" data-category="product" data-module="product-list">상품 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/product/ProductPurchase.html?menu=open&amp;category=product&amp;module=product-purchase" data-category="product" data-module="product-purchase">상품 구매하기</a></li><li class="category-item"><a href="/shopby-ui-docs/module/product/RecentProduct.html?menu=open&amp;category=product&amp;module=recent-product" data-category="product" data-module="recent-product">최근 본 상품</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="my">마이페이지</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/my/AccumulationList.html?menu=open&amp;category=my&amp;module=accumulation-list" data-category="my" data-module="accumulation-list">적립금</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ClaimDetail.html?menu=open&amp;category=my&amp;module=claim-detail" data-category="my" data-module="claim-detail">취소/반품/교환 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ClaimForm.html?menu=open&amp;category=my&amp;module=claim-form" data-category="my" data-module="claim-form">취소/교환/반품 신청</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/CouponList.html?menu=open&amp;category=my&amp;module=coupon-list" data-category="my" data-module="coupon-list">쿠폰</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/InquiryDetail.html?menu=open&amp;category=my&amp;module=inquiry-detail" data-category="my" data-module="inquiry-detail">1:1문의 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/InquiryList.html?menu=open&amp;category=my&amp;module=inquiry-list" data-category="my" data-module="inquiry-list">1:1문의 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/LikeProductList.html?menu=open&amp;category=my&amp;module=like-product-list" data-category="my" data-module="like-product-list">좋아요</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/MyOrders.html?menu=open&amp;category=my&amp;module=my-orders" data-category="my" data-module="my-orders">주문 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/MyPage.html?menu=open&amp;category=my&amp;module=my-page" data-category="my" data-module="my-page">마이페이지</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/PreviousOrder.html?menu=open&amp;category=my&amp;module=previous-order" data-category="my" data-module="previous-order">이전주문 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/PreviousOrders.html?menu=open&amp;category=my&amp;module=previous-orders" data-category="my" data-module="previous-orders">이전주문 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductInquiryDetail.html?menu=open&amp;category=my&amp;module=product-inquiry-detail" data-category="my" data-module="product-inquiry-detail">상품문의 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductInquiryList.html?menu=open&amp;category=my&amp;module=product-inquiry-list" data-category="my" data-module="product-inquiry-list">상품문의 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductReviewDetail.html?menu=open&amp;category=my&amp;module=product-review-detail" data-category="my" data-module="product-review-detail">상품후기 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductReviewList.html?menu=open&amp;category=my&amp;module=product-review-list" data-category="my" data-module="product-review-list">상품후기 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ShippingAddressForm.html?menu=open&amp;category=my&amp;module=shipping-address-form" data-category="my" data-module="shipping-address-form">배송지 등록/수정 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ShippingAddressList.html?menu=open&amp;category=my&amp;module=shipping-address-list" data-category="my" data-module="shipping-address-list">배송지 관리 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/WithdrawalProfileForm.html?menu=open&amp;category=my&amp;module=withdrawal-profile-form" data-category="my" data-module="withdrawal-profile-form">회원 탈퇴 폼</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="order">주문</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/order/Cart.html?menu=open&amp;category=order&amp;module=cart" data-category="order" data-module="cart">장바구니</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderComplete.html?menu=open&amp;category=order&amp;module=order-complete" data-category="order" data-module="order-complete">주문 완료</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderDetail.html?menu=open&amp;category=order&amp;module=order-detail" data-category="order" data-module="order-detail">주문 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderFail.html?menu=open&amp;category=order&amp;module=order-fail" data-category="order" data-module="order-fail">결제 실패</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderSheet.html?menu=open&amp;category=order&amp;module=order-sheet" data-category="order" data-module="order-sheet">주문서</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderSpecification.html?menu=open&amp;category=order&amp;module=order-specification" data-category="order" data-module="order-specification">거래명세서/간이영수증</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="member">회원</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/member/DormantSignIn.html?menu=open&amp;category=member&amp;module=dormant-sign-in" data-category="member" data-module="dormant-sign-in">휴면회원 로그인</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/FindAccount.html?menu=open&amp;category=member&amp;module=find-account" data-category="member" data-module="find-account">계정 찾기</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/FindIdResult.html?menu=open&amp;category=member&amp;module=find-id-result" data-category="member" data-module="find-id-result">아이디 찾기 결과</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/GuestOrder.html?menu=open&amp;category=member&amp;module=guest-order" data-category="member" data-module="guest-order">비회원 주문조회</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/MemberAuthenticationResult.html?menu=open&amp;category=member&amp;module=member-authentication-result" data-category="member" data-module="member-authentication-result">회원인증 결과</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/OpenIdSignIn.html?menu=open&amp;category=member&amp;module=open-id-sign-in" data-category="member" data-module="open-id-sign-in">간편 로그인</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/OpenIdSignUp.html?menu=open&amp;category=member&amp;module=open-id-sign-up" data-category="member" data-module="open-id-sign-up">간편 회원가입</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/PasswordChangeForm.html?menu=open&amp;category=member&amp;module=password-change-form" data-category="member" data-module="password-change-form">비밀번호 변경 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/ProfileForm.html?menu=open&amp;category=member&amp;module=profile-form" data-category="member" data-module="profile-form">회원정보 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/SignInForm.html?menu=open&amp;category=member&amp;module=sign-in-form" data-category="member" data-module="sign-in-form">로그인 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/TermDetail.html?menu=open&amp;category=member&amp;module=term-detail" data-category="member" data-module="term-detail">쇼핑몰 약관 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/TermsInformation.html?menu=open&amp;category=member&amp;module=terms-information" data-category="member" data-module="terms-information">쇼핑몰 약관</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="board">게시판</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/board/ArticleForm.html?menu=open&amp;category=board&amp;module=article-form" data-category="board" data-module="article-form">게시글 등록 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/ArticleList.html?menu=open&amp;category=board&amp;module=article-list" data-category="board" data-module="article-list">게시판 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/ArticleView.html?menu=open&amp;category=board&amp;module=article-view" data-category="board" data-module="article-view">게시판 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/BoardReviewsDetail.html?menu=open&amp;category=board&amp;module=board-reviews-detail" data-category="board" data-module="board-reviews-detail">상품 후기 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/BoardReviewsList.html?menu=open&amp;category=board&amp;module=board-reviews-list" data-category="board" data-module="board-reviews-list">상품 후기 게시판 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/BoardReviewsPhotos.html?menu=open&amp;category=board&amp;module=board-reviews-photos" data-category="board" data-module="board-reviews-photos">상품 후기 포토 모아보기</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/PasswordForm.html?menu=open&amp;category=board&amp;module=password-form" data-category="board" data-module="password-form">비밀번호 입력</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="display">진열</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/display/DisplayDetail.html?menu=open&amp;category=display&amp;module=display-detail" data-category="display" data-module="display-detail">상품진열</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="event">기획전</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/event/EventDetail.html?menu=open&amp;category=event&amp;module=event-detail" data-category="event" data-module="event-detail">기획전 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/event/Events.html?menu=open&amp;category=event&amp;module=events" data-category="event" data-module="events">기획전 목록</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="layout">레이아웃</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/layout/CategorySlider.html?menu=open&amp;category=layout&amp;module=category-slider" data-category="layout" data-module="category-slider">(모바일)카테고리 슬라이더</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/CategoryTabs.html?menu=open&amp;category=layout&amp;module=category-tabs" data-category="layout" data-module="category-tabs">카테고리 탭</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/DesignPopup.html?menu=open&amp;category=layout&amp;module=design-popup" data-category="layout" data-module="design-popup">디자인 팝업</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/DisplayProduct.html?menu=open&amp;category=layout&amp;module=display-product" data-category="layout" data-module="display-product">상품 진열</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/Instagram.html?menu=open&amp;category=layout&amp;module=instagram" data-category="layout" data-module="instagram">인스타그램</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/ShopbyFooter.html?menu=open&amp;category=layout&amp;module=shopby-footer" data-category="layout" data-module="shopby-footer">공통 하단</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/ShopbyHeader.html?menu=open&amp;category=layout&amp;module=shopby-header" data-category="layout" data-module="shopby-header">공통 상단</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/ShopbyTabs.html?menu=open&amp;category=layout&amp;module=shopby-tabs" data-category="layout" data-module="shopby-tabs">탭</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/SkinBanner.html?menu=open&amp;category=layout&amp;module=skin-banner" data-category="layout" data-module="skin-banner">스킨 배너</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/SlideMenu.html?menu=open&amp;category=layout&amp;module=slide-menu" data-category="layout" data-module="slide-menu">(모바일)슬라이드 메뉴</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="service">서비스</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/service/TermsDetail.html?menu=open&amp;category=service&amp;module=terms-detail" data-category="service" data-module="terms-detail">회사소개/이용약관/개인정보처리방침/이용안내</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="manage">운영</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/manage/AddressList.html?menu=open&amp;category=manage&amp;module=address-list" data-category="manage" data-module="address-list">주소 목록</a></li></ul>
+</details>
+</div>
+            </div>
+            <div class="guide-introduction">
+                <div class="guide-content">
+                    <section class="background guide-summary">
+                        <h1>Aurora Modules</h1>
+                        <p>
+                            복잡한 비즈니스 로직은 NHN커머스 모듈에 맡기세요!
+                            <br>
+                            NHN커머스에서 제공하는 공식 모듈을 활용하여
+                            <br>
+                            UI 개발에 집중해서 쉽고 빠르게 스킨을 제작할 수 있습니다.
+                        </p>
+                    </section>
+
+                    <section id="guide-installation" class="background">
+                        <div class="section">
+                            <h2>설치하기</h2>
+                            <p>
+                                shopby-skin.js를 사용하시면 ShopbySkin에서 전역으로 제공하는 다양한 유틸, 핸들바 커스텀 헬퍼 함수 사용과 손쉬운 API 호출이
+                                가능합니다.
+                            </p>
+                            <div class="copy-block">
+                                모듈 스크립트를 로드하려면 프로젝트
+                                <span class="inline-code-block">&lt;head&gt;&lt;/head&gt;</span>
+                                안에 다음 코드를 추가하세요.
+                                <div class="code-block">
+                                    <button type="button" class="copy-button" data-action="COPY">JS 복사하기</button>
+                                    <pre><code class="language-html">&lt;script src="https://shopby-skin.cdn-nhncommerce.com/{버전}/shopby-skin.js" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+                                </div>
+                            </div>
+                            <a href="https://nhnent.dooray.com/share/pages/mBkooLTRTNCCyxUNdS9_HA" target="_blank">shopby-skin.js 최신 버전 확인하러가기</a>
+                        </div>
+                    </section>
+
+                    <section class="background guide-skill">
+                        <div class="section">
+                            <h2>기술스펙</h2>
+                            <p>
+                                ShopbySkin은 코드의 재사용성과 사용자의 쉬운 커스텀을 고려하여 <strong>Web Components</strong>와
+                                <strong>HandlebarsJS</strong> 기술 스펙을 사용합니다.
+                            </p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components" target="_blank">Web Components</a><span>의 <strong>뛰어난 재사용성</strong>, <strong>모듈화</strong>에 장점과</span>
+                            <span><a href="https://handlebarsjs.com/" target="_blank">HandlebarsJS</a>의 <strong>간결하고 직관적인 문법</strong>을 경험하실 수
+                                있습니다.</span>
+                        </div>
+                    </section>
+
+                    <section class="background guide-skill">
+                        <div class="section">
+                            <h2>Web Components 사용해보기</h2>
+                            <p>아래 예시 코드와 같이 ShopbySkin에서 제공하는 모듈을 쉽게 재사용할 수 있습니다.</p>
+                            <blockquote>
+                                <p>
+                                    제공되는 모듈을 더 알아보고 싶다면
+                                    <a href="/shopby-ui-docs/module/product/ProductList.html?menu=open&amp;category=product&amp;module=product-list" class="guide-link">모듈 가이드 문서</a>에서 확인하실 수 있습니다.
+                                </p>
+                            </blockquote>
+                            <div class="web-components-code-block">
+                                <div class="code-block">
+                                    <pre>                                <code class="language-html">
+&lt;!-- 첫번째 상품 목록 --&gt;
+&lt;product-list-items&gt;
+    &lt;!-- handlebars template 스크립트 태그 추가 --&gt;
+        &lt;script type="text/x-handlebars-template"&gt;
+            &lt;section&gt;
+                {{#each items}}
+                ...
+                {{/each}}
+            &lt;/section&gt;
+    &lt;/script&gt;
+&lt;/product-list-items&gt;
+
+&lt;!-- 두번째 상품 목록 --&gt;
+&lt;product-list-items&gt;
+    &lt;!-- handlebars template 스크립트 태그 추가 --&gt;
+        &lt;script type="text/x-handlebars-template"&gt;
+            &lt;section&gt;
+                {{#each items}}
+                ...
+                {{/each}}
+            &lt;/section&gt;
+    &lt;/script&gt;
+&lt;/product-list-items&gt;
+                                </code>
+                            </pre>
+                                </div>
+                                <div class="web-components-code-rendering-arrow">➡</div>
+                                <div class="web-components-code-result">
+                                    <img width="376" alt="웹컴포넌트결과" src="https://github.com/nhn-commerce-fe/shopby-ui-docs/assets/156779469/48b6f08a-d329-4f29-87aa-22e05252c5ff">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h2>Handlebars 사용해보기</h2>
+                            <p>
+                                핸들바에서 제공하는 API를 사용하는 템플릿이 정상적으로 렌더링되기 위해서는
+                                <span class="inline-code-block">&lt;script type="text/x-handlebars-template"&gt;&lt;/script&gt;</span>
+                                태그를 추가해야합니다.
+                            </p>
+                            <p>
+                                HandlebarsJS를 더 알아보고 싶다면
+                                <a href="https://handlebarsjs.com/guide/" class="guide-link" target="_blank">HandlebarsJS 공식 가이드 문서</a>에서 확인하실 수
+                                있습니다.
+                            </p>
+                            <p>
+                                오로라 커스텀 핸들바 가이드는
+                                <a class="guide-link" href="javascript:openWindowPop('/shopby-ui-docs/common/hbs.html', 'popup');">여기</a>에서 확인하실 수
+                                있습니다.
+                            </p>
+                            <div class="code-block">
+                                <pre>                                <code class="language-html">
+&lt;product-list-items&gt;
+    &lt;!-- handlebars template 스크립트 태그 추가 --&gt;
+        &lt;script type="text/x-handlebars-template"&gt;
+            &lt;section&gt;
+                {{#each items}}
+                    {{#if isSoldOut}}
+                        &lt;div &gt;SOLD OUT&lt;/div &gt;
+                    {{/if}}
+                    ...
+                {{/each}}
+        &lt;/section&gt;
+    &lt;/script&gt;
+&lt;/product-list-items&gt;
+                                  </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="background guide-skill">
+                        <div class="section" id="utils-section">
+                            <h2>Utils 등록하기</h2>
+                            <p>
+                                핸들바에 utils 를 등록해서 사용할 수 있습니다. aurora modules 에서 등록한 유틸과 함께 사용하는 경우 ShopbySkin 에서 제공하는
+                                Handlebars 에 유틸을 추가 등록해서 사용하시면 됩니다. ShopbySkin 글로벌객체는 DOMContentLoaded 시점에 제공됩니다. 따라서 등록한
+                                utils 스크립트는 body 태그 내 하단에 삽입해야합니다.
+                            </p>
+
+                            <p>pc 혹은 mobile 디렉토리 하위에 utils 디렉토리를 생성하고 handlebars.js 파일을 생성합니다.</p>
+                            <div class="code-block">
+                                <pre>                                <code class="language-md">
+    &lt;!-- PC 디렉토리 구조 --&gt;
+    pc
+      ㄴutils
+          ㄴhandlebars.js
+
+    &lt;!-- 모바일 디렉토리 구조 --&gt;
+    mo
+      ㄴutils
+          ㄴhandlebars.js
+                                    </code>
+                                </pre>
+                            </div>
+
+                            <p>handlebars.js 에 ShopbySkin.Handlebars.registerHelper 를 호출해 필요한 유틸을 등록합니다.</p>
+                            <div class="code-block">
+                                <pre>                                <code class="language-js">
+    // /utils/handlebars.js
+    (() =&gt; {
+        const { Handlebars } = ShopbySkin;
+
+        Handlebars.registerHelper({
+            example(x, y, options) {
+                return x &gt; y ? options.fn(this) : options.inverse(this);
+            },
+        });
+    })();
+                                    </code>
+                                </pre>
+                            </div>
+
+                            <p>사용할 html 파일에 handlebars.js 파일을 로드합니다.</p>
+                            <div class="code-block">
+                                <pre>                                <code class="language-html">
+    &lt;!-- /pages/order/cart.html --&gt;
+    &lt;body&gt;
+        ...
+        &lt;cart-products&gt;
+            &lt;script type="text/x-handlebars-template"&gt;
+                &lt;div&gt;
+                    &lt;p&gt;1 &gt; 2 {{#example 1 2}}참{{else}}거짓{{/example}}&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/script&gt;
+        &lt;/cart-products&gt;
+        ...
+        &lt;script src="/utils/handlebars.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="background guide-skill" id="guide-jquery-installation">
+                        <div class="section" id="utils-section">
+                            <h2>jQuery 사용하기</h2>
+                            <div class="copy-block">
+                                jQuery를 사용하려면 pc 혹은 mobile 디렉토리 pages 하위에 있는 html 문서
+                                <span class="inline-code-block">&lt;head&gt;&lt;/head&gt;</span>에 다음 코드를 추가하세요.
+                                <div class="code-block">
+                                    <button type="button" class="copy-button" data-action="COPY">JS 복사하기</button>
+                                    <pre><code class="language-html">
+&lt;!-- /pages/**/*.html --&gt;
+ &lt;script src="https://code.jquery.com/jquery-latest.min.js" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+                                </div>
+                            </div>
+                            <a href="https://releases.jquery.com/" target="_blank">jQuery CDN 확인하러가기</a>
+                        </div>
+                    </section>
+
+                    <section class="background guide-global-object">
+                        <div class="section">
+                            <h2>ShopbySkin 모듈</h2>
+                            <ul>
+                                <li class="link">
+                                    <a href="javascript:openWindowPop('/shopby-ui-docs/common/shopbyElement.html', 'ShopbySkin.shopbyElement', 1000);">
+                                        <span class="link__title">ShopbyElement</span>
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="javascript:openWindowPop('/shopby-ui-docs/common/store.html', 'ShopbySkin.store', 1000);">
+                                        <span class="link__title">Store</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h2>ShopbySkin 전역객체</h2>
+                            <ul>
+                                <!-- <li class="link link--disabled">
+                                    <a href="">
+                                        <span class="link__title">constants(준비중)</span>
+                                    </a>
+                                </li> -->
+                                <li class="link">
+                                    <a href="javascript:openWindowPop('/shopby-ui-docs/common/actions.html', 'ShopbySkin.actions', 1200);">
+                                        <span class="link__title">actions</span>
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="javascript:openWindowPop('/shopby-ui-docs/common/utils.html', 'ShopbySkin.utils');">
+                                        <span class="link__title">utils</span>
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="javascript:openWindowPop('/shopby-ui-docs/common/pageHelper.html', 'ShopbySkin.pageHelper');">
+                                        <span class="link__title">PageHelper</span>
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="javascript:openWindowPop('/shopby-ui-docs/common/EventManager.html', 'ShopbySkin.EventManager', 1000);">
+                                        <span class="link__title">EventManager</span>
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="javascript:openWindowPop('/shopby-ui-docs/common/hbs.html', 'ShopbySkin.handlebars');">
+                                        <span class="link__title">Handlebars</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <script>
+            const guideInstallationEl = document.querySelector('#guide-installation');
+            const guideJqueryInstallationEl = document.querySelector('#guide-jquery-installation');
+
+            const copyClickFunc = async ({ target }) => {
+                if (!target.dataset?.action) {
+                    return;
+                }
+
+                const codeEl = target.nextElementSibling.querySelector('code');
+                const text = codeEl.innerText;
+
+                try {
+                    await navigator?.clipboard?.writeText?.(text);
+                    alert('코드가 복사되었습니다.');
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            guideInstallationEl.addEventListener('click', copyClickFunc);
+            guideJqueryInstallationEl.addEventListener('click', copyClickFunc);
+
+            // 왼쪽 메뉴 토글 기능
+            (() => {
+                const searchParams = new URLSearchParams(location.search);
+                const categoryEl = document.querySelector('.category');
+
+                const isMenuClosed = searchParams.get('menu') === 'closed';
+
+                categoryEl?.classList?.toggle?.('open', !isMenuClosed);
+
+                const menuOpenBtn = document.querySelector('.menu-open-btn');
+                menuOpenBtn?.addEventListener('click', () => {
+                    const toggleEl = menuOpenBtn?.closest?.('.category');
+                    toggleEl?.classList?.toggle?.('open');
+                });
+            })();
+
+            function openWindowPop(url, name, width = 890, height = 790) {
+                const options = `top=10, left=10, width=${width}, height=${height}, status=no, menubar=no, toolbar=no, resizable=no`;
+                window.open(url, name, options);
+            }
+        </script>
+    
+
+</body></html>

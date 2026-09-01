@@ -1,0 +1,4339 @@
+<!DOCTYPE html><html lang="ko"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aurora Modules</title>
+        <link rel="shortcut icon" href="https://github.com/nhn-commerce-fe/shopby-ui-docs/assets/131448949/32dd51ad-740a-42e0-9f97-ec9a7cf8f529" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.css" integrity="sha512-W/cvA9Wiaq79wGy/VOkgMpOILyqxqIMU+rkneDUW2uqiUT53I6DKmrF4lmCbRG+/YrW0J69ecvanKCCyb+sIWA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/mdn-like.min.css" integrity="sha512-d1mnXGBFE/kEcVYDWOvqqRQov8YZhS5Eg5i6kX8smrEcMFcFIYpXW000lKxquKR4KdheA0+IE6xSmsmumGYNiA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- code mirror -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/simple.min.js" integrity="sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/multiplex.min.js" integrity="sha512-SnKl5kuiZJ6HI+aRXBjW1qv8USObXnN8BoPLHLQ7igatyz0QhbFgNYba9g8+zPsaYXzOm1XIrsj/b1uazysMtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/edit/matchbrackets.min.js" integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js" integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/handlebars/handlebars.min.js" integrity="sha512-pwzj1afj7oBin5vwddXhgAX44s4DRJ+J3gJs/Tr6m98tDiRC9F2jGjLfdlf+YxuMEY2ZLCwOOUWWlpsESGuvKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/css/css.min.js" integrity="sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.js" integrity="sha512-4+hfJ/4qrBFEm8Wdz+mXpoTr/weIrB6XjJZAcc4pE2Yg5B06aKS/YLMN5iIAMXFTe0f1eneuLE5sRmnSHQqFNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/css-hint.min.js" integrity="sha512-1BD3lo262s+DtDFoeD8+ssEL1zVJU8SHWWMtUyxfLqMV/jQDEnyQlS/CL3mD1kkLSv2hhYq1sdcA/zAPDz4JVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js" integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=IBM+Plex+Sans+KR&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Nanum+Myeongjo&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet">
+        <script src="https://shopby-skin.cdn-nhncommerce.com/hbs.js"></script>
+    <style>:root {
+  --color-point: #504eb3;
+
+  --color-error: #f92626;
+  --color-caution: #f92626;
+  --color-warning: #ff561d;
+  --color-success: #00a354;
+  --color-loading: #0f53b8;
+  --color-secondary: #3f434c;
+  --color-tertiary: #408aec;
+  --color-base-white: #fff;
+  --color-base-black: #000;
+  --color-base-navy: #3f434c;
+
+  --color-error-tender: #ffeaee;
+  --color-warning-tender: #ffefdf;
+  --color-success-tender: #d3f8df;
+  --color-loading-tender: #d3e2f8;
+
+  --gray100: #f5f5f5;
+  --gray200: #ececec;
+  --gray300: #dedede;
+  --gray400: #a3a3a3;
+  --gray500: #6e6e6e;
+  --gray600: #444;
+  --gray700: #262626;
+}
+
+.backtick {
+  background-color: var(--gray200);
+  padding-inline: 4px;
+  border-radius: 4px;
+}
+.code-block {
+  padding: 4px 12px;
+  line-height: 18px;
+  background-color: var(--gray100);
+  border-radius: 4px;
+  color: var(--color-base-navy);
+  font-family: system-ui;
+  margin-block: 4px;
+  span {
+    display: block;
+  }
+}
+pre {
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+}
+/* 코드 블럭 */
+.example-code xmp {
+  text-wrap: auto;
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+  color: #ccc;
+  line-height: 1.5;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-block: 30px;
+  padding-inline: 12px;
+  font-size: 14px;
+}
+.main {
+  display: flex;
+  gap: 30px;
+  min-height: 100dvh;
+}
+.category {
+  flex: none;
+  width: 250px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.category-title {
+  width: 250px;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  border-width: 0;
+  border-bottom: 1px solid var(--gray200);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 50px;
+  z-index: 10;
+}
+.category-title a {
+  color: var(--color-base-black);
+  text-decoration: none;
+}
+.category-item {
+  a {
+    display: inline-block;
+    border-left: 2px solid var(--gray200);
+    padding-inline-start: 8px;
+    padding-block: 6px;
+    line-height: 24px;
+    vertical-align: middle;
+    margin-inline-start: 9px;
+  }
+}
+
+.category-item.active {
+  background-color: #408aec1c;
+  border-radius: 4px;
+
+  a {
+    border-color: var(--color-tertiary);
+    color: var(--color-tertiary);
+  }
+}
+
+.category-active {
+  font-weight: bold;
+}
+.content {
+  flex: 1;
+  height: 100%;
+}
+.content:not(#pc-content) {
+  border: 1px solid #ececec;
+  background-color: var(--color-base-white);
+}
+.content iframe {
+  height: 500px;
+  border: none;
+}
+.CodeMirror {
+  border: 1px solid #ccc;
+  height: 100%;
+}
+.module-info-box {
+  width: 50%;
+  max-height: 900px;
+  overflow-y: auto;
+}
+.module-info-box h3 {
+  padding: 10px 0;
+}
+.module-info-box h4 {
+  margin-bottom: 7px;
+}
+.module-info-box p {
+  margin: 0;
+}
+.parameter h4 {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.module-info-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.module-info-box table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+.module-info-box table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.module-info-box table tbody td {
+  width: 300px;
+}
+.module-info {
+  margin-top: 28px;
+}
+.code-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0px 20px;
+}
+.apply-btn-container {
+  margin: 20px 0;
+}
+.apply-css-btn,
+.apply-html-btn {
+  display: none;
+}
+.parameter-container {
+  margin: 20px 0px;
+}
+.parameter h3 {
+  padding: 0;
+  margin-bottom: 0;
+}
+.parameter p {
+  margin: 0;
+}
+.parameter table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.parameter table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+.parameter table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.parameter table tbody td {
+  width: 300px;
+}
+.preview-container {
+  flex: 1;
+  margin-bottom: 50px;
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 30px;
+}
+.content-container {
+  height: 50%;
+}
+.module {
+  margin-top: 20px;
+}
+.related-module a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.related-module a::before {
+  content: '*';
+}
+details.module {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+details.module[open] {
+  padding: 0.5em;
+}
+
+details.module[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+.category.open {
+  margin-inline-start: 0px;
+  .ico-menu-close {
+    display: inline-block;
+  }
+}
+.category.open .ico-menu-open {
+  display: none;
+}
+.category:not(.open) .ico-menu-close {
+  display: none;
+}
+.category:not(.open) {
+  .ico-menu-open {
+    display: inline-block;
+  }
+  margin-inline-start: -200px !important;
+
+  .category-menu {
+    margin-right: 100px;
+    padding-top: 50px;
+  }
+}
+.category button {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 1.75;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+}
+.category-menu {
+  color: var(--gray500);
+  padding-top: 50px;
+
+  details {
+    padding-inline-start: 4px;
+    padding-block-end: 12px;
+
+    summary {
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    summary::marker {
+      color: var(--color-tertiary);
+    }
+
+    .category-list {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  details[open] {
+    color: var(--gray700);
+    font-weight: bold;
+
+    summary {
+      padding: 12px;
+    }
+  }
+}
+
+.menu-open-btn {
+  background: none;
+  padding: 0;
+  border: none;
+}
+.category ul {
+  list-style: none;
+  margin: 0;
+  position: relative;
+
+  a {
+    text-decoration: none;
+    color: var(--gray400);
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+.category-name {
+  width: 100%;
+  padding-inline-start: 12px;
+  background-color: white;
+  overflow: hidden;
+  font-size: 16px;
+}
+.ico-arrow-r {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid black;
+}
+.html-code {
+  display: none;
+}
+.hbs-code {
+  display: none;
+}
+.mobile-html-code {
+  display: block;
+}
+.mobile-hbs-code {
+  display: none;
+}
+.mobile-content {
+  flex: 1;
+  border: 1px solid #ececec;
+  background-color: #f4f4f4;
+}
+
+.mobile-content iframe {
+  border: none;
+  height: 500px;
+}
+#mobile-content {
+  width: 375px;
+  margin: auto;
+}
+#pc-content {
+  transform: scale(0.9);
+}
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  border-width: 0;
+  border-bottom: 1px solid var(--gray200);
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 8px 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: calc(100% - 320px);
+  height: 50px;
+  z-index: 10;
+}
+.toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+.toggle button {
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "'Noto Sans KR'";
+  font-size: 14px;
+  border-radius: 12px;
+  padding: 11px;
+  border: 1px solid rgb(218, 226, 237);
+  text-transform: none;
+  font-weight: 500;
+  color: rgb(48, 55, 64);
+}
+.toggle button:first-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.toggle button:last-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 1px solid transparent;
+}
+.toggle .selected {
+  font-weight: 600;
+  color: #408aec;
+  background-color: #d3e2f8;
+}
+
+.active-module {
+  display: block;
+  padding: 20px;
+  margin-block: 36px;
+  box-shadow: 0px 8px 16px 10px var(--gray200);
+  border: 2px solid var(--gray400);
+  transform: scale(1.1);
+}
+
+.module-info-container {
+  display: flex;
+  flex: 1;
+}
+
+.module-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  line-height: 23px;
+
+  ul {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+}
+.module-info-divider {
+  position: relative;
+}
+.module-info-divider-line {
+  position: absolute;
+  background-color: #cbd5e0;
+  cursor: col-resize;
+  height: 100%;
+  width: 1px;
+  margin: 0 10px;
+}
+.module-info-divider-line:hover {
+  background-color: #a7b1bb;
+  width: 2px;
+}
+.content-divider {
+  position: relative;
+}
+.content-divider-line {
+  position: absolute;
+  background-color: #cbd5e0;
+  cursor: row-resize;
+  height: 1px;
+  width: 100%;
+  margin: 10px 0;
+}
+.content-divider-line:hover {
+  background-color: #a7b1bb;
+  height: 2px;
+}
+.preview-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray400);
+}
+.reset-btn,
+.copy-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.reset-popover,
+.copy-popover {
+  display: none;
+  position: absolute;
+  background-color: var(--gray400);
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+  z-index: 10;
+  width: 55px;
+  right: -20px;
+}
+.code-option-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.code-option-container span {
+  color: var(--gray500);
+  font-size: 12px;
+}
+.toast-message {
+  opacity: 0;
+  position: fixed;
+  bottom: 50px;
+  border-radius: 15px;
+  transition: all 0.5s;
+  background-color: var(--gray400);
+  color: white;
+  padding: 10px;
+}
+.toast-message.active {
+  opacity: 100%;
+}
+
+summary {
+  position: relative;
+}
+
+summary .link {
+  position: absolute;
+  right: 15px;
+}
+</style></head>
+    <body>
+        <div class="main">
+            <div class="category open">
+                <div class="category-title">
+                    <span><a href="/shopby-ui-docs/module/index.html">Aurora Modules</a></span>
+                    <button class="menu-open-btn">
+                        <svg class="ico-menu-close" xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28">
+                            <path d="M120-240v-80h520v80H120Zm664-40L584-480l200-200 56 56-144 144 144 144-56 56ZM120-440v-80h400v80H120Zm0-200v-80h520v80H120Z"></path>
+                        </svg>
+                        <svg class="ico-menu-open" xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="category-menu"><details>
+    <summary>
+        <span class="category-name" data-category="common">공통</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/common/AttachImagesSlider.html?menu=open&amp;category=common&amp;module=attach-images-slider" data-category="common" data-module="attach-images-slider">첨부파일 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/DateSearch.html?menu=open&amp;category=common&amp;module=date-search" data-category="common" data-module="date-search">기간 검색</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/DateTypeSelector.html?menu=open&amp;category=common&amp;module=date-type-selector" data-category="common" data-module="date-type-selector">기간 타입 선택</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/FileAttachments.html?menu=open&amp;category=common&amp;module=file-attachments" data-category="common" data-module="file-attachments">파일 첨부</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/MallInformation.html?menu=open&amp;category=common&amp;module=mall-information" data-category="common" data-module="mall-information">쇼핑몰 정보</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/SearchField.html?menu=open&amp;category=common&amp;module=search-field" data-category="common" data-module="search-field">검색 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/common/ShopbyTimer.html?menu=open&amp;category=common&amp;module=shopby-timer" data-category="common" data-module="shopby-timer">타이머</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="product">상품</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/product/ProductDetail.html?menu=open&amp;category=product&amp;module=product-detail" data-category="product" data-module="product-detail">상품 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/product/ProductList.html?menu=open&amp;category=product&amp;module=product-list" data-category="product" data-module="product-list">상품 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/product/ProductPurchase.html?menu=open&amp;category=product&amp;module=product-purchase" data-category="product" data-module="product-purchase">상품 구매하기</a></li><li class="category-item"><a href="/shopby-ui-docs/module/product/RecentProduct.html?menu=open&amp;category=product&amp;module=recent-product" data-category="product" data-module="recent-product">최근 본 상품</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="my">마이페이지</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/my/AccumulationList.html?menu=open&amp;category=my&amp;module=accumulation-list" data-category="my" data-module="accumulation-list">적립금</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ClaimDetail.html?menu=open&amp;category=my&amp;module=claim-detail" data-category="my" data-module="claim-detail">취소/반품/교환 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ClaimForm.html?menu=open&amp;category=my&amp;module=claim-form" data-category="my" data-module="claim-form">취소/교환/반품 신청</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/CouponList.html?menu=open&amp;category=my&amp;module=coupon-list" data-category="my" data-module="coupon-list">쿠폰</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/InquiryDetail.html?menu=open&amp;category=my&amp;module=inquiry-detail" data-category="my" data-module="inquiry-detail">1:1문의 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/InquiryList.html?menu=open&amp;category=my&amp;module=inquiry-list" data-category="my" data-module="inquiry-list">1:1문의 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/LikeProductList.html?menu=open&amp;category=my&amp;module=like-product-list" data-category="my" data-module="like-product-list">좋아요</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/MyOrders.html?menu=open&amp;category=my&amp;module=my-orders" data-category="my" data-module="my-orders">주문 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/MyPage.html?menu=open&amp;category=my&amp;module=my-page" data-category="my" data-module="my-page">마이페이지</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/PreviousOrder.html?menu=open&amp;category=my&amp;module=previous-order" data-category="my" data-module="previous-order">이전주문 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/PreviousOrders.html?menu=open&amp;category=my&amp;module=previous-orders" data-category="my" data-module="previous-orders">이전주문 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductInquiryDetail.html?menu=open&amp;category=my&amp;module=product-inquiry-detail" data-category="my" data-module="product-inquiry-detail">상품문의 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductInquiryList.html?menu=open&amp;category=my&amp;module=product-inquiry-list" data-category="my" data-module="product-inquiry-list">상품문의 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductReviewDetail.html?menu=open&amp;category=my&amp;module=product-review-detail" data-category="my" data-module="product-review-detail">상품후기 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ProductReviewList.html?menu=open&amp;category=my&amp;module=product-review-list" data-category="my" data-module="product-review-list">상품후기 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ShippingAddressForm.html?menu=open&amp;category=my&amp;module=shipping-address-form" data-category="my" data-module="shipping-address-form">배송지 등록/수정 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/ShippingAddressList.html?menu=open&amp;category=my&amp;module=shipping-address-list" data-category="my" data-module="shipping-address-list">배송지 관리 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/my/WithdrawalProfileForm.html?menu=open&amp;category=my&amp;module=withdrawal-profile-form" data-category="my" data-module="withdrawal-profile-form">회원 탈퇴 폼</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="order">주문</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/order/Cart.html?menu=open&amp;category=order&amp;module=cart" data-category="order" data-module="cart">장바구니</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderComplete.html?menu=open&amp;category=order&amp;module=order-complete" data-category="order" data-module="order-complete">주문 완료</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderDetail.html?menu=open&amp;category=order&amp;module=order-detail" data-category="order" data-module="order-detail">주문 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderFail.html?menu=open&amp;category=order&amp;module=order-fail" data-category="order" data-module="order-fail">결제 실패</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderSheet.html?menu=open&amp;category=order&amp;module=order-sheet" data-category="order" data-module="order-sheet">주문서</a></li><li class="category-item"><a href="/shopby-ui-docs/module/order/OrderSpecification.html?menu=open&amp;category=order&amp;module=order-specification" data-category="order" data-module="order-specification">거래명세서/간이영수증</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="member">회원</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/member/DormantSignIn.html?menu=open&amp;category=member&amp;module=dormant-sign-in" data-category="member" data-module="dormant-sign-in">휴면회원 로그인</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/FindAccount.html?menu=open&amp;category=member&amp;module=find-account" data-category="member" data-module="find-account">계정 찾기</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/FindIdResult.html?menu=open&amp;category=member&amp;module=find-id-result" data-category="member" data-module="find-id-result">아이디 찾기 결과</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/GuestOrder.html?menu=open&amp;category=member&amp;module=guest-order" data-category="member" data-module="guest-order">비회원 주문조회</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/MemberAuthenticationResult.html?menu=open&amp;category=member&amp;module=member-authentication-result" data-category="member" data-module="member-authentication-result">회원인증 결과</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/OpenIdSignIn.html?menu=open&amp;category=member&amp;module=open-id-sign-in" data-category="member" data-module="open-id-sign-in">간편 로그인</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/OpenIdSignUp.html?menu=open&amp;category=member&amp;module=open-id-sign-up" data-category="member" data-module="open-id-sign-up">간편 회원가입</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/PasswordChangeForm.html?menu=open&amp;category=member&amp;module=password-change-form" data-category="member" data-module="password-change-form">비밀번호 변경 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/ProfileForm.html?menu=open&amp;category=member&amp;module=profile-form" data-category="member" data-module="profile-form">회원정보 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/SignInForm.html?menu=open&amp;category=member&amp;module=sign-in-form" data-category="member" data-module="sign-in-form">로그인 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/TermDetail.html?menu=open&amp;category=member&amp;module=term-detail" data-category="member" data-module="term-detail">쇼핑몰 약관 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/member/TermsInformation.html?menu=open&amp;category=member&amp;module=terms-information" data-category="member" data-module="terms-information">쇼핑몰 약관</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="board">게시판</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/board/ArticleForm.html?menu=open&amp;category=board&amp;module=article-form" data-category="board" data-module="article-form">게시글 등록 폼</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/ArticleList.html?menu=open&amp;category=board&amp;module=article-list" data-category="board" data-module="article-list">게시판 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/ArticleView.html?menu=open&amp;category=board&amp;module=article-view" data-category="board" data-module="article-view">게시판 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/BoardReviewsDetail.html?menu=open&amp;category=board&amp;module=board-reviews-detail" data-category="board" data-module="board-reviews-detail">상품 후기 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/BoardReviewsList.html?menu=open&amp;category=board&amp;module=board-reviews-list" data-category="board" data-module="board-reviews-list">상품 후기 게시판 목록</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/BoardReviewsPhotos.html?menu=open&amp;category=board&amp;module=board-reviews-photos" data-category="board" data-module="board-reviews-photos">상품 후기 포토 모아보기</a></li><li class="category-item"><a href="/shopby-ui-docs/module/board/PasswordForm.html?menu=open&amp;category=board&amp;module=password-form" data-category="board" data-module="password-form">비밀번호 입력</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="display">진열</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/display/DisplayDetail.html?menu=open&amp;category=display&amp;module=display-detail" data-category="display" data-module="display-detail">상품진열</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="event">기획전</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/event/EventDetail.html?menu=open&amp;category=event&amp;module=event-detail" data-category="event" data-module="event-detail">기획전 상세</a></li><li class="category-item"><a href="/shopby-ui-docs/module/event/Events.html?menu=open&amp;category=event&amp;module=events" data-category="event" data-module="events">기획전 목록</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="layout">레이아웃</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/layout/CategorySlider.html?menu=open&amp;category=layout&amp;module=category-slider" data-category="layout" data-module="category-slider">(모바일)카테고리 슬라이더</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/CategoryTabs.html?menu=open&amp;category=layout&amp;module=category-tabs" data-category="layout" data-module="category-tabs">카테고리 탭</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/DesignPopup.html?menu=open&amp;category=layout&amp;module=design-popup" data-category="layout" data-module="design-popup">디자인 팝업</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/DisplayProduct.html?menu=open&amp;category=layout&amp;module=display-product" data-category="layout" data-module="display-product">상품 진열</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/Instagram.html?menu=open&amp;category=layout&amp;module=instagram" data-category="layout" data-module="instagram">인스타그램</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/ShopbyFooter.html?menu=open&amp;category=layout&amp;module=shopby-footer" data-category="layout" data-module="shopby-footer">공통 하단</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/ShopbyHeader.html?menu=open&amp;category=layout&amp;module=shopby-header" data-category="layout" data-module="shopby-header">공통 상단</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/ShopbyTabs.html?menu=open&amp;category=layout&amp;module=shopby-tabs" data-category="layout" data-module="shopby-tabs">탭</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/SkinBanner.html?menu=open&amp;category=layout&amp;module=skin-banner" data-category="layout" data-module="skin-banner">스킨 배너</a></li><li class="category-item"><a href="/shopby-ui-docs/module/layout/SlideMenu.html?menu=open&amp;category=layout&amp;module=slide-menu" data-category="layout" data-module="slide-menu">(모바일)슬라이드 메뉴</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="service">서비스</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/service/TermsDetail.html?menu=open&amp;category=service&amp;module=terms-detail" data-category="service" data-module="terms-detail">회사소개/이용약관/개인정보처리방침/이용안내</a></li></ul>
+</details>
+<details>
+    <summary>
+        <span class="category-name" data-category="manage">운영</span>
+    </summary>
+    <ul class="category-list"><li class="category-item"><a href="/shopby-ui-docs/module/manage/AddressList.html?menu=open&amp;category=manage&amp;module=address-list" data-category="manage" data-module="address-list">주소 목록</a></li></ul>
+</details>
+</div>
+            </div>
+            <div class="preview-container">
+                <header class="preview-header">
+                    <h2 class="module-name">상품목록</h2>
+                    <div class="toggle">
+                        <button type="button" class="mobile-toggle">mobile</button>
+                        <button type="button" class="pc-toggle">pc</button>
+                    </div>
+                </header>
+                <div class="preview">
+                    <div class="content-container">
+                        <div class="content"><iframe width="100%" src="javascript:void(0);" srcdoc="<!DOCTYPE html><html lang=&quot;ko&quot;><head><link rel=&quot;stylesheet&quot; href=&quot;https://shopby-skin.cdn-nhncommerce.com/assets/styles/shopby-skin-guide-pc.css&quot;>
+        <meta charset=&quot;UTF-8&quot;>
+        <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+        <title>docs guide</title>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css&quot;>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.css&quot; integrity=&quot;sha512-W/cvA9Wiaq79wGy/VOkgMpOILyqxqIMU+rkneDUW2uqiUT53I6DKmrF4lmCbRG+/YrW0J69ecvanKCCyb+sIWA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/mdn-like.min.css&quot; integrity=&quot;sha512-d1mnXGBFE/kEcVYDWOvqqRQov8YZhS5Eg5i6kX8smrEcMFcFIYpXW000lKxquKR4KdheA0+IE6xSmsmumGYNiA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;>
+        <!-- code mirror -->
+        <script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/simple.min.js&quot; integrity=&quot;sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/multiplex.min.js&quot; integrity=&quot;sha512-SnKl5kuiZJ6HI+aRXBjW1qv8USObXnN8BoPLHLQ7igatyz0QhbFgNYba9g8+zPsaYXzOm1XIrsj/b1uazysMtA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/edit/matchbrackets.min.js&quot; integrity=&quot;sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js&quot; integrity=&quot;sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/handlebars/handlebars.min.js&quot; integrity=&quot;sha512-pwzj1afj7oBin5vwddXhgAX44s4DRJ+J3gJs/Tr6m98tDiRC9F2jGjLfdlf+YxuMEY2ZLCwOOUWWlpsESGuvKA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/css/css.min.js&quot; integrity=&quot;sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.js&quot; integrity=&quot;sha512-4+hfJ/4qrBFEm8Wdz+mXpoTr/weIrB6XjJZAcc4pE2Yg5B06aKS/YLMN5iIAMXFTe0f1eneuLE5sRmnSHQqFNg==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/css-hint.min.js&quot; integrity=&quot;sha512-1BD3lo262s+DtDFoeD8+ssEL1zVJU8SHWWMtUyxfLqMV/jQDEnyQlS/CL3mD1kkLSv2hhYq1sdcA/zAPDz4JVA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js&quot; integrity=&quot;sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css&quot;>
+
+        <script src=&quot;https://shopby-skin.cdn-nhncommerce.com/hbs.js&quot;></script>
+
+        <script src=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js&quot;></script>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://shopby-skin.cdn-nhncommerce.com/lib/swiper11_0_7-bundle.min.css&quot;>
+    <style>:root {
+  --color-point: #504eb3;
+
+  --color-error: #f92626;
+  --color-caution: #f92626;
+  --color-warning: #ff561d;
+  --color-success: #00a354;
+  --color-loading: #0f53b8;
+  --color-secondary: #3f434c;
+  --color-tertiary: #408aec;
+  --color-base-white: #fff;
+  --color-base-black: #000;
+  --color-base-navy: #3f434c;
+
+  --color-error-tender: #ffeaee;
+  --color-warning-tender: #ffefdf;
+  --color-success-tender: #d3f8df;
+  --color-loading-tender: #d3e2f8;
+
+  --gray100: #f5f5f5;
+  --gray200: #ececec;
+  --gray300: #dedede;
+  --gray400: #a3a3a3;
+  --gray500: #6e6e6e;
+  --gray600: #444;
+  --gray700: #262626;
+}
+
+.backtick {
+  background-color: var(--gray200);
+  padding-inline: 4px;
+  border-radius: 4px;
+}
+.code-block {
+  padding: 4px 12px;
+  line-height: 18px;
+  background-color: var(--gray100);
+  border-radius: 4px;
+  color: var(--color-base-navy);
+  font-family: system-ui;
+  margin-block: 4px;
+  span {
+    display: block;
+  }
+}
+pre {
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+}
+/* 코드 블럭 */
+.example-code xmp {
+  text-wrap: auto;
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+  color: #ccc;
+  line-height: 1.5;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-block: 30px;
+  padding-inline: 12px;
+  font-size: 14px;
+}
+.main {
+  display: flex;
+  gap: 30px;
+  min-height: 100dvh;
+}
+.category {
+  flex: none;
+  width: 250px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.category-title {
+  width: 250px;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  border-width: 0;
+  border-bottom: 1px solid var(--gray200);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 50px;
+  z-index: 10;
+}
+.category-title a {
+  color: var(--color-base-black);
+  text-decoration: none;
+}
+.category-item {
+  a {
+    display: inline-block;
+    border-left: 2px solid var(--gray200);
+    padding-inline-start: 8px;
+    padding-block: 6px;
+    line-height: 24px;
+    vertical-align: middle;
+    margin-inline-start: 9px;
+  }
+}
+
+.category-item.active {
+  background-color: #408aec1c;
+  border-radius: 4px;
+
+  a {
+    border-color: var(--color-tertiary);
+    color: var(--color-tertiary);
+  }
+}
+
+.category-active {
+  font-weight: bold;
+}
+.content {
+  flex: 1;
+  height: 100%;
+}
+.content:not(#pc-content) {
+  border: 1px solid #ececec;
+  background-color: var(--color-base-white);
+}
+.content iframe {
+  height: 500px;
+  border: none;
+}
+.CodeMirror {
+  border: 1px solid #ccc;
+  height: 100%;
+}
+.module-info-box {
+  width: 50%;
+  max-height: 900px;
+  overflow-y: auto;
+}
+.module-info-box h3 {
+  padding: 10px 0;
+}
+.module-info-box h4 {
+  margin-bottom: 7px;
+}
+.module-info-box p {
+  margin: 0;
+}
+.parameter h4 {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.module-info-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.module-info-box table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+.module-info-box table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.module-info-box table tbody td {
+  width: 300px;
+}
+.module-info {
+  margin-top: 28px;
+}
+.code-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0px 20px;
+}
+.apply-btn-container {
+  margin: 20px 0;
+}
+.apply-css-btn,
+.apply-html-btn {
+  display: none;
+}
+.parameter-container {
+  margin: 20px 0px;
+}
+.parameter h3 {
+  padding: 0;
+  margin-bottom: 0;
+}
+.parameter p {
+  margin: 0;
+}
+.parameter table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.parameter table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+.parameter table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.parameter table tbody td {
+  width: 300px;
+}
+.preview-container {
+  flex: 1;
+  margin-bottom: 50px;
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 30px;
+}
+.content-container {
+  height: 50%;
+}
+.module {
+  margin-top: 20px;
+}
+.related-module a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.related-module a::before {
+  content: '*';
+}
+details.module {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+details.module[open] {
+  padding: 0.5em;
+}
+
+details.module[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+.category.open {
+  margin-inline-start: 0px;
+  .ico-menu-close {
+    display: inline-block;
+  }
+}
+.category.open .ico-menu-open {
+  display: none;
+}
+.category:not(.open) .ico-menu-close {
+  display: none;
+}
+.category:not(.open) {
+  .ico-menu-open {
+    display: inline-block;
+  }
+  margin-inline-start: -200px !important;
+
+  .category-menu {
+    margin-right: 100px;
+    padding-top: 50px;
+  }
+}
+.category button {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 1.75;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+}
+.category-menu {
+  color: var(--gray500);
+  padding-top: 50px;
+
+  details {
+    padding-inline-start: 4px;
+    padding-block-end: 12px;
+
+    summary {
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    summary::marker {
+      color: var(--color-tertiary);
+    }
+
+    .category-list {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  details[open] {
+    color: var(--gray700);
+    font-weight: bold;
+
+    summary {
+      padding: 12px;
+    }
+  }
+}
+
+.menu-open-btn {
+  background: none;
+  padding: 0;
+  border: none;
+}
+.category ul {
+  list-style: none;
+  margin: 0;
+  position: relative;
+
+  a {
+    text-decoration: none;
+    color: var(--gray400);
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+.category-name {
+  width: 100%;
+  padding-inline-start: 12px;
+  background-color: white;
+  overflow: hidden;
+  font-size: 16px;
+}
+.ico-arrow-r {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid black;
+}
+.html-code {
+  display: none;
+}
+.hbs-code {
+  display: none;
+}
+.mobile-html-code {
+  display: block;
+}
+.mobile-hbs-code {
+  display: none;
+}
+.mobile-content {
+  flex: 1;
+  border: 1px solid #ececec;
+  background-color: #f4f4f4;
+}
+
+.mobile-content iframe {
+  border: none;
+  height: 500px;
+}
+#mobile-content {
+  width: 375px;
+  margin: auto;
+}
+#pc-content {
+  transform: scale(0.9);
+}
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  border-width: 0;
+  border-bottom: 1px solid var(--gray200);
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 8px 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: calc(100% - 320px);
+  height: 50px;
+  z-index: 10;
+}
+.toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+.toggle button {
+  background-color: transparent;
+  cursor: pointer;
+  font-family: &quot;'Noto Sans KR'&quot;;
+  font-size: 14px;
+  border-radius: 12px;
+  padding: 11px;
+  border: 1px solid rgb(218, 226, 237);
+  text-transform: none;
+  font-weight: 500;
+  color: rgb(48, 55, 64);
+}
+.toggle button:first-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.toggle button:last-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 1px solid transparent;
+}
+.toggle .selected {
+  font-weight: 600;
+  color: #408aec;
+  background-color: #d3e2f8;
+}
+
+.active-module {
+  display: block;
+  padding: 20px;
+  margin-block: 36px;
+  box-shadow: 0px 8px 16px 10px var(--gray200);
+  border: 2px solid var(--gray400);
+  transform: scale(1.1);
+}
+
+.module-info-container {
+  display: flex;
+  flex: 1;
+}
+
+.module-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  line-height: 23px;
+
+  ul {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+}
+.module-info-divider {
+  position: relative;
+}
+.module-info-divider-line {
+  position: absolute;
+  background-color: #cbd5e0;
+  cursor: col-resize;
+  height: 100%;
+  width: 1px;
+  margin: 0 10px;
+}
+.module-info-divider-line:hover {
+  background-color: #a7b1bb;
+  width: 2px;
+}
+.content-divider {
+  position: relative;
+}
+.content-divider-line {
+  position: absolute;
+  background-color: #cbd5e0;
+  cursor: row-resize;
+  height: 1px;
+  width: 100%;
+  margin: 10px 0;
+}
+.content-divider-line:hover {
+  background-color: #a7b1bb;
+  height: 2px;
+}
+.preview-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray400);
+}
+.reset-btn,
+.copy-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.reset-popover,
+.copy-popover {
+  display: none;
+  position: absolute;
+  background-color: var(--gray400);
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+  z-index: 10;
+  width: 55px;
+  right: -20px;
+}
+.code-option-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.code-option-container span {
+  color: var(--gray500);
+  font-size: 12px;
+}
+.toast-message {
+  opacity: 0;
+  position: fixed;
+  bottom: 50px;
+  border-radius: 15px;
+  transition: all 0.5s;
+  background-color: var(--gray400);
+  color: white;
+  padding: 10px;
+}
+.toast-message.active {
+  opacity: 100%;
+}
+
+summary {
+  position: relative;
+}
+
+summary .link {
+  position: absolute;
+  right: 15px;
+}
+</style><style>.total-sort {
+  top: 0px;
+}
+</style></head>
+    <body>
+        <div class=&quot;preview-description&quot;>
+            <p>※예시 화면입니다. 쇼핑몰에 적용하려면 코드를 복사해서 붙여넣으세요.</p>
+        </div>
+        <div class=&quot;preview&quot;>
+            <div class=&quot;content&quot; id=&quot;pc-content&quot;><link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css&quot;>
+
+<main shopby-product-list=&quot;&quot; class=&quot;l-page product-list&quot;>
+    <display-category>
+        <section class=&quot;page-content-top&quot;>
+        </section>
+    </display-category>
+
+    <!-- 상품검색으로 접근시 검색어영역 -->
+    <product-keyword>
+        <div class=&quot;product-list__search-keyword-wrap&quot;>
+            <em class=&quot;product-list__search-keyword&quot;>오로라</em>
+            <span>검색결과</span>
+        </div>
+    </product-keyword>
+
+    <total-count-and-sort category-no:query=&quot;categoryNo&quot; depth:query=&quot;depth&quot; sort-type:query=&quot;sortType&quot; page-size:query=&quot;pageSize&quot;>
+        <div class=&quot;sort-list__wrap sort-list__wrap--end sort-list__wrap--margin&quot;>
+            <p class=&quot;total-count total-count--md&quot;>
+                총
+                <em class=&quot;highlight bold&quot; slot=&quot;totalCount&quot;>100</em>
+                건
+            </p>
+
+            <ul class=&quot;sort-list&quot; slot=&quot;sortType&quot; shopby-on:click=&quot;PRODUCTS_SORT_TYPE&quot;>
+                <li class=&quot;sort-item active&quot;>
+                    <button value=&quot;SALE_CNT&quot; shopby-product-search-order=&quot;SALE_CNT&quot;>판매량순</button>
+                </li>
+                <li class=&quot;sort-item &quot;>
+                    <button value=&quot;LOW_PRICE&quot; shopby-product-search-order=&quot;LOW_PRICE&quot;>낮은가격순</button>
+                </li>
+                <li class=&quot;sort-item &quot;>
+                    <button value=&quot;HIGH_PRICE&quot; shopby-product-search-order=&quot;HIGH_PRICE&quot;>높은가격순</button>
+                </li>
+                <li class=&quot;sort-item &quot;>
+                    <button value=&quot;REVIEW&quot; shopby-product-search-order=&quot;REVIEW&quot;>상품후기순</button>
+                </li>
+                <li class=&quot;sort-item &quot;>
+                    <button value=&quot;RECENT_PRODUCT&quot; shopby-product-search-order=&quot;RECENT_PRODUCT&quot;>신상품순</button>
+                </li>
+            </ul>
+
+            <span class=&quot;select select--sm&quot;>
+                <select slot=&quot;pageSize&quot; shopby-on:change=&quot;SEARCH_SIZE&quot;>
+                    
+                    <option value=&quot;20&quot;>20개씩 보기</option>
+                    <option value=&quot;40&quot;>40개씩 보기</option>
+                    <option value=&quot;60&quot;>60개씩 보기</option>
+                    <option value=&quot;80&quot;>80개씩 보기</option>
+                    
+                </select>
+            </span>
+        </div>
+    </total-count-and-sort>
+    <!-- 상품리스트 -->
+    <product-list-items page-size:query=&quot;pageSize&quot; page-number:query=&quot;pageNumber&quot;>
+        <section>
+            <div shopby-products-items=&quot;&quot; class=&quot;thumb-GALLERY&quot; slot=&quot;items&quot;>
+                <div class=&quot;thumb-item&quot;>
+                    <a class=&quot;thumb-item__media thumb-item__link&quot; shopby-is-adult=&quot;false&quot; shopby-action=&quot;MOVE_PRODUCT_DETAIL&quot; href=&quot;/pages/product/product-detail.html?productNo=1&quot;>
+                        <!-- 상품이미지 -->
+                        <span class=&quot;thumb-item__img&quot;> <img src=&quot;http://shopby-images.cdn-nhncommerce.com/default/pro/product/auroraSample1.png?500x500&quot; width=&quot;500&quot; alt=&quot;오로라 수당 세럼&quot; class=&quot;&quot; style=&quot;&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;></span>
+                        <!-- 좋아요 버튼 -->
+                        <button type=&quot;button&quot; class=&quot;btn thumb-fab thumb-fab--like&quot; shopby-action=&quot;PRODUCT_LIKE_BTN&quot; shopby-product-no=&quot;1&quot;>
+                            <svg width=&quot;40&quot; viewBox=&quot;0 0 80 80&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;>
+                                <path d=&quot;M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z&quot; stroke=&quot;var(--color-point)&quot; stroke-width=&quot;5&quot; stroke-linejoin=&quot;round&quot;></path>
+                            </svg>
+                        </button>
+                        <!-- 품절 오버레이 -->
+                        <!-- 뱃지(판매종료/판매임박) -->
+                        <span class=&quot;thumb-item__badges&quot;>
+                         </span>
+                    </a>
+                    <!-- 상품설명 -->
+                    <a class=&quot;thumb-item__info thumb-item__link&quot; shopby-is-adult=&quot;false&quot; shopby-action=&quot;MOVE_PRODUCT_DETAIL&quot; href=&quot;/pages/product/product-detail.html?productNo=1&quot;>
+                        <!-- 상품명 -->
+                        <p class=&quot;product-thumb-title&quot;>오로라 수당 세럼</p>
+                        <!-- 가격정보 -->
+                        <div class=&quot;product-thumb-price-info&quot;>
+                            <!-- 판매가에대한 즉시할인+추가할인의 할인율 -->
+                            <span class=&quot;product-thumb__immediately-percent font-montserrat&quot;>
+                                32%
+                            </span>
+                            <!-- 할인된 가격 -->
+                            <em class=&quot;product-thumb-price font-montserrat&quot;>
+                                34,000
+                            </em>
+                            <span class=&quot;product-thumb-unit&quot;>원</span>
+                            <!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 -->
+                            <s class=&quot;product-thumb-price--origin font-montserrat&quot;>50,000원</s>
+                        </div>
+                        <!-- 스티커(뱃지) -->
+                        <div>
+                            <span class=&quot;product-thumb__sticker&quot;>
+                                <!-- 텍스트형 스티커 -->
+                                
+                                <!-- 이미지형 스티커 -->
+                                 <img src=&quot;//shopby-images.cdn-nhncommerce.com/20240222/175703.615825000/Group 200.png?&quot; alt=&quot;&quot; class=&quot;product-thumb__sticker-img&quot; style=&quot;[object Object]&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;> 
+                            </span>
+                            <span class=&quot;product-thumb__sticker&quot;>
+                                <!-- 텍스트형 스티커 -->
+                                
+                                <!-- 이미지형 스티커 -->
+                                 <img src=&quot;//shopby-images.cdn-nhncommerce.com/20240227/103602.659427000/아이콘2.png?&quot; alt=&quot;&quot; class=&quot;product-thumb__sticker-img&quot; style=&quot;[object Object]&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;> 
+                            </span>
+                            <span class=&quot;product-thumb__sticker&quot;>
+                                <!-- 텍스트형 스티커 -->
+                                
+                                <!-- 이미지형 스티커 -->
+                                 <img src=&quot;//shopby-images.cdn-nhncommerce.com/20240227/103617.670758000/아이콘.png?&quot; alt=&quot;&quot; class=&quot;product-thumb__sticker-img&quot; style=&quot;[object Object]&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;> 
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <div class=&quot;thumb-item&quot;>
+                    <a class=&quot;thumb-item__media thumb-item__link&quot; shopby-is-adult=&quot;false&quot; shopby-action=&quot;MOVE_PRODUCT_DETAIL&quot; href=&quot;/pages/product/product-detail.html?productNo=1&quot;>
+                        <!-- 상품이미지 -->
+                        <span class=&quot;thumb-item__img&quot;> <img src=&quot;http://shopby-images.cdn-nhncommerce.com/default/pro/product/auroraSample2.png?500x500&quot; width=&quot;500&quot; alt=&quot;오로라 매트 립스틱&quot; class=&quot;&quot; style=&quot;&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;></span>
+                        <!-- 좋아요 버튼 -->
+                        <button type=&quot;button&quot; class=&quot;btn thumb-fab thumb-fab--like&quot; shopby-action=&quot;PRODUCT_LIKE_BTN&quot; shopby-product-no=&quot;1&quot;>
+                            <svg width=&quot;40&quot; viewBox=&quot;0 0 80 80&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;>
+                                <path d=&quot;M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z&quot; stroke=&quot;var(--color-point)&quot; stroke-width=&quot;5&quot; stroke-linejoin=&quot;round&quot;></path>
+                            </svg>
+                        </button>
+                        <!-- 품절 오버레이 -->
+                        <!-- 뱃지(판매종료/판매임박) -->
+                        <span class=&quot;thumb-item__badges&quot;>
+                         </span>
+                    </a>
+                    <!-- 상품설명 -->
+                    <a class=&quot;thumb-item__info thumb-item__link&quot; shopby-is-adult=&quot;false&quot; shopby-action=&quot;MOVE_PRODUCT_DETAIL&quot; href=&quot;/pages/product/product-detail.html?productNo=1&quot;>
+                        <!-- 상품명 -->
+                        <p class=&quot;product-thumb-title&quot;>오로라 매트 립스틱</p>
+                        <!-- 가격정보 -->
+                        <div class=&quot;product-thumb-price-info&quot;>
+                            <!-- 판매가에대한 즉시할인+추가할인의 할인율 -->
+                            <!-- 할인된 가격 -->
+                            <em class=&quot;product-thumb-price font-montserrat&quot;>
+                                20,000
+                            </em>
+                            <span class=&quot;product-thumb-unit&quot;>원</span>
+                            <!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 -->
+                        </div>
+                        <!-- 스티커(뱃지) -->
+                        <div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- 상품이 없을 때 -->
+            <div slot=&quot;noItems&quot;>
+                
+            </div>
+            <!-- 스켈레톤 -->
+            <div slot=&quot;skeleton&quot;>
+            </div>
+            <!-- 페이지네이션 -->
+            <div class=&quot;pagination&quot; slot=&quot;pagination&quot;>
+            </div>
+        </section>
+    </product-list-items>
+</main>
+</div>
+        </div>
+
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // eslint-disable-next-line no-new, no-undef
+                        new Swiper('.swiper', {
+                            spaceBetween: 20,
+                            slidesPerView: 'auto',
+                            slidesPerViewDynamic: true,
+                            scrollbar: {
+                                el: '.swiper-scrollbar',
+                            },
+                        });
+                    }
+                });
+            });
+
+            observer.observe(document.body);
+        </script>
+    
+
+<script>/* eslint-disable */
+(() => {
+  const searchParams = new URLSearchParams(location.search);
+  const categoryEl = document.querySelector('.category');
+  const category = searchParams.get('category');
+  const module = decodeURIComponent(searchParams.get('module'));
+
+  // 왼쪽 메뉴 현재 탭 유지
+  (() => {
+    const currentDetailsEl = categoryEl?.querySelector(`[data-category=&quot;${category}&quot;]`).closest('details');
+    currentDetailsEl?.setAttribute('open', true);
+
+    const moduleLinkEl = currentDetailsEl?.querySelector(`[data-module=&quot;${module}&quot;]`);
+
+    moduleLinkEl?.closest('.category-item')?.classList.add('active');
+  })();
+
+  // 모듈 클릭 시 코드 영역 포커싱
+  (() => {
+    const moduleInfoBoxEl = document.querySelector('.module-info-box');
+    moduleInfoBoxEl?.addEventListener('click', ({ target, currentTarget }) => {
+      const moduleName = target.dataset.moduleName ?? target.querySelector('[data-module-name]')?.dataset?.moduleName;
+      const currentDetailsEl = currentTarget.querySelector(`[data-module-name=&quot;${moduleName}&quot;]`)?.closest?.('details');
+      const isSummary = [...target.classList].some((className) => className.includes('module'));
+      const shouldOpen = !currentDetailsEl?.hasAttribute('open');
+
+      if (!moduleName || !isSummary) {
+        return;
+      }
+
+      const mobileIframeKey = '.mobile-content iframe';
+      const pcIframeKey = '.content iframe';
+
+      [mobileIframeKey, pcIframeKey].forEach((contentKey) => {
+        const iframeEl = document.querySelector(contentKey);
+        if (!iframeEl) {
+          return;
+        }
+
+        const iframeBodyEl = iframeEl.contentDocument.body;
+        if (!iframeBodyEl) {
+          return;
+        }
+
+        [...iframeBodyEl.querySelectorAll(moduleName)].forEach((el) => {
+          el?.classList.toggle('active-module', shouldOpen);
+        });
+      });
+    });
+  })();
+})();
+</script></body></html>"></iframe></div>
+                        <div class="mobile-content"><iframe width="100%" src="javascript:void(0);" srcdoc="<!DOCTYPE html><html lang=&quot;ko&quot;><head><link rel=&quot;stylesheet&quot; href=&quot;https://shopby-skin.cdn-nhncommerce.com/assets/styles/shopby-skin-guide-mobile.css&quot;>
+        <meta charset=&quot;UTF-8&quot;>
+        <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+        <title>docs guide</title>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css&quot;>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.css&quot; integrity=&quot;sha512-W/cvA9Wiaq79wGy/VOkgMpOILyqxqIMU+rkneDUW2uqiUT53I6DKmrF4lmCbRG+/YrW0J69ecvanKCCyb+sIWA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/mdn-like.min.css&quot; integrity=&quot;sha512-d1mnXGBFE/kEcVYDWOvqqRQov8YZhS5Eg5i6kX8smrEcMFcFIYpXW000lKxquKR4KdheA0+IE6xSmsmumGYNiA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;>
+        <!-- code mirror -->
+        <script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/simple.min.js&quot; integrity=&quot;sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/mode/multiplex.min.js&quot; integrity=&quot;sha512-SnKl5kuiZJ6HI+aRXBjW1qv8USObXnN8BoPLHLQ7igatyz0QhbFgNYba9g8+zPsaYXzOm1XIrsj/b1uazysMtA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/edit/matchbrackets.min.js&quot; integrity=&quot;sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js&quot; integrity=&quot;sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/handlebars/handlebars.min.js&quot; integrity=&quot;sha512-pwzj1afj7oBin5vwddXhgAX44s4DRJ+J3gJs/Tr6m98tDiRC9F2jGjLfdlf+YxuMEY2ZLCwOOUWWlpsESGuvKA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/css/css.min.js&quot; integrity=&quot;sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/show-hint.min.js&quot; integrity=&quot;sha512-4+hfJ/4qrBFEm8Wdz+mXpoTr/weIrB6XjJZAcc4pE2Yg5B06aKS/YLMN5iIAMXFTe0f1eneuLE5sRmnSHQqFNg==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/addon/hint/css-hint.min.js&quot; integrity=&quot;sha512-1BD3lo262s+DtDFoeD8+ssEL1zVJU8SHWWMtUyxfLqMV/jQDEnyQlS/CL3mD1kkLSv2hhYq1sdcA/zAPDz4JVA==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+
+        <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js&quot; integrity=&quot;sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css&quot;>
+
+        <script src=&quot;https://shopby-skin.cdn-nhncommerce.com/hbs.js&quot;></script>
+
+        <script src=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js&quot;></script>
+        <link rel=&quot;stylesheet&quot; href=&quot;https://shopby-skin.cdn-nhncommerce.com/lib/swiper11_0_7-bundle.min.css&quot;>
+    <style>:root {
+  --color-point: #504eb3;
+
+  --color-error: #f92626;
+  --color-caution: #f92626;
+  --color-warning: #ff561d;
+  --color-success: #00a354;
+  --color-loading: #0f53b8;
+  --color-secondary: #3f434c;
+  --color-tertiary: #408aec;
+  --color-base-white: #fff;
+  --color-base-black: #000;
+  --color-base-navy: #3f434c;
+
+  --color-error-tender: #ffeaee;
+  --color-warning-tender: #ffefdf;
+  --color-success-tender: #d3f8df;
+  --color-loading-tender: #d3e2f8;
+
+  --gray100: #f5f5f5;
+  --gray200: #ececec;
+  --gray300: #dedede;
+  --gray400: #a3a3a3;
+  --gray500: #6e6e6e;
+  --gray600: #444;
+  --gray700: #262626;
+}
+
+.backtick {
+  background-color: var(--gray200);
+  padding-inline: 4px;
+  border-radius: 4px;
+}
+.code-block {
+  padding: 4px 12px;
+  line-height: 18px;
+  background-color: var(--gray100);
+  border-radius: 4px;
+  color: var(--color-base-navy);
+  font-family: system-ui;
+  margin-block: 4px;
+  span {
+    display: block;
+  }
+}
+pre {
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+}
+/* 코드 블럭 */
+.example-code xmp {
+  text-wrap: auto;
+  background: #304b4f;
+  padding: 12px;
+  border-radius: 6px;
+  color: #ccc;
+  line-height: 1.5;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-block: 30px;
+  padding-inline: 12px;
+  font-size: 14px;
+}
+.main {
+  display: flex;
+  gap: 30px;
+  min-height: 100dvh;
+}
+.category {
+  flex: none;
+  width: 250px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.category-title {
+  width: 250px;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  border-width: 0;
+  border-bottom: 1px solid var(--gray200);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 50px;
+  z-index: 10;
+}
+.category-title a {
+  color: var(--color-base-black);
+  text-decoration: none;
+}
+.category-item {
+  a {
+    display: inline-block;
+    border-left: 2px solid var(--gray200);
+    padding-inline-start: 8px;
+    padding-block: 6px;
+    line-height: 24px;
+    vertical-align: middle;
+    margin-inline-start: 9px;
+  }
+}
+
+.category-item.active {
+  background-color: #408aec1c;
+  border-radius: 4px;
+
+  a {
+    border-color: var(--color-tertiary);
+    color: var(--color-tertiary);
+  }
+}
+
+.category-active {
+  font-weight: bold;
+}
+.content {
+  flex: 1;
+  height: 100%;
+}
+.content:not(#pc-content) {
+  border: 1px solid #ececec;
+  background-color: var(--color-base-white);
+}
+.content iframe {
+  height: 500px;
+  border: none;
+}
+.CodeMirror {
+  border: 1px solid #ccc;
+  height: 100%;
+}
+.module-info-box {
+  width: 50%;
+  max-height: 900px;
+  overflow-y: auto;
+}
+.module-info-box h3 {
+  padding: 10px 0;
+}
+.module-info-box h4 {
+  margin-bottom: 7px;
+}
+.module-info-box p {
+  margin: 0;
+}
+.parameter h4 {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.module-info-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.module-info-box table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+.module-info-box table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.module-info-box table tbody td {
+  width: 300px;
+}
+.module-info {
+  margin-top: 28px;
+}
+.code-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0px 20px;
+}
+.apply-btn-container {
+  margin: 20px 0;
+}
+.apply-css-btn,
+.apply-html-btn {
+  display: none;
+}
+.parameter-container {
+  margin: 20px 0px;
+}
+.parameter h3 {
+  padding: 0;
+  margin-bottom: 0;
+}
+.parameter p {
+  margin: 0;
+}
+.parameter table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.parameter table thead th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+.parameter table tbody td {
+  border-top: 1px solid #ccc;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.parameter table tbody td {
+  width: 300px;
+}
+.preview-container {
+  flex: 1;
+  margin-bottom: 50px;
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 30px;
+}
+.content-container {
+  height: 50%;
+}
+.module {
+  margin-top: 20px;
+}
+.related-module a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.related-module a::before {
+  content: '*';
+}
+details.module {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+details.module[open] {
+  padding: 0.5em;
+}
+
+details.module[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+.category.open {
+  margin-inline-start: 0px;
+  .ico-menu-close {
+    display: inline-block;
+  }
+}
+.category.open .ico-menu-open {
+  display: none;
+}
+.category:not(.open) .ico-menu-close {
+  display: none;
+}
+.category:not(.open) {
+  .ico-menu-open {
+    display: inline-block;
+  }
+  margin-inline-start: -200px !important;
+
+  .category-menu {
+    margin-right: 100px;
+    padding-top: 50px;
+  }
+}
+.category button {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 1.75;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+}
+.category-menu {
+  color: var(--gray500);
+  padding-top: 50px;
+
+  details {
+    padding-inline-start: 4px;
+    padding-block-end: 12px;
+
+    summary {
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    summary::marker {
+      color: var(--color-tertiary);
+    }
+
+    .category-list {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  details[open] {
+    color: var(--gray700);
+    font-weight: bold;
+
+    summary {
+      padding: 12px;
+    }
+  }
+}
+
+.menu-open-btn {
+  background: none;
+  padding: 0;
+  border: none;
+}
+.category ul {
+  list-style: none;
+  margin: 0;
+  position: relative;
+
+  a {
+    text-decoration: none;
+    color: var(--gray400);
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+.category-name {
+  width: 100%;
+  padding-inline-start: 12px;
+  background-color: white;
+  overflow: hidden;
+  font-size: 16px;
+}
+.ico-arrow-r {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid black;
+}
+.html-code {
+  display: none;
+}
+.hbs-code {
+  display: none;
+}
+.mobile-html-code {
+  display: block;
+}
+.mobile-hbs-code {
+  display: none;
+}
+.mobile-content {
+  flex: 1;
+  border: 1px solid #ececec;
+  background-color: #f4f4f4;
+}
+
+.mobile-content iframe {
+  border: none;
+  height: 500px;
+}
+#mobile-content {
+  width: 375px;
+  margin: auto;
+}
+#pc-content {
+  transform: scale(0.9);
+}
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  border-width: 0;
+  border-bottom: 1px solid var(--gray200);
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 8px 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: calc(100% - 320px);
+  height: 50px;
+  z-index: 10;
+}
+.toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+.toggle button {
+  background-color: transparent;
+  cursor: pointer;
+  font-family: &quot;'Noto Sans KR'&quot;;
+  font-size: 14px;
+  border-radius: 12px;
+  padding: 11px;
+  border: 1px solid rgb(218, 226, 237);
+  text-transform: none;
+  font-weight: 500;
+  color: rgb(48, 55, 64);
+}
+.toggle button:first-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.toggle button:last-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 1px solid transparent;
+}
+.toggle .selected {
+  font-weight: 600;
+  color: #408aec;
+  background-color: #d3e2f8;
+}
+
+.active-module {
+  display: block;
+  padding: 20px;
+  margin-block: 36px;
+  box-shadow: 0px 8px 16px 10px var(--gray200);
+  border: 2px solid var(--gray400);
+  transform: scale(1.1);
+}
+
+.module-info-container {
+  display: flex;
+  flex: 1;
+}
+
+.module-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  line-height: 23px;
+
+  ul {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+}
+.module-info-divider {
+  position: relative;
+}
+.module-info-divider-line {
+  position: absolute;
+  background-color: #cbd5e0;
+  cursor: col-resize;
+  height: 100%;
+  width: 1px;
+  margin: 0 10px;
+}
+.module-info-divider-line:hover {
+  background-color: #a7b1bb;
+  width: 2px;
+}
+.content-divider {
+  position: relative;
+}
+.content-divider-line {
+  position: absolute;
+  background-color: #cbd5e0;
+  cursor: row-resize;
+  height: 1px;
+  width: 100%;
+  margin: 10px 0;
+}
+.content-divider-line:hover {
+  background-color: #a7b1bb;
+  height: 2px;
+}
+.preview-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray400);
+}
+.reset-btn,
+.copy-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.reset-popover,
+.copy-popover {
+  display: none;
+  position: absolute;
+  background-color: var(--gray400);
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+  z-index: 10;
+  width: 55px;
+  right: -20px;
+}
+.code-option-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.code-option-container span {
+  color: var(--gray500);
+  font-size: 12px;
+}
+.toast-message {
+  opacity: 0;
+  position: fixed;
+  bottom: 50px;
+  border-radius: 15px;
+  transition: all 0.5s;
+  background-color: var(--gray400);
+  color: white;
+  padding: 10px;
+}
+.toast-message.active {
+  opacity: 100%;
+}
+
+summary {
+  position: relative;
+}
+
+summary .link {
+  position: absolute;
+  right: 15px;
+}
+</style><style>.total-sort {
+  top: 0px;
+}
+</style></head>
+    <body>
+        <div class=&quot;preview-description&quot;>
+            <p>※예시 화면입니다. 쇼핑몰에 적용하려면 코드를 복사해서 붙여넣으세요.</p>
+        </div>
+        <div class=&quot;preview&quot;>
+            <div class=&quot;content&quot; id=&quot;mobile-content&quot;><link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css&quot;>
+
+<main shopby-product-list=&quot;&quot; shopby-view-type=&quot;GALLERY&quot; class=&quot;product-list&quot;>
+    <!-- 카테고리 선택 -->
+    <display-category>
+        <div>
+            <!-- 브레드크럼브 -->
+            <section class=&quot;breadcrumb&quot; slot=&quot;breadcrumb&quot;>
+                <div class=&quot;breadcrumb__section&quot;>
+                    <a class=&quot;breadcrumb__item&quot; href=&quot;/pages/product/product-list.html?categoryNo=1&amp;amp;depth=1&quot;>카테고리 1</a>
+                    <a class=&quot;breadcrumb__item&quot; href=&quot;/pages/product/product-list.html?categoryNo=11&amp;amp;depth=2&quot;>카테고리 1-1</a>
+                    <a class=&quot;breadcrumb__item&quot; href=&quot;/pages/product/product-list.html?categoryNo=111&amp;amp;depth=3&quot;>카테고리 1-1-1</a>
+                </div>
+            </section>
+            <!-- 하위 카테고리 리스트 -->
+            <section slot=&quot;childCategories&quot;>
+                <nav class=&quot;category-slider product-list-category-slider&quot;>
+                    <ul class=&quot;swiper category-slider__wrapper&quot; shopby-slider-id=&quot;display-category-slider&quot;>
+                        <div class=&quot;swiper-wrapper&quot;>
+                            <li class=&quot;swiper-slide category-slider__slide&quot;>
+                                <a class=&quot;category-slider__item&quot; href=&quot;/pages/product/product-list.html?categoryNo=1111&amp;amp;depth=4&quot;>
+                                    카테고리 1-1-1-1
+                                </a>
+                            </li>
+                            <li class=&quot;swiper-slide category-slider__slide&quot;>
+                                <a class=&quot;category-slider__item&quot; href=&quot;/pages/product/product-list.html?categoryNo=1112&amp;amp;depth=4&quot;>
+                                    카테고리 1-1-1-2
+                                </a>
+                            </li>
+                            <li class=&quot;swiper-slide category-slider__slide&quot;>
+                                <a class=&quot;category-slider__item&quot; href=&quot;/pages/product/product-list.html?categoryNo=1113&amp;amp;depth=3&quot;>
+                                    카테고리 1-1-1-3
+                                </a>
+                            </li>
+                            <li class=&quot;swiper-slide category-slider__slide&quot;>
+                                <a class=&quot;category-slider__item&quot; href=&quot;/pages/product/product-list.html?categoryNo=1114&amp;amp;depth=4&quot;>
+                                    카테고리 1-1-1-4
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </display-category>
+
+    <!-- 상품검색으로 접근시 검색어영역 -->
+    <product-keyword>
+        <div class=&quot;product-list__search-keyword-wrap&quot;>
+            <em class=&quot;product-list__search-keyword&quot;>오로라</em>
+            <span>검색결과</span>
+        </div>
+    </product-keyword>
+
+    <!-- &quot;총 n개 / 상품정렬 셀렉박스&quot; -->
+    <total-count-and-sort category-no:query=&quot;categoryNo&quot; depth:query=&quot;depth&quot; sort-type:query=&quot;sortType&quot;>
+        <div class=&quot;total-sort&quot;>
+            <p class=&quot;total-sort__count&quot;>
+                총
+                <em class=&quot;highlight&quot; slot=&quot;totalCount&quot;>100</em>
+                개
+            </p>
+
+            <div>
+                <span class=&quot;select select--sm product-list__sort&quot;>
+                    <select shopby-on:change=&quot;PRODUCTS_SORT_TYPE&quot; slot=&quot;sortType&quot;>
+                        
+                        <option value=&quot;SALE_CNT&quot; shopby-product-search-order=&quot;SALE_CNT&quot;>판매량순</option>
+                        <option value=&quot;LOW_PRICE&quot; shopby-product-search-order=&quot;LOW_PRICE&quot;>낮은가격순</option>
+                        <option value=&quot;HIGH_PRICE&quot; shopby-product-search-order=&quot;HIGH_PRICE&quot;>높은가격순</option>
+                        <option value=&quot;REVIEW&quot; shopby-product-search-order=&quot;REVIEW&quot;>상품후기순</option>
+                        <option value=&quot;RECENT_PRODUCT&quot; shopby-product-search-order=&quot;RECENT_PRODUCT&quot;>신상품순</option>
+                        
+                    </select>
+                </span>
+
+                <button class=&quot;product-list__display-type-btn ico ico--list-32&quot; type=&quot;button&quot; shopby-on:click=&quot;VIEW_TYPE&quot;></button>
+            </div>
+        </div>
+    </total-count-and-sort>
+
+    <!-- 상품리스트 -->
+    <product-list-items>
+        <section class=&quot;product-list-items&quot;>
+            <div shopby-products-items=&quot;&quot; class=&quot;thumb-GALLERY&quot; slot=&quot;items&quot;>
+                <a shopby-is-adult=&quot;false&quot; shopby-action=&quot;MOVE_PRODUCT_DETAIL&quot; class=&quot;thumb-item thumb-item__link&quot; href=&quot;/pages/product/product-detail.html?productNo=1&quot;>
+                    <div class=&quot;thumb-item__media&quot;>
+                        <!-- 상품이미지 -->
+                        <span class=&quot;thumb-item__img&quot;> <img src=&quot;http://shopby-images.cdn-nhncommerce.com/default/pro/product/auroraSample1.png?250x250&quot; width=&quot;250&quot; alt=&quot;오로라 수당 세럼&quot; class=&quot;&quot; style=&quot;&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;></span>
+                        <!-- 좋아요 버튼 -->
+                        <button type=&quot;button&quot; class=&quot;btn btn--default sc-like-button thumb-fab&quot; shopby-action=&quot;PRODUCT_LIKE_BTN&quot; shopby-product-no=&quot;1&quot;>
+                            <svg width=&quot;40&quot; viewBox=&quot;0 0 80 80&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;>
+                                <path d=&quot;M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z&quot; stroke=&quot;var(--color-point)&quot; stroke-linejoin=&quot;round&quot;></path>
+                            </svg>
+                        </button>
+                        <!-- 품절 오버레이 -->
+                        <!-- 뱃지(판매종료/판매임박) -->
+                        <span class=&quot;thumb-item-badges&quot;>
+                         </span>
+                    </div>
+
+                    <!-- 상품설명 -->
+                    <div class=&quot;thumb-item__info&quot;>
+                        <!-- 상품명 -->
+                        <p class=&quot;product-thumb-title&quot;>오로라 수당 세럼</p>
+                        <!-- 진열타입 리스트인경우 홍보문구 노출 -->
+                        <p class=&quot;product-thumb__promotion-text&quot;></p>
+                        <!-- 가격정보 -->
+                        <div class=&quot;product-thumb-price-info&quot;>
+                            <!-- 판매가에대한 즉시할인+추가할인의 할인율 -->
+                            <span class=&quot;product-thumb__immediately-percent font-montserrat&quot;>
+                                32%
+                            </span>
+                            <!-- 할인된 가격 -->
+                            <em class=&quot;product-thumb-price font-montserrat&quot;>
+                                34,000
+                            </em>
+                            <span class=&quot;product-thumb-unit&quot;>원</span>
+                            <!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 -->
+                            <s class=&quot;product-thumb-price--origin font-montserrat&quot;>50,000원</s>
+                        </div>
+
+                        <div>
+                            <!-- 스티커(뱃지) -->
+                            <span class=&quot;product-thumb__sticker&quot;>
+                                <!-- 텍스트형 스티커 -->
+                                
+                                <!-- 이미지형 스티커 -->
+                                 <img src=&quot;//shopby-images.cdn-nhncommerce.com/20240222/175703.615825000/Group 200.png?&quot; alt=&quot;&quot; class=&quot;product-thumb__sticker-img&quot; style=&quot;[object Object]&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;> 
+                            </span>
+                            <span class=&quot;product-thumb__sticker&quot;>
+                                <!-- 텍스트형 스티커 -->
+                                
+                                <!-- 이미지형 스티커 -->
+                                 <img src=&quot;//shopby-images.cdn-nhncommerce.com/20240227/103602.659427000/아이콘2.png?&quot; alt=&quot;&quot; class=&quot;product-thumb__sticker-img&quot; style=&quot;[object Object]&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;> 
+                            </span>
+                            <span class=&quot;product-thumb__sticker&quot;>
+                                <!-- 텍스트형 스티커 -->
+                                
+                                <!-- 이미지형 스티커 -->
+                                 <img src=&quot;//shopby-images.cdn-nhncommerce.com/20240227/103617.670758000/아이콘.png?&quot; alt=&quot;&quot; class=&quot;product-thumb__sticker-img&quot; style=&quot;[object Object]&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;> 
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                <a shopby-is-adult=&quot;false&quot; shopby-action=&quot;MOVE_PRODUCT_DETAIL&quot; class=&quot;thumb-item thumb-item__link&quot; href=&quot;/pages/product/product-detail.html?productNo=1&quot;>
+                    <div class=&quot;thumb-item__media&quot;>
+                        <!-- 상품이미지 -->
+                        <span class=&quot;thumb-item__img&quot;> <img src=&quot;http://shopby-images.cdn-nhncommerce.com/default/pro/product/auroraSample2.png?250x250&quot; width=&quot;250&quot; alt=&quot;오로라 매트 립스틱&quot; class=&quot;&quot; style=&quot;&quot; loading=&quot;lazy&quot; onerror=&quot;this.src='//rlyfaazj0.toastcdn.net/no_img.png'&quot;></span>
+                        <!-- 좋아요 버튼 -->
+                        <button type=&quot;button&quot; class=&quot;btn btn--default sc-like-button thumb-fab&quot; shopby-action=&quot;PRODUCT_LIKE_BTN&quot; shopby-product-no=&quot;1&quot;>
+                            <svg width=&quot;40&quot; viewBox=&quot;0 0 80 80&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;>
+                                <path d=&quot;M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z&quot; stroke=&quot;var(--color-point)&quot; stroke-linejoin=&quot;round&quot;></path>
+                            </svg>
+                        </button>
+                        <!-- 품절 오버레이 -->
+                        <!-- 뱃지(판매종료/판매임박) -->
+                        <span class=&quot;thumb-item-badges&quot;>
+                         </span>
+                    </div>
+
+                    <!-- 상품설명 -->
+                    <div class=&quot;thumb-item__info&quot;>
+                        <!-- 상품명 -->
+                        <p class=&quot;product-thumb-title&quot;>오로라 매트 립스틱</p>
+                        <!-- 진열타입 리스트인경우 홍보문구 노출 -->
+                        <p class=&quot;product-thumb__promotion-text&quot;></p>
+                        <!-- 가격정보 -->
+                        <div class=&quot;product-thumb-price-info&quot;>
+                            <!-- 판매가에대한 즉시할인+추가할인의 할인율 -->
+                            <!-- 할인된 가격 -->
+                            <em class=&quot;product-thumb-price font-montserrat&quot;>
+                                20,000
+                            </em>
+                            <span class=&quot;product-thumb-unit&quot;>원</span>
+                            <!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 -->
+                        </div>
+
+                        <div>
+                            <!-- 스티커(뱃지) -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 스켈레톤 -->
+            <div slot=&quot;skeleton&quot;>
+                
+            </div>
+
+            <div slot=&quot;searchMoreBtn&quot;>
+                <div class=&quot;product-section__more btn&quot; shopby-action=&quot;SEARCH_MORE_PRODUCT&quot;>
+                    더보기
+                    <span class=&quot;product-section__more-ico&quot;>
+                        <span class=&quot;ico ico--angle-right-solid&quot;></span>
+                    </span>
+                </div>
+            </div>
+
+            <div slot=&quot;noItems&quot;>
+                
+            </div>
+        </section>
+    </product-list-items>
+</main>
+</div>
+        </div>
+
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // eslint-disable-next-line no-new, no-undef
+                        new Swiper('.swiper', {
+                            spaceBetween: 20,
+                            slidesPerView: 'auto',
+                            slidesPerViewDynamic: true,
+                            scrollbar: {
+                                el: '.swiper-scrollbar',
+                            },
+                        });
+                    }
+                });
+            });
+
+            observer.observe(document.body);
+        </script>
+    
+
+<script>/* eslint-disable */
+(() => {
+  const searchParams = new URLSearchParams(location.search);
+  const categoryEl = document.querySelector('.category');
+  const category = searchParams.get('category');
+  const module = decodeURIComponent(searchParams.get('module'));
+
+  // 왼쪽 메뉴 현재 탭 유지
+  (() => {
+    const currentDetailsEl = categoryEl?.querySelector(`[data-category=&quot;${category}&quot;]`).closest('details');
+    currentDetailsEl?.setAttribute('open', true);
+
+    const moduleLinkEl = currentDetailsEl?.querySelector(`[data-module=&quot;${module}&quot;]`);
+
+    moduleLinkEl?.closest('.category-item')?.classList.add('active');
+  })();
+
+  // 모듈 클릭 시 코드 영역 포커싱
+  (() => {
+    const moduleInfoBoxEl = document.querySelector('.module-info-box');
+    moduleInfoBoxEl?.addEventListener('click', ({ target, currentTarget }) => {
+      const moduleName = target.dataset.moduleName ?? target.querySelector('[data-module-name]')?.dataset?.moduleName;
+      const currentDetailsEl = currentTarget.querySelector(`[data-module-name=&quot;${moduleName}&quot;]`)?.closest?.('details');
+      const isSummary = [...target.classList].some((className) => className.includes('module'));
+      const shouldOpen = !currentDetailsEl?.hasAttribute('open');
+
+      if (!moduleName || !isSummary) {
+        return;
+      }
+
+      const mobileIframeKey = '.mobile-content iframe';
+      const pcIframeKey = '.content iframe';
+
+      [mobileIframeKey, pcIframeKey].forEach((contentKey) => {
+        const iframeEl = document.querySelector(contentKey);
+        if (!iframeEl) {
+          return;
+        }
+
+        const iframeBodyEl = iframeEl.contentDocument.body;
+        if (!iframeBodyEl) {
+          return;
+        }
+
+        [...iframeBodyEl.querySelectorAll(moduleName)].forEach((el) => {
+          el?.classList.toggle('active-module', shouldOpen);
+        });
+      });
+    });
+  })();
+})();
+</script></body></html>"></iframe></div>
+                    </div>
+                    <div class="content-divider">
+                        <div class="content-divider-line"></div>
+                    </div>
+                    <div class="module-info-container">
+                        <div class="module-info-box">
+                            <div class="description"><h4>상품 목록 페이지에서 노출되는 상품 목록 모듈입니다.</h4><p>URL: /pages/product/product-list.html?categoryNo={categoryNo}&amp;depth={depth}&amp;sortType={sortType}&amp;pageSize={pageSize}</p><span>관련 API : 🔗 <a href="https://docs.shopby.co.kr/?url.primaryName=product/#/Product/get-products-search" target="_black">상품 검색 API</a>, <a href="https://docs.shopby.co.kr/?url.primaryName=display/#/Category/get-categories-by-keyword" target="_black">전체 카테고리 조회 API</a>, <a href="https://docs.shopby.co.kr/?url.primaryName=display/#/Category/get-category-display-setting" target="_blank">전시카테고리 진열 설정 조회 API</a></span><br>모바일) custom-attribute : shopby-view-type<br>   &nbsp;type: GALLERY | LIST</div>
+                            
+                        <details class="module">
+    <summary class="module-title">모듈명: <span class="module-name" data-module-name="display-category">display-category</span><a class="link" href="https://skins.shopby.co.kr/shopby/vanilla-components/-/blob/main/modules/product/ProductList/DisplayCategory.ts" target="_blank">원본소스</a></summary>
+    <div class="description"><p>브래드 크럼브 &amp; 하위 카테고리 슬라이더 모듈입니다</p></div>
+    <div class="parameter-container">
+        <section class="parameter"><h4 id="">사용 가능 변수</h4>
+<table>
+<thead>
+<tr>
+<th>변수명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isSearchPage</td>
+<td>boolean</td>
+<td>false</td>
+<td>상품검색목록 페이지 여부<br>상품 검색을 통해 접근한 페이지인 경우 true</td>
+</tr>
+<tr>
+<td>isLeafCategory</td>
+<td>boolean</td>
+<td>false</td>
+<td>현재 페이지가 최하위 카테고리인지 여부</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>string</td>
+<td>-</td>
+<td>키워드</td>
+</tr>
+<tr>
+<td>categoryNo</td>
+<td>string</td>
+<td>-</td>
+<td>현재 접근한 페이지의 카테고리 번호</td>
+</tr>
+<tr>
+<td>slider</td>
+<td>Slider</td>
+<td>-</td>
+<td><a href="https://swiperjs.com/swiper-api#parameters">Swiper</a> 설정옵션과 동일한 데이터 (하위 카테고리 슬라이더 설정옵션)<br> (아래 타입 참조)</td>
+</tr>
+<tr>
+<td>currentCategoryRoute</td>
+<td>CategoryRoute</td>
+<td>-</td>
+<td>현재 카테고리 경로 정보 <br>(아래 타입 참조)</td>
+</tr>
+<tr>
+<td>categoryRoute</td>
+<td>CategoryRoute[]</td>
+<td>[]</td>
+<td>카테고리 경로 <br>브레드크럼을 구성하기 위한 데이터 <br>(아래 타입 참조)</td>
+</tr>
+<tr>
+<td>categoryChildren</td>
+<td>CategoryChildren[]</td>
+<td>[]</td>
+<td>하위 카테고리 목록</td>
+</tr>
+</tbody>
+</table>
+<h4 id="slider">Slider 타입</h4>
+<table>
+<thead>
+<tr>
+<th>속성명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>-</td>
+<td>슬라이더id 값</td>
+</tr>
+</tbody>
+</table>
+<h4 id="categoryroute">CategoryRoute 타입</h4>
+<table>
+<thead>
+<tr>
+<th>속성명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>-</td>
+<td>카테고리명</td>
+</tr>
+<tr>
+<td>depth</td>
+<td>number</td>
+<td>-</td>
+<td>카테고리 depth</td>
+</tr>
+<tr>
+<td>categoryNo</td>
+<td>number</td>
+<td>-</td>
+<td>카테고리 번호</td>
+</tr>
+<tr>
+<td>siblingCategories</td>
+<td>CategoryRoute[]</td>
+<td>[]</td>
+<td>형제 카테고리 목록<br> CategoryRoute 타입과 동일한 데이터</td>
+</tr>
+</tbody>
+</table>
+<h4 id="categorychildren">CategoryChildren 타입</h4>
+<table>
+<thead>
+<tr>
+<th>속성명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>-</td>
+<td>카테고리명</td>
+</tr>
+<tr>
+<td>depth</td>
+<td>number</td>
+<td>-</td>
+<td>카테고리 depth</td>
+</tr>
+<tr>
+<td>categoryNo</td>
+<td>number</td>
+<td>-</td>
+<td>카테고리 번호</td>
+</tr>
+<tr>
+<td>count</td>
+<td>number</td>
+<td>0</td>
+<td>카테고리 상품 수</td>
+</tr>
+<tr>
+<td>children</td>
+<td>CategoryChildren[]</td>
+<td>[]</td>
+<td>하위 카테고리 목록<br>CategoryChildren 타입과 동일한 데이터</td>
+</tr>
+</tbody>
+</table></section>
+    </div>
+</details>
+<details class="module">
+    <summary class="module-title">모듈명: <span class="module-name" data-module-name="product-keyword">product-keyword</span><a class="link" href="https://skins.shopby.co.kr/shopby/vanilla-components/-/blob/main/modules/product/ProductList/ProductKeyword.ts" target="_blank">원본소스</a></summary>
+    <div class="description"><p>(PC - 상품검색시) 검색어 모듈입니다</p></div>
+    <div class="parameter-container">
+        <section class="parameter"><h4 id="">사용 가능 변수</h4>
+<table>
+<thead>
+<tr>
+<th>변수명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isSearchPage</td>
+<td>boolean</td>
+<td>false</td>
+<td>검색 페이지 여부<br>url에 <code>keywords=검색어</code> 쿼리스트링이 있는 경우 true</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>string</td>
+<td>-</td>
+<td>검색어</td>
+</tr>
+<tr>
+<td>correctedKeyword</td>
+<td>string</td>
+<td>-</td>
+<td>보정 된 검색어</td>
+</tr>
+</tbody>
+</table></section>
+    </div>
+</details>
+<details class="module">
+    <summary class="module-title">모듈명: <span class="module-name" data-module-name="total-count-and-sort">total-count-and-sort</span><a class="link" href="https://skins.shopby.co.kr/shopby/vanilla-components/-/blob/main/modules/product/ProductList/TotalCountAndSort.ts" target="_blank">원본소스</a></summary>
+    <div class="description"><p>상품 총 검색결과 수 &amp; 정렬 모듈입니다</p></div>
+    <div class="parameter-container">
+        <section class="parameter"><h4 id="">속성</h4>
+<table>
+<thead>
+<tr>
+<th>속성명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shopby-product-search-order</td>
+<td>state &gt; sortType과 동일</td>
+<td>-</td>
+<td>(필수) PRODUCTS_SORT_TYPE 이벤트를 통해 변경될 상품 정렬 순서<br>해당 attribute를 사용하면 value는 제거가능</td>
+</tr>
+<tr>
+<td>shopby-product-search-direction</td>
+<td>state &gt; directions과 동일</td>
+<td>-</td>
+<td>(선택) PRODUCTS_SORT_TYPE 이벤트를 통해 변경될 상품 정렬 방향<br>해당 attribute를 사용하면 value는 제거가능<br>shopby-product-search-order와 함께 사용해야함.</td>
+</tr>
+<tr>
+<td>default-sort-type</td>
+<td>string</td>
+<td>SALE</td>
+<td>카테고리 정렬 타입 기본값</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-1">사용 가능 변수</h4>
+<table>
+<thead>
+<tr>
+<th>변수명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sortType</td>
+<td>LOW_PRICE, HIGH_PRICE, <a href="https://docs.shopby.co.kr/?url.primaryName=product/#/Product/get-products-search">상품 검색하기 API &gt; order.by</a></td>
+<td>SALE_CNT</td>
+<td>상품 정렬 순서</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>ASC, DESC</td>
+<td>null</td>
+<td>sortType에서 LOW_PRICE, HIGH_PRICE 를 제외하고 direction을 통해 나머지 sortType에 대해 오름차순, 내림차순을 결정할 수 있음. (상품검색 커스터마이징을 하는 경우 사용가능)</td>
+</tr>
+<tr>
+<td>viewType</td>
+<td>GALLERY, LIST</td>
+<td>GALLERY</td>
+<td>(모바일)상품 리스트 뷰 타입</td>
+</tr>
+<tr>
+<td>nextViewType</td>
+<td>GALLERY, LIST</td>
+<td>LIST</td>
+<td>(모바일)상품 리스트 뷰 타입 변경시 변경될 뷰 타입</td>
+</tr>
+<tr>
+<td>totalCount</td>
+<td>number</td>
+<td>0</td>
+<td>총 상품 개수</td>
+</tr>
+<tr>
+<td>productsSearchQueryParams</td>
+<td>object</td>
+<td>{}</td>
+<td>상품 검색 API 호출시 추가로 전달할 파라미터 <a href="https://docs.shopby.co.kr/?url.primaryName=product/#/Product/get-products-search">상품 검색하기 API</a>의 parameters와 동일</td>
+</tr>
+<tr>
+<td>displayType</td>
+<td>AUTO | CUSTOM_AUTO | MANUAL</td>
+<td>AUTO</td>
+<td>전시카테고리 진열 방식 <br> 자동진열(AUTO), 맞춤 자동 진열(CUSTOM_AUTO), 수동진열(MANUAL) <br> 기본 스킨에서는 전시카테고리의 진열 방식이 '자동 진열' 또는 '맞춤 자동 진열' 인 경우에만 정렬 조건 선택 영역이 노출되며, '수동 진열' 인 경우에는 노출되지 않습니다.</td>
+</tr>
+<tr>
+<td>pinEnabled</td>
+<td>Y | N</td>
+<td>N</td>
+<td>상단 고정 사용 여부. displayType이 MANUAL인 경우에만 유효하며, AUTO | CUSTOM_AUTO인 경우 서버에서 N으로 강제됩니다.</td>
+</tr>
+<tr>
+<td>customAuto</td>
+<td>CustomAuto</td>
+<td>null</td>
+<td>맞춤 자동 진열 설정. displayType이 CUSTOM_AUTO인 경우에만 존재하며, 그 외에는 null입니다. <br> (아래 타입 참조)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="customauto">CustomAuto 타입</h4>
+<table>
+<thead>
+<tr>
+<th>속성명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>defaultSortType</td>
+<td>POPULAR | SALE_YMD | SALE_END_YMD | DISCOUNTED_PRICE | REVIEW | SALE_CNT | RECENT_PRODUCT | LIKE_CNT | EXPIRATION_DATE</td>
+<td>-</td>
+<td>기본 정렬 조건 (단일). sortTypes에 반드시 포함되어야 합니다.</td>
+</tr>
+<tr>
+<td>sortTypes</td>
+<td>SortCriterion[]</td>
+<td>-</td>
+<td>정렬 조건 (복수, 최소 1개, 중복 불가). 가능한 값: POPULAR | SALE_YMD | SALE_END_YMD | DISCOUNTED_PRICE | REVIEW | SALE_CNT | RECENT_PRODUCT | LIKE_CNT | EXPIRATION_DATE</td>
+</tr>
+<tr>
+<td>sortDirection</td>
+<td>ASC | DESC</td>
+<td>-</td>
+<td>정렬 방향</td>
+</tr>
+<tr>
+<td>soldoutPolicy</td>
+<td>SORT_AS_IS | TO_LAST | HIDE</td>
+<td>-</td>
+<td>품절 상품 노출 정책. 정렬 그대로(SORT_AS_IS) | 가장 마지막(TO_LAST) | 미노출(HIDE)</td>
+</tr>
+</tbody>
+</table></section>
+    </div>
+</details>
+<details class="module">
+    <summary class="module-title">모듈명: <span class="module-name" data-module-name="product-list-items">product-list-items</span><a class="link" href="https://skins.shopby.co.kr/shopby/vanilla-components/-/blob/main/modules/product/ProductList/ProductListItems.ts" target="_blank">원본소스</a></summary>
+    <div class="description"><p>상품목록 모듈입니다</p></div>
+    <div class="parameter-container">
+        <section class="parameter"><h4 id="">속성</h4>
+<table>
+<thead>
+<tr>
+<th>속성명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shopby-is-adult</td>
+<td>boolean</td>
+<td>false</td>
+<td>(필수)성인상품 여부</td>
+</tr>
+<tr>
+<td>shopby-product-no</td>
+<td>number</td>
+<td>-</td>
+<td>(필수)상품번호</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-1">사용 가능 변수</h4>
+<table>
+<thead>
+<tr>
+<th>변수명</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>viewType</td>
+<td>GALLERY | LIST</td>
+<td>GALLERY</td>
+<td>상품 리스트 뷰 타입</td>
+</tr>
+<tr>
+<td>items</td>
+<td>array</td>
+<td>[]</td>
+<td><a href="https://docs.shopby.co.kr/?url.primaryName=product/#/Product/get-products-search">상품 검색</a> API 응답값 중 <code>items</code>와 동일 (상품목록)</td>
+</tr>
+<tr>
+<td>isLoaded</td>
+<td>boolean</td>
+<td>false</td>
+<td>상품목록 로드 여부</td>
+</tr>
+<tr>
+<td>hasNoMoreItems</td>
+<td>boolean</td>
+<td>false</td>
+<td>더 이상 상품이 없는지 여부</td>
+</tr>
+<tr>
+<td>hasNoItems</td>
+<td>boolean</td>
+<td>false</td>
+<td>진열(검색)된 상품이 없는지 여부</td>
+</tr>
+<tr>
+<td>isSearchPage</td>
+<td>boolean</td>
+<td>false</td>
+<td>검색 페이지 여부</td>
+</tr>
+<tr>
+<td>productsSearchQueryParams</td>
+<td>object</td>
+<td>{}</td>
+<td>상품 검색 API 호출시 추가로 전달할 파라미터 <a href="https://docs.shopby.co.kr/?url.primaryName=product/#/Product/get-products-search">상품 검색하기 API</a>의 parameters와 동일</td>
+</tr>
+<tr>
+<td>page-size<br>page-size:query</td>
+<td>number<br>string</td>
+<td>20<br>pageSize</td>
+<td>한 페이지 노출 수 <br><code>query string</code> 중 <code>pageSize</code> 키 값</td>
+</tr>
+<tr>
+<td>page-number<br>page-number:query</td>
+<td>number<br>string</td>
+<td>1<br>pageNumber</td>
+<td>페이지 번호 <br><code>query string</code> 중 <code>pageNumber</code> 키 값</td>
+</tr>
+<tr>
+<td>visible-pages-count</td>
+<td>number</td>
+<td>5</td>
+<td>페이지네이션 표시 페이지 수</td>
+</tr>
+</tbody>
+</table></section>
+    </div>
+</details>
+</div>
+
+                        <div class="module-info-divider">
+                            <div class="module-info-divider-line"></div>
+                        </div>
+
+                        <div class="code-container whole-code-provider">
+                            <div class="code-option-container">
+                                <div>
+                                    <div>
+                                        <span>커스텀 핸들바 더 알아보기</span>
+                                        <a class="more-view-handlebar" href="javascript:openWindowPop('/shopby-ui-docs/common/hbs.html', 'popup');">
+                                            <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" style="cursor: pointer">
+                                                <g stroke="none" stroke-width="1" fill="#9299AD" fill-rule="evenodd">
+                                                    <path d="M7,0 C3.136,0 0,3.136 0,7 C0,10.864 3.136,14 7,14 C10.864,14 14,10.864 14,7 C14,3.136 10.864,0 7,0 Z M7,12.6 C3.913,12.6 1.4,10.087 1.4,7 C1.4,3.913 3.913,1.4 7,1.4 C10.087,1.4 12.6,3.913 12.6,7 C12.6,10.087 10.087,12.6 7,12.6 Z M7.7,9.8 L7.7,11.2 L6.3,11.2 L6.3,9.8 L7.7,9.8 Z M7,2.8 C8.547,2.8 9.8,4.053 9.8,5.6 C9.8,7.35 7.7,7.525 7.7,9.1 L7.7,9.1 L6.3,9.1 C6.3,6.825 8.4,7 8.4,5.6 C8.4,4.83 7.77,4.2 7,4.2 C6.23,4.2 5.6,4.83 5.6,5.6 L5.6,5.6 L4.2,5.6 C4.2,4.053 5.453,2.8 7,2.8 Z"></path>
+                                                </g>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span>:query 속성 더 알아보기</span>
+                                            <a class="more-view-handlebar" href="javascript:openWindowPop('/shopby-ui-docs/common/queryProps.html', 'popup');">
+                                                <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" style="cursor: pointer">
+                                                    <g stroke="none" stroke-width="1" fill="#9299AD" fill-rule="evenodd">
+                                                        <path d="M7,0 C3.136,0 0,3.136 0,7 C0,10.864 3.136,14 7,14 C10.864,14 14,10.864 14,7 C14,3.136 10.864,0 7,0 Z M7,12.6 C3.913,12.6 1.4,10.087 1.4,7 C1.4,3.913 3.913,1.4 7,1.4 C10.087,1.4 12.6,3.913 12.6,7 C12.6,10.087 10.087,12.6 7,12.6 Z M7.7,9.8 L7.7,11.2 L6.3,11.2 L6.3,9.8 L7.7,9.8 Z M7,2.8 C8.547,2.8 9.8,4.053 9.8,5.6 C9.8,7.35 7.7,7.525 7.7,9.1 L7.7,9.1 L6.3,9.1 C6.3,6.825 8.4,7 8.4,5.6 C8.4,4.83 7.77,4.2 7,4.2 C6.23,4.2 5.6,4.83 5.6,5.6 L5.6,5.6 L4.2,5.6 C4.2,4.053 5.453,2.8 7,2.8 Z">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="reset-btn">
+                                        <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M17.65 6.35c-1.63-1.63-3.94-2.57-6.48-2.31-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20c3.19 0 5.93-1.87 7.21-4.56.32-.67-.16-1.44-.9-1.44-.37 0-.72.2-.88.53-1.13 2.43-3.84 3.97-6.8 3.31-2.22-.49-4.01-2.3-4.48-4.52C5.31 9.44 8.26 6 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71z" stroke-width="2"></path>
+                                        </svg>
+                                        <div class="reset-popover">되돌리기</div>
+                                    </button>
+                                    <button type="button" class="copy-btn">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M14 4v3a1 1 0 0 1-1 1h-3m4 10v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2m11-3v10a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V7.87a1 1 0 0 1 .24-.65l2.46-2.87a1 1 0 0 1 .76-.35H18a1 1 0 0 1 1 1Z"></path>
+                                        </svg>
+                                        <div class="copy-popover">복사하기</div>
+                                    </button>
+                                </div>
+                            </div>
+                            <section class="code-block-section">
+                                <div class="apply-btn-container">
+                                    <button type="button" class="btn btn--line-dark btn--sm apply-html-btn">HTML 반영하기</button>
+                                </div>
+                                <textarea class="html-code" name="html-code">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /&gt;
+
+&lt;main shopby-product-list class="l-page product-list"&gt;
+    &lt;display-category&gt;
+        &lt;section class="page-content-top"&gt;
+            {{#unless isSearchPage}}
+            &lt;!-- 브래드크럼브 --&gt;
+            &lt;div slot="breadcrumb"&gt;
+                {{#unless isCategoryLoaded}}
+                &lt;div class="skeleton__line product-list__breadcrumb-skeleton"&gt;&lt;/div&gt;
+                {{else}}
+                &lt;nav class="product-list__breadcrumb"&gt;
+                    &lt;ul class="page-content-top__path page-content-top__location"&gt;
+                        &lt;li&gt;
+                            &lt;a href="/"&gt;HOME&lt;/a&gt;
+                        &lt;/li&gt;
+                        {{#each categoryRoute}} &gt;
+                        &lt;li class="page-content-top__breadcrumb-category"&gt;
+                            &lt;span class="page-content-top__breadcrumb-category-label"&gt;{{label}}&lt;/span&gt;
+                            &lt;ul class="page-content-top__breadcrumb-category-siblings"&gt;
+                                {{#each siblingCategories}}
+                                &lt;li&gt;
+                                    &lt;a href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}"&gt;{{label}}&lt;/a&gt;
+                                &lt;/li&gt;
+                                {{/each}}
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        {{/each}}
+                    &lt;/ul&gt;
+                &lt;/nav&gt;
+                {{/unless}}
+            &lt;/div&gt;
+            &lt;!-- 현재 카테고리 --&gt;
+            &lt;div slot="currentCategoryLabel"&gt;
+                {{#unless isCategoryLoaded}}
+                &lt;div class="skeleton__line product-list__current-category-skeleton"&gt;&lt;/div&gt;
+                {{else}}
+                &lt;em class="l-title"&gt;{{currentCategoryRoute.label}}&lt;/em&gt;
+                {{/unless}}
+            &lt;/div&gt;
+            &lt;!-- 하위 카테고리 --&gt;
+            &lt;nav slot="childCategories"&gt;
+                {{#unless isCategoryLoaded}}
+                &lt;div class="skeleton__line product-list__child-category-skeleton"&gt;&lt;/div&gt;
+                {{else}}
+                &lt;ul class="category-nav"&gt;
+                    {{#each categoryChildren}}
+                    &lt;li&gt;
+                        &lt;a class="category-nav__link" href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}"&gt;
+                            &lt;span class="category-nav__label"&gt;{{label}}(&lt;/span&gt;
+                            &lt;span class="category-nav__count font-montserrat"&gt;{{count}}&lt;/span&gt;
+                            &lt;span class="category-nav__label"&gt;)&lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    {{/each}}
+                &lt;/ul&gt;
+                {{/unless}}
+            &lt;/nav&gt;
+            {{/unless}}
+        &lt;/section&gt;
+    &lt;/display-category&gt;
+
+    &lt;!-- 상품검색으로 접근시 검색어영역 --&gt;
+    &lt;product-keyword&gt;
+        {{#if isSearchPage}}
+        &lt;div class="product-list__search-keyword-wrap"&gt;
+            &lt;em class="product-list__search-keyword"&gt;{{keywords}}&lt;/em&gt;
+            &lt;span&gt;검색결과&lt;/span&gt;
+        &lt;/div&gt;
+        {{/if}}
+    &lt;/product-keyword&gt;
+
+    &lt;total-count-and-sort category-no:query="categoryNo" depth:query="depth" sort-type:query="sortType" page-size:query="pageSize"&gt;
+        &lt;div class="sort-list__wrap sort-list__wrap--end sort-list__wrap--margin"&gt;
+            &lt;p class="total-count total-count--md"&gt;
+                총
+                &lt;em class="highlight bold" slot="totalCount"&gt;{{totalCount}}&lt;/em&gt;
+                건
+            &lt;/p&gt;
+
+            &lt;ul class="sort-list" slot="sortType" shopby-on:click="PRODUCTS_SORT_TYPE"&gt;
+                &lt;li class="sort-item {{#ifEq sortType 'SALE_CNT'}}active{{/ifEq}}"&gt;
+                    &lt;button value="SALE_CNT" shopby-product-search-order="SALE_CNT"&gt;판매량순&lt;/button&gt;
+                &lt;/li&gt;
+                &lt;li class="sort-item {{#ifEq sortType 'LOW_PRICE'}}active{{/ifEq}}"&gt;
+                    &lt;button value="LOW_PRICE" shopby-product-search-order="LOW_PRICE"&gt;낮은가격순&lt;/button&gt;
+                &lt;/li&gt;
+                &lt;li class="sort-item {{#ifEq sortType 'HIGH_PRICE'}}active{{/ifEq}}"&gt;
+                    &lt;button value="HIGH_PRICE" shopby-product-search-order="HIGH_PRICE"&gt;높은가격순&lt;/button&gt;
+                &lt;/li&gt;
+                &lt;li class="sort-item {{#ifEq sortType 'REVIEW'}}active{{/ifEq}}"&gt;
+                    &lt;button value="REVIEW" shopby-product-search-order="REVIEW"&gt;상품후기순&lt;/button&gt;
+                &lt;/li&gt;
+                &lt;li class="sort-item {{#ifEq sortType 'RECENT_PRODUCT'}}active{{/ifEq}}"&gt;
+                    &lt;button value="RECENT_PRODUCT" shopby-product-search-order="RECENT_PRODUCT"&gt;신상품순&lt;/button&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;span class="select select--sm"&gt;
+                &lt;select slot="pageSize" shopby-on:change="SEARCH_SIZE"&gt;
+                    {{!#selected pageSize slot='pageSize'}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                    &lt;option value="20"&gt;20개씩 보기&lt;/option&gt;
+                    &lt;option value="40"&gt;40개씩 보기&lt;/option&gt;
+                    &lt;option value="60"&gt;60개씩 보기&lt;/option&gt;
+                    &lt;option value="80"&gt;80개씩 보기&lt;/option&gt;
+                    {{!/selected}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                &lt;/select&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/total-count-and-sort&gt;
+    &lt;!-- 상품리스트 --&gt;
+    &lt;product-list-items page-size:query="pageSize" page-number:query="pageNumber"&gt;
+        &lt;section&gt;
+            &lt;div shopby-products-items class="thumb-GALLERY" slot="items"&gt;
+                {{#each items}}
+                &lt;div class="thumb-item"&gt;
+                    &lt;a
+                        class="thumb-item__media thumb-item__link"
+                        shopby-is-adult="{{adult}}"
+                        shopby-action="MOVE_PRODUCT_DETAIL"
+                        href="/pages/product/product-detail.html?productNo={{productNo}}"
+                    &gt;
+                        &lt;!-- 상품이미지 --&gt;
+                        &lt;span class="thumb-item__img"&gt;{{#if adult}} {{/if}} {{img listImageUrls.[0] 500 500 productName '' ''}}&lt;/span&gt;
+                        &lt;!-- 좋아요 버튼 --&gt;
+                        &lt;button
+                            type="button"
+                            class="btn thumb-fab thumb-fab--like{{#if liked}} is-active{{/if}}"
+                            shopby-action="PRODUCT_LIKE_BTN"
+                            shopby-product-no="{{productNo}}"
+                        &gt;
+                            &lt;svg width="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"&gt;
+                                &lt;path
+                                    d="M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z"
+                                    stroke="var(--color-point)"
+                                    stroke-width="5"
+                                    stroke-linejoin="round"
+                                &gt;&lt;/path&gt;
+                            &lt;/svg&gt;
+                        &lt;/button&gt;
+                        &lt;!-- 품절 오버레이 --&gt;
+                        {{#if isSoldOut}}
+                        &lt;div class="thumb-item__overlay"&gt;SOLD OUT&lt;/div&gt;
+                        {{/if}}
+                        &lt;!-- 뱃지(판매종료/판매임박) --&gt;
+                        &lt;span class="thumb-item__badges"&gt;
+                            {{#ifEq saleStatusType 'FINISHED'}}
+                            &lt;span class="badge badge--fill-navy"&gt;판매종료&lt;/span&gt;
+                            {{/ifEq}} {{#ifEq saleStatusType 'READY'}}
+                            &lt;span class="badge badge--fill-red"&gt;판매임박&lt;/span&gt;
+                            {{/ifEq}}
+                        &lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;!-- 상품설명 --&gt;
+                    &lt;a
+                        class="thumb-item__info thumb-item__link"
+                        shopby-is-adult="{{adult}}"
+                        shopby-action="MOVE_PRODUCT_DETAIL"
+                        href="/pages/product/product-detail.html?productNo={{productNo}}"
+                    &gt;
+                        &lt;!-- 상품명 --&gt;
+                        &lt;p class="product-thumb-title"&gt;{{productName}}&lt;/p&gt;
+                        &lt;!-- 가격정보 --&gt;
+                        &lt;div class="product-thumb-price-info"&gt;
+                            &lt;!-- 판매가에대한 즉시할인+추가할인의 할인율 --&gt;
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            &lt;span class="product-thumb__immediately-percent font-montserrat"&gt;
+                                {{calculatePercentage (addNumber immediateDiscountAmt additionDiscountAmt) salePrice 1}}%
+                            &lt;/span&gt;
+                            {{/ifHasDiscount}}
+                            &lt;!-- 할인된 가격 --&gt;
+                            &lt;em class="product-thumb-price font-montserrat"&gt;
+                                {{convertToKoreanCurrency (subtractNumber salePrice immediateDiscountAmt additionDiscountAmt)}}
+                            &lt;/em&gt;
+                            &lt;span class="product-thumb-unit"&gt;원&lt;/span&gt;
+                            &lt;!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 --&gt;
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            &lt;s class="product-thumb-price--origin font-montserrat"&gt;{{convertToKoreanCurrency salePrice}}원&lt;/s&gt;
+                            {{/ifHasDiscount}}
+                        &lt;/div&gt;
+                        &lt;!-- 스티커(뱃지) --&gt;
+                        &lt;div&gt;
+                            {{#each stickerInfos}}
+                            &lt;span class="product-thumb__sticker"&gt;
+                                &lt;!-- 텍스트형 스티커 --&gt;
+                                {{#ifEq type 'TEXT'}} {{label}} {{/ifEq}}
+                                &lt;!-- 이미지형 스티커 --&gt;
+                                {{#ifEq type 'IMAGE'}} {{img label '' '' productName 'product-thumb__sticker-img'}} {{/ifEq}}
+                            &lt;/span&gt;
+                            {{/each}}
+                        &lt;/div&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+                {{/each}}
+            &lt;/div&gt;
+            &lt;!-- 상품이 없을 때 --&gt;
+            &lt;div slot="noItems"&gt;
+                {{#if isLoaded}}{{#if hasNoItems}}
+                &lt;div class="notice notice--full"&gt;
+                    &lt;span class="sprite-image notice--warning"&gt;&lt;/span&gt;
+                    {{#if isSearchPage}}
+                    &lt;em&gt;검색결과가 없습니다.&lt;/em&gt;
+                    {{else}}
+                    &lt;em&gt;진열중인 상품이 없습니다.&lt;/em&gt;
+                    {{/if}}
+                &lt;/div&gt;
+                {{/if}}{{/if}}
+            &lt;/div&gt;
+            &lt;!-- 스켈레톤 --&gt;
+            &lt;div slot="skeleton"&gt;
+                {{#unless isLoaded}}
+                &lt;div class="skeleton-grid skeleton-grid__column--4"&gt;
+                    {{#repeat 8}}
+                    &lt;div class="thumb-item skeleton skeleton--gallery"&gt;
+                        &lt;div class="skeleton__media"&gt;&lt;/div&gt;
+                        &lt;div class="skeleton__line"&gt;&lt;/div&gt;
+                        &lt;div class="skeleton__line"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    {{/repeat}}
+                &lt;/div&gt;
+                {{/unless}}
+            &lt;/div&gt;
+            &lt;!-- 페이지네이션 --&gt;
+            &lt;div class="pagination" slot="pagination"&gt;
+                {{#if paginationInfo.pages}}
+                &lt;a href="?{{paginationInfo.firstPage}}"&gt;
+                    &lt;button class="sprite-image pagination__btn pagination__btn--double-lt"&gt;&lt;/button&gt;
+                &lt;/a&gt;
+                &lt;a href="?{{paginationInfo.prevPage}}"&gt;
+                    &lt;button class="sprite-image pagination__btn pagination__btn--lt"&gt;&lt;/button&gt;
+                &lt;/a&gt;
+                {{#each paginationInfo.pages}}
+                &lt;a class="pagination__link {{#if isCurrentPage}}is-current{{/if}}" href="?{{param}}"&gt;{{page}}&lt;/a&gt;
+                {{/each}}
+                &lt;a href="?{{paginationInfo.nextPage}}"&gt;
+                    &lt;button class="sprite-image pagination__btn pagination__btn--rt"&gt;&lt;/button&gt;
+                &lt;/a&gt;
+                &lt;a href="?{{paginationInfo.lastPage}}"&gt;
+                    &lt;button class="sprite-image pagination__btn pagination__btn--double-rt"&gt;&lt;/button&gt;
+                &lt;/a&gt;
+                {{/if}}
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/product-list-items&gt;
+&lt;/main&gt;
+</textarea>
+                                <textarea class="mobile-html-code" name="mobile-html-code">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /&gt;
+
+&lt;main shopby-product-list shopby-view-type="GALLERY" class="product-list"&gt;
+    &lt;!-- 카테고리 선택 --&gt;
+    &lt;display-category&gt;
+        &lt;div&gt;
+            {{#if categoryNo}}
+            &lt;!-- 브레드크럼브 --&gt;
+            &lt;section class="breadcrumb" slot="breadcrumb"&gt;
+                &lt;div class="breadcrumb__section{{#if isLeafCategory}} breadcrumb__leaf-category{{/if}}"&gt;
+                    {{#each categoryRoute}}
+                    &lt;a class="breadcrumb__item" href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}"&gt;{{label}}&lt;/a&gt;
+                    {{/each}}
+                &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;!-- 하위 카테고리 리스트 --&gt;
+            &lt;section slot="childCategories"&gt;
+                &lt;nav class="category-slider product-list-category-slider"&gt;
+                    &lt;ul class="swiper category-slider__wrapper" shopby-slider-id="{{slider.id}}"&gt;
+                        &lt;div class="swiper-wrapper"&gt;
+                            {{#each categoryChildren}}
+                            &lt;li class="swiper-slide category-slider__slide"&gt;
+                                &lt;a class="category-slider__item" href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}"&gt;
+                                    {{label}}
+                                &lt;/a&gt;
+                            &lt;/li&gt;
+                            {{/each}}
+                        &lt;/div&gt;
+                    &lt;/ul&gt;
+                &lt;/nav&gt;
+            &lt;/section&gt;
+            {{/if}}
+        &lt;/div&gt;
+    &lt;/display-category&gt;
+
+    &lt;!-- 상품검색으로 접근시 검색어영역 --&gt;
+    &lt;product-keyword&gt;
+        {{#if isSearchPage}}
+        &lt;div class="product-list__search-keyword-wrap"&gt;
+            &lt;em class="product-list__search-keyword"&gt;{{keywords}}&lt;/em&gt;
+            &lt;span&gt;검색결과&lt;/span&gt;
+        &lt;/div&gt;
+        {{/if}}
+    &lt;/product-keyword&gt;
+
+    &lt;!-- "총 n개 / 상품정렬 셀렉박스" --&gt;
+    &lt;total-count-and-sort category-no:query="categoryNo" depth:query="depth" sort-type:query="sortType"&gt;
+        &lt;div class="total-sort"&gt;
+            &lt;p class="total-sort__count"&gt;
+                총
+                &lt;em class="highlight" slot="totalCount"&gt;{{totalCount}}&lt;/em&gt;
+                개
+            &lt;/p&gt;
+
+            &lt;div&gt;
+                &lt;span class="select select--sm product-list__sort"&gt;
+                    &lt;select shopby-on:change="PRODUCTS_SORT_TYPE" slot="sortType"&gt;
+                        {{!#selected sortType slot='sortType'}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                        &lt;option value="SALE_CNT" shopby-product-search-order="SALE_CNT"&gt;판매량순&lt;/option&gt;
+                        &lt;option value="LOW_PRICE" shopby-product-search-order="LOW_PRICE"&gt;낮은가격순&lt;/option&gt;
+                        &lt;option value="HIGH_PRICE" shopby-product-search-order="HIGH_PRICE"&gt;높은가격순&lt;/option&gt;
+                        &lt;option value="REVIEW" shopby-product-search-order="REVIEW"&gt;상품후기순&lt;/option&gt;
+                        &lt;option value="RECENT_PRODUCT" shopby-product-search-order="RECENT_PRODUCT"&gt;신상품순&lt;/option&gt;
+                        {{!/selected}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                    &lt;/select&gt;
+                &lt;/span&gt;
+
+                &lt;button class="product-list__display-type-btn ico ico--list-32" type="button" shopby-on:click="VIEW_TYPE"&gt;&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/total-count-and-sort&gt;
+
+    &lt;!-- 상품리스트 --&gt;
+    &lt;product-list-items&gt;
+        &lt;section class="product-list-items"&gt;
+            &lt;div shopby-products-items class="thumb-{{viewType}}" slot="items"&gt;
+                {{#each items}}
+                &lt;a
+                    shopby-is-adult="{{adult}}"
+                    shopby-action="MOVE_PRODUCT_DETAIL"
+                    class="thumb-item thumb-item__link"
+                    href="/pages/product/product-detail.html?productNo={{productNo}}"
+                &gt;
+                    &lt;div class="thumb-item__media"&gt;
+                        &lt;!-- 상품이미지 --&gt;
+                        &lt;span class="thumb-item__img"&gt;{{#if adult}} {{/if}} {{img listImageUrls.[0] 250 250 productName '' ''}}&lt;/span&gt;
+                        &lt;!-- 좋아요 버튼 --&gt;
+                        &lt;button
+                            type="button"
+                            class="btn btn--default sc-like-button thumb-fab{{#if liked}} is-active{{/if}}"
+                            shopby-action="PRODUCT_LIKE_BTN"
+                            shopby-product-no="{{productNo}}"
+                        &gt;
+                            &lt;svg width="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"&gt;
+                                &lt;path
+                                    d="M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z"
+                                    stroke="var(--color-point)"
+                                    stroke-linejoin="round"
+                                &gt;&lt;/path&gt;
+                            &lt;/svg&gt;
+                        &lt;/button&gt;
+                        &lt;!-- 품절 오버레이 --&gt;
+                        {{#if isSoldOut}}
+                        &lt;div class="thumb-item__overlay"&gt;SOLD OUT&lt;/div&gt;
+                        {{/if}}
+                        &lt;!-- 뱃지(판매종료/판매임박) --&gt;
+                        &lt;span class="thumb-item-badges"&gt;
+                            {{#ifEq saleStatusType 'FINISHED'}}
+                            &lt;span class="badge badge--fill-navy"&gt;판매종료&lt;/span&gt;
+                            {{/ifEq}} {{#ifEq saleStatusType 'READY'}}
+                            &lt;span class="badge badge--fill-red"&gt;판매임박&lt;/span&gt;
+                            {{/ifEq}}
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- 상품설명 --&gt;
+                    &lt;div class="thumb-item__info"&gt;
+                        &lt;!-- 상품명 --&gt;
+                        &lt;p class="product-thumb-title"&gt;{{productName}}&lt;/p&gt;
+                        &lt;!-- 진열타입 리스트인경우 홍보문구 노출 --&gt;
+                        &lt;p class="product-thumb__promotion-text"&gt;{{promotionText}}&lt;/p&gt;
+                        &lt;!-- 가격정보 --&gt;
+                        &lt;div class="product-thumb-price-info"&gt;
+                            &lt;!-- 판매가에대한 즉시할인+추가할인의 할인율 --&gt;
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            &lt;span class="product-thumb__immediately-percent font-montserrat"&gt;
+                                {{calculatePercentage (addNumber immediateDiscountAmt additionDiscountAmt) salePrice 1}}%
+                            &lt;/span&gt;
+                            {{/ifHasDiscount}}
+                            &lt;!-- 할인된 가격 --&gt;
+                            &lt;em class="product-thumb-price font-montserrat"&gt;
+                                {{convertToKoreanCurrency (subtractNumber salePrice immediateDiscountAmt additionDiscountAmt)}}
+                            &lt;/em&gt;
+                            &lt;span class="product-thumb-unit"&gt;원&lt;/span&gt;
+                            &lt;!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 --&gt;
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            &lt;s class="product-thumb-price--origin font-montserrat"&gt;{{convertToKoreanCurrency salePrice}}원&lt;/s&gt;
+                            {{/ifHasDiscount}}
+                        &lt;/div&gt;
+
+                        &lt;div&gt;
+                            &lt;!-- 스티커(뱃지) --&gt;
+                            {{#each stickerInfos}}
+                            &lt;span class="product-thumb__sticker"&gt;
+                                &lt;!-- 텍스트형 스티커 --&gt;
+                                {{#ifEq type 'TEXT'}} {{label}} {{/ifEq}}
+                                &lt;!-- 이미지형 스티커 --&gt;
+                                {{#ifEq type 'IMAGE'}} {{img label '' '' productName 'product-thumb__sticker-img'}} {{/ifEq}}
+                            &lt;/span&gt;
+                            {{/each}}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+                {{/each}}
+            &lt;/div&gt;
+
+            &lt;!-- 스켈레톤 --&gt;
+            &lt;div slot="skeleton"&gt;
+                {{#unless isLoaded}} {{#repeat 2}}
+                &lt;div class="skeleton__wrap {{#if items}}skeleton__wrap--has-item{{/if}} thumb-{{viewType}}"&gt;
+                    &lt;!-- view type 갤러리 스켙레톤 --&gt;
+                    {{#ifEq viewType 'GALLERY'}}{{#repeat 2}}
+                    &lt;div class="thumb-item skeleton skeleton--gallery"&gt;
+                        &lt;div class="skeleton__media"&gt;&lt;/div&gt;
+                        &lt;div class="skeleton__line"&gt;&lt;/div&gt;
+                        &lt;div class="skeleton__line"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    {{/repeat}}{{/ifEq}}
+                    &lt;!-- view type 리스트 스켙레톤 --&gt;
+                    {{#ifEq viewType 'LIST'}}{{#repeat 2}}
+                    &lt;div class="thumb-item skeleton skeleton--list"&gt;
+                        &lt;div class="skeleton__media"&gt;&lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class="skeleton__line skeleton__line--product-name"&gt;&lt;/div&gt;
+                            &lt;div class="skeleton__line skeleton__line--product-price"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    {{/repeat}}{{/ifEq}}
+                &lt;/div&gt;
+                {{/repeat}} {{/unless}}
+            &lt;/div&gt;
+
+            &lt;div slot="searchMoreBtn"&gt;
+                {{#unless hasNoMoreItems}}
+                &lt;div class="product-section__more btn" shopby-action="SEARCH_MORE_PRODUCT"&gt;
+                    더보기
+                    &lt;span class="product-section__more-ico"&gt;
+                        &lt;span class="ico ico--angle-right-solid"&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/div&gt;
+                {{/unless}}
+            &lt;/div&gt;
+
+            &lt;div slot="noItems"&gt;
+                {{#if isLoaded}}{{#if hasNoItems}}
+                &lt;div class="notice notice--full"&gt;
+                    &lt;span class="sprite-image notice--warning"&gt;&lt;/span&gt;
+                    {{#if isSearchPage}}
+                    &lt;em&gt;검색결과가 없습니다.&lt;/em&gt;
+                    {{else}}
+                    &lt;em&gt;진열중인 상품이 없습니다.&lt;/em&gt;
+                    {{/if}}
+                &lt;/div&gt;
+                {{/if}}{{/if}}
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/product-list-items&gt;
+&lt;/main&gt;
+</textarea>
+                            </section>
+
+                            <section class="code-block-section">
+                                <div class="apply-btn-container">
+                                    <button type="button" class="btn btn--line-dark btn--sm apply-css-btn">CSS 반영하기</button>
+                                </div>
+                                <textarea class="css-code" name="code">/* 여기에 스타일 코드를 작성해주세요. */</textarea>
+                            </section>
+                            <script class="hbs-code" type="text/template"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<main shopby-product-list class="l-page product-list">
+    <display-category>
+        <section class="page-content-top">
+            {{#unless isSearchPage}}
+            <!-- 브래드크럼브 -->
+            <div slot="breadcrumb">
+                {{#unless isCategoryLoaded}}
+                <div class="skeleton__line product-list__breadcrumb-skeleton"></div>
+                {{else}}
+                <nav class="product-list__breadcrumb">
+                    <ul class="page-content-top__path page-content-top__location">
+                        <li>
+                            <a href="/">HOME</a>
+                        </li>
+                        {{#each categoryRoute}} &gt;
+                        <li class="page-content-top__breadcrumb-category">
+                            <span class="page-content-top__breadcrumb-category-label">{{label}}</span>
+                            <ul class="page-content-top__breadcrumb-category-siblings">
+                                {{#each siblingCategories}}
+                                <li>
+                                    <a href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}">{{label}}</a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </nav>
+                {{/unless}}
+            </div>
+            <!-- 현재 카테고리 -->
+            <div slot="currentCategoryLabel">
+                {{#unless isCategoryLoaded}}
+                <div class="skeleton__line product-list__current-category-skeleton"></div>
+                {{else}}
+                <em class="l-title">{{currentCategoryRoute.label}}</em>
+                {{/unless}}
+            </div>
+            <!-- 하위 카테고리 -->
+            <nav slot="childCategories">
+                {{#unless isCategoryLoaded}}
+                <div class="skeleton__line product-list__child-category-skeleton"></div>
+                {{else}}
+                <ul class="category-nav">
+                    {{#each categoryChildren}}
+                    <li>
+                        <a class="category-nav__link" href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}">
+                            <span class="category-nav__label">{{label}}(</span>
+                            <span class="category-nav__count font-montserrat">{{count}}</span>
+                            <span class="category-nav__label">)</span>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/unless}}
+            </nav>
+            {{/unless}}
+        </section>
+    </display-category>
+
+    <!-- 상품검색으로 접근시 검색어영역 -->
+    <product-keyword>
+        {{#if isSearchPage}}
+        <div class="product-list__search-keyword-wrap">
+            <em class="product-list__search-keyword">{{keywords}}</em>
+            <span>검색결과</span>
+        </div>
+        {{/if}}
+    </product-keyword>
+
+    <total-count-and-sort category-no:query="categoryNo" depth:query="depth" sort-type:query="sortType" page-size:query="pageSize">
+        <div class="sort-list__wrap sort-list__wrap--end sort-list__wrap--margin">
+            <p class="total-count total-count--md">
+                총
+                <em class="highlight bold" slot="totalCount">{{totalCount}}</em>
+                건
+            </p>
+
+            <ul class="sort-list" slot="sortType" shopby-on:click="PRODUCTS_SORT_TYPE">
+                <li class="sort-item {{#ifEq sortType 'SALE_CNT'}}active{{/ifEq}}">
+                    <button value="SALE_CNT" shopby-product-search-order="SALE_CNT">판매량순</button>
+                </li>
+                <li class="sort-item {{#ifEq sortType 'LOW_PRICE'}}active{{/ifEq}}">
+                    <button value="LOW_PRICE" shopby-product-search-order="LOW_PRICE">낮은가격순</button>
+                </li>
+                <li class="sort-item {{#ifEq sortType 'HIGH_PRICE'}}active{{/ifEq}}">
+                    <button value="HIGH_PRICE" shopby-product-search-order="HIGH_PRICE">높은가격순</button>
+                </li>
+                <li class="sort-item {{#ifEq sortType 'REVIEW'}}active{{/ifEq}}">
+                    <button value="REVIEW" shopby-product-search-order="REVIEW">상품후기순</button>
+                </li>
+                <li class="sort-item {{#ifEq sortType 'RECENT_PRODUCT'}}active{{/ifEq}}">
+                    <button value="RECENT_PRODUCT" shopby-product-search-order="RECENT_PRODUCT">신상품순</button>
+                </li>
+            </ul>
+
+            <span class="select select--sm">
+                <select slot="pageSize" shopby-on:change="SEARCH_SIZE">
+                    {{!#selected pageSize slot='pageSize'}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                    <option value="20">20개씩 보기</option>
+                    <option value="40">40개씩 보기</option>
+                    <option value="60">60개씩 보기</option>
+                    <option value="80">80개씩 보기</option>
+                    {{!/selected}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                </select>
+            </span>
+        </div>
+    </total-count-and-sort>
+    <!-- 상품리스트 -->
+    <product-list-items page-size:query="pageSize" page-number:query="pageNumber">
+        <section>
+            <div shopby-products-items class="thumb-GALLERY" slot="items">
+                {{#each items}}
+                <div class="thumb-item">
+                    <a
+                        class="thumb-item__media thumb-item__link"
+                        shopby-is-adult="{{adult}}"
+                        shopby-action="MOVE_PRODUCT_DETAIL"
+                        href="/pages/product/product-detail.html?productNo={{productNo}}"
+                    >
+                        <!-- 상품이미지 -->
+                        <span class="thumb-item__img">{{#if adult}} {{/if}} {{img listImageUrls.[0] 500 500 productName '' ''}}</span>
+                        <!-- 좋아요 버튼 -->
+                        <button
+                            type="button"
+                            class="btn thumb-fab thumb-fab--like{{#if liked}} is-active{{/if}}"
+                            shopby-action="PRODUCT_LIKE_BTN"
+                            shopby-product-no="{{productNo}}"
+                        >
+                            <svg width="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z"
+                                    stroke="var(--color-point)"
+                                    stroke-width="5"
+                                    stroke-linejoin="round"
+                                ></path>
+                            </svg>
+                        </button>
+                        <!-- 품절 오버레이 -->
+                        {{#if isSoldOut}}
+                        <div class="thumb-item__overlay">SOLD OUT</div>
+                        {{/if}}
+                        <!-- 뱃지(판매종료/판매임박) -->
+                        <span class="thumb-item__badges">
+                            {{#ifEq saleStatusType 'FINISHED'}}
+                            <span class="badge badge--fill-navy">판매종료</span>
+                            {{/ifEq}} {{#ifEq saleStatusType 'READY'}}
+                            <span class="badge badge--fill-red">판매임박</span>
+                            {{/ifEq}}
+                        </span>
+                    </a>
+                    <!-- 상품설명 -->
+                    <a
+                        class="thumb-item__info thumb-item__link"
+                        shopby-is-adult="{{adult}}"
+                        shopby-action="MOVE_PRODUCT_DETAIL"
+                        href="/pages/product/product-detail.html?productNo={{productNo}}"
+                    >
+                        <!-- 상품명 -->
+                        <p class="product-thumb-title">{{productName}}</p>
+                        <!-- 가격정보 -->
+                        <div class="product-thumb-price-info">
+                            <!-- 판매가에대한 즉시할인+추가할인의 할인율 -->
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            <span class="product-thumb__immediately-percent font-montserrat">
+                                {{calculatePercentage (addNumber immediateDiscountAmt additionDiscountAmt) salePrice 1}}%
+                            </span>
+                            {{/ifHasDiscount}}
+                            <!-- 할인된 가격 -->
+                            <em class="product-thumb-price font-montserrat">
+                                {{convertToKoreanCurrency (subtractNumber salePrice immediateDiscountAmt additionDiscountAmt)}}
+                            </em>
+                            <span class="product-thumb-unit">원</span>
+                            <!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 -->
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            <s class="product-thumb-price--origin font-montserrat">{{convertToKoreanCurrency salePrice}}원</s>
+                            {{/ifHasDiscount}}
+                        </div>
+                        <!-- 스티커(뱃지) -->
+                        <div>
+                            {{#each stickerInfos}}
+                            <span class="product-thumb__sticker">
+                                <!-- 텍스트형 스티커 -->
+                                {{#ifEq type 'TEXT'}} {{label}} {{/ifEq}}
+                                <!-- 이미지형 스티커 -->
+                                {{#ifEq type 'IMAGE'}} {{img label '' '' productName 'product-thumb__sticker-img'}} {{/ifEq}}
+                            </span>
+                            {{/each}}
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            <!-- 상품이 없을 때 -->
+            <div slot="noItems">
+                {{#if isLoaded}}{{#if hasNoItems}}
+                <div class="notice notice--full">
+                    <span class="sprite-image notice--warning"></span>
+                    {{#if isSearchPage}}
+                    <em>검색결과가 없습니다.</em>
+                    {{else}}
+                    <em>진열중인 상품이 없습니다.</em>
+                    {{/if}}
+                </div>
+                {{/if}}{{/if}}
+            </div>
+            <!-- 스켈레톤 -->
+            <div slot="skeleton">
+                {{#unless isLoaded}}
+                <div class="skeleton-grid skeleton-grid__column--4">
+                    {{#repeat 8}}
+                    <div class="thumb-item skeleton skeleton--gallery">
+                        <div class="skeleton__media"></div>
+                        <div class="skeleton__line"></div>
+                        <div class="skeleton__line"></div>
+                    </div>
+                    {{/repeat}}
+                </div>
+                {{/unless}}
+            </div>
+            <!-- 페이지네이션 -->
+            <div class="pagination" slot="pagination">
+                {{#if paginationInfo.pages}}
+                <a href="?{{paginationInfo.firstPage}}">
+                    <button class="sprite-image pagination__btn pagination__btn--double-lt"></button>
+                </a>
+                <a href="?{{paginationInfo.prevPage}}">
+                    <button class="sprite-image pagination__btn pagination__btn--lt"></button>
+                </a>
+                {{#each paginationInfo.pages}}
+                <a class="pagination__link {{#if isCurrentPage}}is-current{{/if}}" href="?{{param}}">{{page}}</a>
+                {{/each}}
+                <a href="?{{paginationInfo.nextPage}}">
+                    <button class="sprite-image pagination__btn pagination__btn--rt"></button>
+                </a>
+                <a href="?{{paginationInfo.lastPage}}">
+                    <button class="sprite-image pagination__btn pagination__btn--double-rt"></button>
+                </a>
+                {{/if}}
+            </div>
+        </section>
+    </product-list-items>
+</main>
+</script>
+                            <script class="mobile-hbs-code" type="text/template"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<main shopby-product-list shopby-view-type="GALLERY" class="product-list">
+    <!-- 카테고리 선택 -->
+    <display-category>
+        <div>
+            {{#if categoryNo}}
+            <!-- 브레드크럼브 -->
+            <section class="breadcrumb" slot="breadcrumb">
+                <div class="breadcrumb__section{{#if isLeafCategory}} breadcrumb__leaf-category{{/if}}">
+                    {{#each categoryRoute}}
+                    <a class="breadcrumb__item" href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}">{{label}}</a>
+                    {{/each}}
+                </div>
+            </section>
+            <!-- 하위 카테고리 리스트 -->
+            <section slot="childCategories">
+                <nav class="category-slider product-list-category-slider">
+                    <ul class="swiper category-slider__wrapper" shopby-slider-id="{{slider.id}}">
+                        <div class="swiper-wrapper">
+                            {{#each categoryChildren}}
+                            <li class="swiper-slide category-slider__slide">
+                                <a class="category-slider__item" href="/pages/product/product-list.html?categoryNo={{categoryNo}}&amp;depth={{depth}}">
+                                    {{label}}
+                                </a>
+                            </li>
+                            {{/each}}
+                        </div>
+                    </ul>
+                </nav>
+            </section>
+            {{/if}}
+        </div>
+    </display-category>
+
+    <!-- 상품검색으로 접근시 검색어영역 -->
+    <product-keyword>
+        {{#if isSearchPage}}
+        <div class="product-list__search-keyword-wrap">
+            <em class="product-list__search-keyword">{{keywords}}</em>
+            <span>검색결과</span>
+        </div>
+        {{/if}}
+    </product-keyword>
+
+    <!-- "총 n개 / 상품정렬 셀렉박스" -->
+    <total-count-and-sort category-no:query="categoryNo" depth:query="depth" sort-type:query="sortType">
+        <div class="total-sort">
+            <p class="total-sort__count">
+                총
+                <em class="highlight" slot="totalCount">{{totalCount}}</em>
+                개
+            </p>
+
+            <div>
+                <span class="select select--sm product-list__sort">
+                    <select shopby-on:change="PRODUCTS_SORT_TYPE" slot="sortType">
+                        {{!#selected sortType slot='sortType'}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                        <option value="SALE_CNT" shopby-product-search-order="SALE_CNT">판매량순</option>
+                        <option value="LOW_PRICE" shopby-product-search-order="LOW_PRICE">낮은가격순</option>
+                        <option value="HIGH_PRICE" shopby-product-search-order="HIGH_PRICE">높은가격순</option>
+                        <option value="REVIEW" shopby-product-search-order="REVIEW">상품후기순</option>
+                        <option value="RECENT_PRODUCT" shopby-product-search-order="RECENT_PRODUCT">신상품순</option>
+                        {{!/selected}}{{!-- 실사용시 "!"를 제거해 주석코드를 지우세요. --}}
+                    </select>
+                </span>
+
+                <button class="product-list__display-type-btn ico ico--list-32" type="button" shopby-on:click="VIEW_TYPE"></button>
+            </div>
+        </div>
+    </total-count-and-sort>
+
+    <!-- 상품리스트 -->
+    <product-list-items>
+        <section class="product-list-items">
+            <div shopby-products-items class="thumb-{{viewType}}" slot="items">
+                {{#each items}}
+                <a
+                    shopby-is-adult="{{adult}}"
+                    shopby-action="MOVE_PRODUCT_DETAIL"
+                    class="thumb-item thumb-item__link"
+                    href="/pages/product/product-detail.html?productNo={{productNo}}"
+                >
+                    <div class="thumb-item__media">
+                        <!-- 상품이미지 -->
+                        <span class="thumb-item__img">{{#if adult}} {{/if}} {{img listImageUrls.[0] 250 250 productName '' ''}}</span>
+                        <!-- 좋아요 버튼 -->
+                        <button
+                            type="button"
+                            class="btn btn--default sc-like-button thumb-fab{{#if liked}} is-active{{/if}}"
+                            shopby-action="PRODUCT_LIKE_BTN"
+                            shopby-product-no="{{productNo}}"
+                        >
+                            <svg width="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M52.29 19.24c-6.382 0-10.932 3.926-12.41 6.888-1.82-3.086-8.408-8.31-14.79-6.888-7.977 1.777-12.613 11.532-5.774 21.324C25.521 49.45 34.74 56.557 39.88 61c5.319-4.443 17.728-14.216 22.16-22.213 5.596-10.097-1.773-19.547-9.75-19.547Z"
+                                    stroke="var(--color-point)"
+                                    stroke-linejoin="round"
+                                ></path>
+                            </svg>
+                        </button>
+                        <!-- 품절 오버레이 -->
+                        {{#if isSoldOut}}
+                        <div class="thumb-item__overlay">SOLD OUT</div>
+                        {{/if}}
+                        <!-- 뱃지(판매종료/판매임박) -->
+                        <span class="thumb-item-badges">
+                            {{#ifEq saleStatusType 'FINISHED'}}
+                            <span class="badge badge--fill-navy">판매종료</span>
+                            {{/ifEq}} {{#ifEq saleStatusType 'READY'}}
+                            <span class="badge badge--fill-red">판매임박</span>
+                            {{/ifEq}}
+                        </span>
+                    </div>
+
+                    <!-- 상품설명 -->
+                    <div class="thumb-item__info">
+                        <!-- 상품명 -->
+                        <p class="product-thumb-title">{{productName}}</p>
+                        <!-- 진열타입 리스트인경우 홍보문구 노출 -->
+                        <p class="product-thumb__promotion-text">{{promotionText}}</p>
+                        <!-- 가격정보 -->
+                        <div class="product-thumb-price-info">
+                            <!-- 판매가에대한 즉시할인+추가할인의 할인율 -->
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            <span class="product-thumb__immediately-percent font-montserrat">
+                                {{calculatePercentage (addNumber immediateDiscountAmt additionDiscountAmt) salePrice 1}}%
+                            </span>
+                            {{/ifHasDiscount}}
+                            <!-- 할인된 가격 -->
+                            <em class="product-thumb-price font-montserrat">
+                                {{convertToKoreanCurrency (subtractNumber salePrice immediateDiscountAmt additionDiscountAmt)}}
+                            </em>
+                            <span class="product-thumb-unit">원</span>
+                            <!-- 즉시할인 또는 추가할인이 있는경우 판매가를 삭선처리 -->
+                            {{#ifHasDiscount immediateDiscountAmt additionDiscountAmt}}
+                            <s class="product-thumb-price--origin font-montserrat">{{convertToKoreanCurrency salePrice}}원</s>
+                            {{/ifHasDiscount}}
+                        </div>
+
+                        <div>
+                            <!-- 스티커(뱃지) -->
+                            {{#each stickerInfos}}
+                            <span class="product-thumb__sticker">
+                                <!-- 텍스트형 스티커 -->
+                                {{#ifEq type 'TEXT'}} {{label}} {{/ifEq}}
+                                <!-- 이미지형 스티커 -->
+                                {{#ifEq type 'IMAGE'}} {{img label '' '' productName 'product-thumb__sticker-img'}} {{/ifEq}}
+                            </span>
+                            {{/each}}
+                        </div>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+
+            <!-- 스켈레톤 -->
+            <div slot="skeleton">
+                {{#unless isLoaded}} {{#repeat 2}}
+                <div class="skeleton__wrap {{#if items}}skeleton__wrap--has-item{{/if}} thumb-{{viewType}}">
+                    <!-- view type 갤러리 스켙레톤 -->
+                    {{#ifEq viewType 'GALLERY'}}{{#repeat 2}}
+                    <div class="thumb-item skeleton skeleton--gallery">
+                        <div class="skeleton__media"></div>
+                        <div class="skeleton__line"></div>
+                        <div class="skeleton__line"></div>
+                    </div>
+                    {{/repeat}}{{/ifEq}}
+                    <!-- view type 리스트 스켙레톤 -->
+                    {{#ifEq viewType 'LIST'}}{{#repeat 2}}
+                    <div class="thumb-item skeleton skeleton--list">
+                        <div class="skeleton__media"></div>
+                        <div>
+                            <div class="skeleton__line skeleton__line--product-name"></div>
+                            <div class="skeleton__line skeleton__line--product-price"></div>
+                        </div>
+                    </div>
+                    {{/repeat}}{{/ifEq}}
+                </div>
+                {{/repeat}} {{/unless}}
+            </div>
+
+            <div slot="searchMoreBtn">
+                {{#unless hasNoMoreItems}}
+                <div class="product-section__more btn" shopby-action="SEARCH_MORE_PRODUCT">
+                    더보기
+                    <span class="product-section__more-ico">
+                        <span class="ico ico--angle-right-solid"></span>
+                    </span>
+                </div>
+                {{/unless}}
+            </div>
+
+            <div slot="noItems">
+                {{#if isLoaded}}{{#if hasNoItems}}
+                <div class="notice notice--full">
+                    <span class="sprite-image notice--warning"></span>
+                    {{#if isSearchPage}}
+                    <em>검색결과가 없습니다.</em>
+                    {{else}}
+                    <em>진열중인 상품이 없습니다.</em>
+                    {{/if}}
+                </div>
+                {{/if}}{{/if}}
+            </div>
+        </section>
+    </product-list-items>
+</main>
+</script>
+                        </div>
+                        <input hidden="" class="dataInput" value="{&quot;categoryNo&quot;:1,&quot;isLeafCategory&quot;:false,&quot;categoryRoute&quot;:[{&quot;categoryNo&quot;:1,&quot;label&quot;:&quot;카테고리 1&quot;,&quot;depth&quot;:1,&quot;siblingCategories&quot;:[{&quot;categoryNo&quot;:2,&quot;label&quot;:&quot;카테고리 2&quot;,&quot;depth&quot;:2,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]},{&quot;categoryNo&quot;:3,&quot;label&quot;:&quot;카테고리 3&quot;,&quot;depth&quot;:3,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]},{&quot;categoryNo&quot;:4,&quot;label&quot;:&quot;카테고리 4&quot;,&quot;depth&quot;:4,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]}]},{&quot;categoryNo&quot;:11,&quot;label&quot;:&quot;카테고리 1-1&quot;,&quot;depth&quot;:2,&quot;siblingCategories&quot;:[{&quot;categoryNo&quot;:2,&quot;label&quot;:&quot;카테고리 1-2&quot;,&quot;depth&quot;:2,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]},{&quot;categoryNo&quot;:3,&quot;label&quot;:&quot;카테고리 1-3&quot;,&quot;depth&quot;:3,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]},{&quot;categoryNo&quot;:4,&quot;label&quot;:&quot;카테고리 1-4&quot;,&quot;depth&quot;:4,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]}]},{&quot;categoryNo&quot;:111,&quot;label&quot;:&quot;카테고리 1-1-1&quot;,&quot;depth&quot;:3,&quot;siblingCategories&quot;:[{&quot;categoryNo&quot;:2,&quot;label&quot;:&quot;카테고리 1-1-2&quot;,&quot;depth&quot;:2,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]},{&quot;categoryNo&quot;:3,&quot;label&quot;:&quot;카테고리 1-1-3&quot;,&quot;depth&quot;:3,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]},{&quot;categoryNo&quot;:4,&quot;label&quot;:&quot;카테고리 1-1-4&quot;,&quot;depth&quot;:4,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[]}]}],&quot;currentCategoryRoute&quot;:{&quot;categoryNo&quot;:243524,&quot;label&quot;:&quot;카테고리 1&quot;,&quot;depth&quot;:1,&quot;siblingCategories&quot;:[]},&quot;slider&quot;:{&quot;direction&quot;:&quot;horizontal&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;slidesPerView&quot;:&quot;auto&quot;,&quot;spaceBetween&quot;:20,&quot;id&quot;:&quot;display-category-slider&quot;},&quot;categoryChildren&quot;:[{&quot;categoryNo&quot;:1111,&quot;label&quot;:&quot;카테고리 1-1-1-1&quot;,&quot;depth&quot;:4,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[],&quot;count&quot;:3},{&quot;categoryNo&quot;:1112,&quot;label&quot;:&quot;카테고리 1-1-1-2&quot;,&quot;depth&quot;:4,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[],&quot;count&quot;:0},{&quot;categoryNo&quot;:1113,&quot;label&quot;:&quot;카테고리 1-1-1-3&quot;,&quot;depth&quot;:3,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[],&quot;count&quot;:0},{&quot;categoryNo&quot;:1114,&quot;label&quot;:&quot;카테고리 1-1-1-4&quot;,&quot;depth&quot;:4,&quot;icon&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[],&quot;count&quot;:0}],&quot;isSearchPage&quot;:true,&quot;isLoaded&quot;:true,&quot;hasNoMoreItems&quot;:false,&quot;hasNoItems&quot;:false,&quot;keywords&quot;:&quot;오로라&quot;,&quot;totalCount&quot;:100,&quot;sortType&quot;:&quot;SALE_CNT&quot;,&quot;viewType&quot;:&quot;GALLERY&quot;,&quot;items&quot;:[{&quot;adult&quot;:false,&quot;productNo&quot;:1,&quot;listImageUrls&quot;:[&quot;http://shopby-images.cdn-nhncommerce.com/default/pro/product/auroraSample1.png&quot;],&quot;liked&quot;:false,&quot;isSoldOut&quot;:false,&quot;productName&quot;:&quot;오로라 수당 세럼&quot;,&quot;promotionText&quot;:&quot;&quot;,&quot;saleStatusType&quot;:&quot;ONSALE&quot;,&quot;additionDiscountAmt&quot;:1000,&quot;immediateDiscountAmt&quot;:15000,&quot;salePrice&quot;:50000,&quot;stickerInfos&quot;:[{&quot;no&quot;:6782,&quot;type&quot;:&quot;IMAGE&quot;,&quot;label&quot;:&quot;//shopby-images.cdn-nhncommerce.com/20240222/175703.615825000/Group 200.png&quot;,&quot;name&quot;:&quot;이미지아이콘&quot;},{&quot;no&quot;:6786,&quot;type&quot;:&quot;IMAGE&quot;,&quot;label&quot;:&quot;//shopby-images.cdn-nhncommerce.com/20240227/103602.659427000/아이콘2.png&quot;,&quot;name&quot;:&quot;아이콘1&quot;},{&quot;no&quot;:6787,&quot;type&quot;:&quot;IMAGE&quot;,&quot;label&quot;:&quot;//shopby-images.cdn-nhncommerce.com/20240227/103617.670758000/아이콘.png&quot;,&quot;name&quot;:&quot;아이콘2&quot;}]},{&quot;adult&quot;:false,&quot;productNo&quot;:1,&quot;listImageUrls&quot;:[&quot;http://shopby-images.cdn-nhncommerce.com/default/pro/product/auroraSample2.png&quot;],&quot;liked&quot;:false,&quot;isSoldOut&quot;:false,&quot;productName&quot;:&quot;오로라 매트 립스틱&quot;,&quot;promotionText&quot;:&quot;&quot;,&quot;saleStatusType&quot;:&quot;ONSALE&quot;,&quot;additionDiscountAmt&quot;:0,&quot;immediateDiscountAmt&quot;:0,&quot;salePrice&quot;:20000,&quot;stickerInfos&quot;:[]}]}">
+
+                        <div class="toast-message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <script>
+        const searchParams = new URLSearchParams(location.search);
+        const categoryEl = document.querySelector('.category');
+        const category = searchParams.get('category');
+        const module = decodeURIComponent(searchParams.get('module'));
+
+        // 왼쪽 메뉴 토글 기능
+        (() => {
+            const isMenuClosed = searchParams.get('menu') === 'closed';
+
+            categoryEl?.classList?.toggle?.('open', !isMenuClosed);
+
+            const menuOpenBtn = document.querySelector('.menu-open-btn');
+            menuOpenBtn?.addEventListener('click', () => {
+                const toggleEl = menuOpenBtn?.closest?.('.category');
+                toggleEl?.classList?.toggle?.('open');
+            });
+        })();
+
+        // 왼쪽 메뉴 현재 탭 유지
+        (() => {
+            if (!category || !module) {
+                return;
+            }
+            const currentDetailsEl = categoryEl?.querySelector(`[data-category="${category}"]`).closest('details');
+            currentDetailsEl?.setAttribute('open', true);
+
+            const moduleLinkEl = currentDetailsEl?.querySelector(`[data-module="${module}"]`);
+
+            moduleLinkEl?.closest?.('.category-item')?.classList?.add?.('active');
+        })();
+
+        // 모듈 클릭 시 코드 영역 포커싱
+        (() => {
+            const moduleInfoBoxEl = document.querySelector('.module-info-box');
+            moduleInfoBoxEl?.addEventListener('click', ({ target, currentTarget }) => {
+                const moduleName = target.dataset.moduleName ?? target?.querySelector?.('[data-module-name]')?.dataset?.moduleName;
+                const currentDetailsEl = currentTarget?.querySelector?.(`[data-module-name="${moduleName}"]`)?.closest?.('details');
+                const isSummary = [...target?.classList].some((className) => className.includes('module'));
+                const shouldOpen = !currentDetailsEl?.hasAttribute('open');
+
+                if (!moduleName || !isSummary) {
+                    return;
+                }
+
+                const mobileIframeKey = '.mobile-content iframe';
+                const pcIframeKey = '.content iframe';
+
+                [mobileIframeKey, pcIframeKey].forEach((contentKey) => {
+                    const iframeEl = document.querySelector(contentKey);
+                    if (!iframeEl) {
+                        return;
+                    }
+
+                    const iframeBodyEl = iframeEl.contentDocument.body;
+                    if (!iframeBodyEl) {
+                        return;
+                    }
+
+                    [...iframeBodyEl.querySelectorAll(moduleName)].forEach((el) => {
+                        el?.classList?.toggle?.('active-module', shouldOpen);
+                    });
+                });
+            });
+        })();
+    </script>
+
+    <script>
+        (() => {
+            const mobileToggleBtn = document.querySelector('.mobile-toggle');
+            const pcToggleBtn = document.querySelector('.pc-toggle');
+
+            const data = JSON.parse(document.querySelector('.dataInput').value);
+
+            let pcHtmlCode;
+
+            let mobileHtmlCode = CodeMirror.fromTextArea(document.querySelector('.mobile-html-code'), {
+                lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: false,
+                mode: { name: 'handlebars', base: 'text/html' },
+                theme: 'mdn-like',
+                val: document.querySelector('.mobile-html-code').value,
+            });
+
+            let cssCode = CodeMirror.fromTextArea(document.querySelector('.css-code'), {
+                lineNumbers: true,
+                mode: 'text/css',
+                theme: 'mdn-like',
+                val: document.querySelector('.css-code').value,
+            });
+
+            mobileHtmlCode.on('change', function (instance, changeObj) {
+                htmlApplyBtn.click();
+            });
+            cssCode.on('change', function (instance, changeObj) {
+                cssApplyBtn.click();
+            });
+
+            const resetBtn = document.querySelector('.reset-btn');
+            resetBtn.addEventListener('click', () => {
+                const mobileToggleBtn = document.querySelector('.mobile-toggle');
+                const htmlEditorClassName = mobileToggleBtn.classList?.contains('selected') ? '.mobile-html-code' : '.html-code';
+                const text = document.querySelector(htmlEditorClassName).value;
+
+                const htmlCodeEl = mobileToggleBtn.classList?.contains('selected') ? mobileHtmlCode : pcHtmlCode;
+                htmlCodeEl.setValue(text);
+            });
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.addEventListener('click', async () => {
+                const toastMessage = document.querySelector('.toast-message');
+                toastMessage.textContent = '코드가 복사되었습니다.';
+
+                const mobileToggleBtn = document.querySelector('.mobile-toggle');
+                const htmlEditorClassName = mobileToggleBtn.classList?.contains('selected') ? '.mobile-html-code' : '.html-code';
+                const text = document.querySelector(htmlEditorClassName).value;
+
+                try {
+                    await navigator?.clipboard?.writeText?.(text);
+
+                    toastMessage.classList.add('active');
+                    setTimeout(() => {
+                        toastMessage.classList.remove('active');
+                    }, 1000);
+                } catch (error) {
+                    console.error(error);
+                }
+            });
+
+            const htmlApplyBtn = document.querySelector('.apply-html-btn');
+            const cssApplyBtn = document.querySelector('.apply-css-btn');
+
+            htmlApplyBtn?.addEventListener('click', () => {
+                const moduleIframe = mobileToggleBtn.classList.contains('selected') ? '.mobile-content iframe' : '.content iframe';
+
+                const iframeEl = document.querySelector(moduleIframe);
+                if (!iframeEl) {
+                    return;
+                }
+
+                const iframeBodyEl = iframeEl.contentDocument.body;
+                if (!iframeBodyEl) {
+                    return;
+                }
+
+                const contentEl = iframeBodyEl?.querySelector('.content');
+
+                if (!contentEl) {
+                    return;
+                }
+
+                const htmlEditor = mobileToggleBtn.classList?.contains('selected') ? mobileHtmlCode : pcHtmlCode;
+                const template = Handlebars.compile(htmlEditor.getValue());
+
+                contentEl.innerHTML = template(data);
+            });
+
+            cssApplyBtn?.addEventListener('click', () => {
+                const moduleIframe = mobileToggleBtn.classList.contains('selected') ? '.mobile-content iframe' : '.content iframe';
+
+                const iframeEl = document.querySelector(moduleIframe);
+                if (!iframeEl) {
+                    return;
+                }
+
+                const iframeHeadEl = iframeEl.contentDocument.head;
+                if (!iframeHeadEl) {
+                    return;
+                }
+
+                const prevDocsStyle = iframeHeadEl?.querySelector('style#docs-module-style');
+                if (prevDocsStyle) {
+                    prevDocsStyle.parentElement.removeChild(prevDocsStyle);
+                }
+
+                const sheet = document.createElement('style');
+                sheet.setAttribute('id', 'docs-module-style');
+
+                sheet.innerHTML = cssCode.getValue();
+                iframeHeadEl.appendChild(sheet);
+            });
+
+            mobileToggleBtn.addEventListener('click', () => {
+                mobileToggleBtn.classList.add('selected');
+                pcToggleBtn.classList.remove('selected');
+
+                const mobileContentEl = document.querySelector('.mobile-content');
+                const pcContentEl = document.querySelector('.content');
+
+                mobileContentEl.style.display = 'block';
+                pcContentEl.style.display = 'none';
+
+                const shopbyUiDocsPreference = localStorage.getItem('shopby-ui-docs-preference');
+                if (shopbyUiDocsPreference) {
+                    const { previewHeight, moduleInfoWidth } = JSON.parse(shopbyUiDocsPreference);
+
+                    const iframeEl = document.querySelector('.mobile-content iframe');
+                    iframeEl.style.height = previewHeight;
+
+                    const moduleInfoBoxEl = document.querySelector('.module-info-box');
+                    moduleInfoBoxEl.style.width = moduleInfoWidth;
+                }
+
+                const codeMirrorEls = document.querySelectorAll('.CodeMirror');
+                codeMirrorEls.forEach((codeMirrorEl) => {
+                    codeMirrorEl.remove();
+                });
+
+                const htmlCodeEl = document.querySelector('.mobile-html-code');
+                if (htmlCodeEl) {
+                    mobileHtmlCode = CodeMirror.fromTextArea(htmlCodeEl, {
+                        lineNumbers: true,
+                        lineWrapping: true,
+                        matchBrackets: false,
+                        mode: { name: 'handlebars', base: 'text/html' },
+                        theme: 'mdn-like',
+                    });
+                    mobileHtmlCode.on('change', function (instance, changeObj) {
+                        htmlApplyBtn.click();
+                    });
+                }
+
+                const cssCodeEl = document.querySelector('.css-code');
+                if (cssCodeEl) {
+                    cssCode = CodeMirror.fromTextArea(cssCodeEl, {
+                        lineNumbers: true,
+                        mode: 'text/css',
+                        theme: 'mdn-like',
+                    });
+
+                    cssCode.on('change', function (instance, changeObj) {
+                        cssApplyBtn.click();
+                    });
+                }
+
+                htmlApplyBtn?.click();
+            });
+
+            pcToggleBtn.addEventListener('click', () => {
+                mobileToggleBtn.classList.remove('selected');
+                pcToggleBtn.classList.add('selected');
+
+                const mobileContentEl = document.querySelector('.mobile-content');
+                const pcContentEl = document.querySelector('.content');
+
+                mobileContentEl.style.display = 'none';
+                pcContentEl.style.display = 'flex';
+
+                const shopbyUiDocsPreference = localStorage.getItem('shopby-ui-docs-preference');
+                if (shopbyUiDocsPreference) {
+                    const { previewHeight, moduleInfoWidth } = JSON.parse(shopbyUiDocsPreference);
+
+                    const iframeEl = document.querySelector('.content iframe');
+                    iframeEl.style.height = previewHeight;
+
+                    const moduleInfoBoxEl = document.querySelector('.module-info-box');
+                    moduleInfoBoxEl.style.width = moduleInfoWidth;
+                }
+
+                const codeMirrorEls = document.querySelectorAll('.CodeMirror');
+                codeMirrorEls.forEach((codeMirrorEl) => {
+                    codeMirrorEl.remove();
+                });
+
+                const htmlCodeEl = document.querySelector('.html-code');
+                if (htmlCodeEl) {
+                    pcHtmlCode = CodeMirror.fromTextArea(htmlCodeEl, {
+                        lineNumbers: true,
+                        lineWrapping: true,
+                        matchBrackets: false,
+                        mode: { name: 'handlebars', base: 'text/html' },
+                        theme: 'mdn-like',
+                    });
+                    pcHtmlCode.on('change', function (instance, changeObj) {
+                        htmlApplyBtn.click();
+                    });
+                }
+
+                const cssCodeEl = document.querySelector('.css-code');
+                if (cssCodeEl) {
+                    cssCode = CodeMirror.fromTextArea(cssCodeEl, {
+                        lineNumbers: true,
+                        mode: 'text/css',
+                        theme: 'mdn-like',
+                    });
+                    cssCode.on('change', function (instance, changeObj) {
+                        cssApplyBtn.click();
+                    });
+                }
+
+                htmlApplyBtn?.click();
+            });
+
+            mobileToggleBtn?.click();
+        })();
+    </script>
+    <script>
+        const contentDividerLine = document.querySelector('.module-info-divider');
+        const prevSibling = contentDividerLine.previousElementSibling;
+        const nextSibling = contentDividerLine.nextElementSibling;
+
+        let x = 0;
+        let y = 0;
+        let prevSiblingHeight = 0;
+        let prevSiblingWidth = 0;
+
+        const mouseMoveHandler = function (e) {
+            // 마우스가 움직이면 기존 초기 마우스 위치에서 현재 위치값과의 차이를 계산
+            const dx = e.clientX - x;
+            const dy = e.clientY - y;
+
+            const moduleInfoWidth = prevSiblingWidth + dx;
+            prevSibling.style.width = `${moduleInfoWidth}px`;
+
+            // 크기 조절 중 마우스 커서를 변경함
+            // class="resizer"에 적용하면 위치가 변경되면서 커서가 해제되기 때문에 body에 적용
+            const cursor = 'col-resize';
+            contentDividerLine.style.cursor = cursor;
+            document.body.style.cursor = cursor;
+
+            prevSibling.style.userSelect = 'none';
+            prevSibling.style.pointerEvents = 'none';
+
+            nextSibling.style.userSelect = 'none';
+            nextSibling.style.pointerEvents = 'none';
+        };
+
+        const mouseUpHandler = function () {
+            const mobileToggleBtn = document.querySelector('.mobile-toggle');
+            const moduleIframe = mobileToggleBtn.classList.contains('selected') ? '.mobile-content iframe' : '.content iframe';
+
+            const iframeEl = document.querySelector(moduleIframe);
+            const previewHeight = iframeEl.style.height;
+
+            const moduleInfoBoxEl = document.querySelector('.module-info-box');
+            const moduleInfoWidth = moduleInfoBoxEl.style.width;
+
+            const preference = {
+                previewHeight,
+                moduleInfoWidth,
+            };
+            localStorage.setItem('shopby-ui-docs-preference', JSON.stringify(preference));
+
+            // 모든 커서 관련 사항은 마우스 이동이 끝나면 제거됨
+            contentDividerLine.style.removeProperty('cursor');
+            document.body.style.removeProperty('cursor');
+
+            prevSibling.style.removeProperty('user-select');
+            prevSibling.style.removeProperty('pointer-events');
+
+            nextSibling.style.removeProperty('user-select');
+            nextSibling.style.removeProperty('pointer-events');
+
+            // 등록한 마우스 이벤트를 제거
+            document.removeEventListener('mousemove', mouseMoveHandler);
+            document.removeEventListener('mouseup', mouseUpHandler);
+        };
+
+        contentDividerLine.addEventListener('mousedown', (e) => {
+            // 마우스 위치값을 가져와 x, y에 할당
+            x = e.clientX;
+            y = e.clientY;
+            // 대상 Element에 위치 정보를 가져옴
+            const rect = prevSibling.getBoundingClientRect();
+            // 기존 높이와 너비를 각각 할당함
+            prevSiblingHeight = rect.height;
+            prevSiblingWidth = rect.width;
+
+            // 마우스 이동과 해제 이벤트를 등록
+            document.addEventListener('mousemove', mouseMoveHandler);
+            document.addEventListener('mouseup', mouseUpHandler);
+        });
+    </script>
+
+    <script>
+        (() => {
+            const contentDividerLine = document.querySelector('.content-divider');
+            const prevSibling = contentDividerLine.previousElementSibling;
+            const nextSibling = contentDividerLine.nextElementSibling;
+
+            let x = 0;
+            let y = 0;
+            let prevSiblingHeight = 0;
+            let prevSiblingWidth = 0;
+
+            const mouseMoveHandler = function (e) {
+                // 마우스가 움직이면 기존 초기 마우스 위치에서 현재 위치값과의 차이를 계산
+                const dx = e.clientX - x;
+                const dy = e.clientY - y;
+
+                const mobileToggleBtn = document.querySelector('.mobile-toggle');
+                const moduleIframe = mobileToggleBtn.classList.contains('selected') ? '.mobile-content iframe' : '.content iframe';
+
+                const iframeEl = document.querySelector(moduleIframe);
+                if (!iframeEl) {
+                    return;
+                }
+
+                const previewHeight = prevSiblingHeight + dy;
+                prevSibling.style.height = `${previewHeight}px`;
+                iframeEl.style.height = `${previewHeight}px`;
+
+                // 크기 조절 중 마우스 커서를 변경함
+                // class="resizer"에 적용하면 위치가 변경되면서 커서가 해제되기 때문에 body에 적용
+                document.querySelector('.content-divider-line').style.cursor = 'row-resize';
+
+                prevSibling.style.userSelect = 'none';
+                prevSibling.style.pointerEvents = 'none';
+
+                nextSibling.style.userSelect = 'none';
+                nextSibling.style.pointerEvents = 'none';
+            };
+
+            const mouseUpHandler = function () {
+                const mobileToggleBtn = document.querySelector('.mobile-toggle');
+                const moduleIframe = mobileToggleBtn.classList.contains('selected') ? '.mobile-content iframe' : '.content iframe';
+
+                const iframeEl = document.querySelector(moduleIframe);
+                const previewHeight = iframeEl.style.height;
+
+                const moduleInfoBoxEl = document.querySelector('.module-info-box');
+                const moduleInfoWidth = moduleInfoBoxEl.style.width;
+
+                const preference = {
+                    previewHeight,
+                    moduleInfoWidth,
+                };
+                localStorage.setItem('shopby-ui-docs-preference', JSON.stringify(preference));
+
+                prevSibling.style.removeProperty('user-select');
+                prevSibling.style.removeProperty('pointer-events');
+
+                nextSibling.style.removeProperty('user-select');
+                nextSibling.style.removeProperty('pointer-events');
+
+                // 등록한 마우스 이벤트를 제거
+                document.removeEventListener('mousemove', mouseMoveHandler);
+                document.removeEventListener('mouseup', mouseUpHandler);
+            };
+
+            contentDividerLine.addEventListener('mousedown', (e) => {
+                // 마우스 위치값을 가져와 x, y에 할당
+                x = e.clientX;
+                y = e.clientY;
+                // 대상 Element에 위치 정보를 가져옴
+                const rect = prevSibling.getBoundingClientRect();
+                // 기존 높이와 너비를 각각 할당함
+                prevSiblingHeight = rect.height;
+                prevSiblingWidth = rect.width;
+
+                // 마우스 이동과 해제 이벤트를 등록
+                document.addEventListener('mousemove', mouseMoveHandler);
+                document.addEventListener('mouseup', mouseUpHandler);
+            });
+        })();
+    </script>
+
+    <script>
+        const resetBtn = document.querySelector('.reset-btn');
+        resetBtn.addEventListener('mouseover', () => {
+            const resetPopover = document.querySelector('.reset-popover');
+            resetPopover.style.display = 'block';
+        });
+        resetBtn.addEventListener('mouseleave', () => {
+            const resetPopover = document.querySelector('.reset-popover');
+            resetPopover.style.display = 'none';
+        });
+        const copyBtn = document.querySelector('.copy-btn');
+        copyBtn.addEventListener('mouseover', () => {
+            const copyPopover = document.querySelector('.copy-popover');
+            copyPopover.style.display = 'block';
+        });
+        copyBtn.addEventListener('mouseleave', () => {
+            const copyPopover = document.querySelector('.copy-popover');
+            copyPopover.style.display = 'none';
+        });
+        function openWindowPop(url, name) {
+            var options = 'top=10, left=10, width=890, height=790, status=no, menubar=no, toolbar=no, resizable=no';
+            window.open(url, name, options);
+        }
+    </script>
+
+<script>/* eslint-disable */
+(() => {
+  const searchParams = new URLSearchParams(location.search);
+  const categoryEl = document.querySelector('.category');
+  const category = searchParams.get('category');
+  const module = decodeURIComponent(searchParams.get('module'));
+
+  // 왼쪽 메뉴 현재 탭 유지
+  (() => {
+    const currentDetailsEl = categoryEl?.querySelector(`[data-category="${category}"]`).closest('details');
+    currentDetailsEl?.setAttribute('open', true);
+
+    const moduleLinkEl = currentDetailsEl?.querySelector(`[data-module="${module}"]`);
+
+    moduleLinkEl?.closest('.category-item')?.classList.add('active');
+  })();
+
+  // 모듈 클릭 시 코드 영역 포커싱
+  (() => {
+    const moduleInfoBoxEl = document.querySelector('.module-info-box');
+    moduleInfoBoxEl?.addEventListener('click', ({ target, currentTarget }) => {
+      const moduleName = target.dataset.moduleName ?? target.querySelector('[data-module-name]')?.dataset?.moduleName;
+      const currentDetailsEl = currentTarget.querySelector(`[data-module-name="${moduleName}"]`)?.closest?.('details');
+      const isSummary = [...target.classList].some((className) => className.includes('module'));
+      const shouldOpen = !currentDetailsEl?.hasAttribute('open');
+
+      if (!moduleName || !isSummary) {
+        return;
+      }
+
+      const mobileIframeKey = '.mobile-content iframe';
+      const pcIframeKey = '.content iframe';
+
+      [mobileIframeKey, pcIframeKey].forEach((contentKey) => {
+        const iframeEl = document.querySelector(contentKey);
+        if (!iframeEl) {
+          return;
+        }
+
+        const iframeBodyEl = iframeEl.contentDocument.body;
+        if (!iframeBodyEl) {
+          return;
+        }
+
+        [...iframeBodyEl.querySelectorAll(moduleName)].forEach((el) => {
+          el?.classList.toggle('active-module', shouldOpen);
+        });
+      });
+    });
+  })();
+})();
+</script></body></html>
